@@ -25,8 +25,8 @@ export default function Layout({ children }: { children: ReactNode }) {
   //   : "white";
 
   return (
-    <ShineBorder className=" h-screen w-screen" color={borderColor}>
-      <div className="px-5 py-5">{children}</div>
+    <ShineBorder className="h-screen w-screen" color={borderColor}>
+      <section className="h-full w-full px-5 py-5">{children}</section>
     </ShineBorder>
   );
 }
