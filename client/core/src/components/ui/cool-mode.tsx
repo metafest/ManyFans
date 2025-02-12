@@ -23,6 +23,13 @@ export interface CoolParticle extends BaseParticle {
   spinVal: number;
   isPaused: boolean;
   pauseStartTime: number;
+  curveAmplitude: number;
+  curveFrequency: number;
+  timeOffset: number;
+  angle: number; // Initial angle of trajectory
+  wobbleSpeed: number; // Speed of wobble
+  verticalWobble: number; // Vertical wobble amplitude
+  phase: number; // Phase offset for wobble
 }
 
 export interface CoolParticleOptions extends BaseParticleOptions {
@@ -116,53 +123,70 @@ const applyParticleEffect = (
   const defaultParticle = "circle";
   const particleType = options?.particle || defaultParticle;
   const limit = options?.burstCount || 15;
-  const initialSize = options?.initialSize || 20;
-  const finalSize = options?.finalSize || 120;
+  const initialSize = 40; // Initial size
+  const finalSize = 200; // Final size
 
   let particles: CoolParticle[] = [];
-  let mouseX = 0;
-  let mouseY = 0;
 
   const container = getContainer();
 
   function generateParticle() {
-    const speedHorz = options?.speedHorz || Math.random() * 10;
-    const speedUp = options?.speedUp || Math.random() * 25;
+    // Reduced speeds
+    const speed = Math.random() * 8 + 5; // Reduced from 15 + 10
+    const angle = Math.random() * 360 * (Math.PI / 180); // Convert to radians
+    const speedHorz = Math.cos(angle) * speed;
+    const speedUp = Math.sin(angle) * speed + (Math.random() * 8 + 5); // Reduced from 15 + 10
+
     const spinVal = Math.random() * 360;
-    const spinSpeed = (Math.random() * 2 - 1) * 3;
-    const top = mouseY;
-    const left = mouseX;
-    const direction = Math.random() <= 0.5 ? -1 : 1;
+    const spinSpeed = (Math.random() * 2 - 1) * 2; // Reduced spin speed
+    const rect = element.getBoundingClientRect();
+    const top = rect.top + rect.height / 2;
+    const left = rect.left + rect.width / 2;
 
     const particle = createParticleElement(particleType, initialSize);
     particle.style.position = "absolute";
-    particle.style.transition = "width 1.5s ease-out, height 1.5s ease-out";
+    particle.style.transition = "width 0.8s ease-out, height 0.8s ease-out"; // Faster initial transition
+    particle.style.opacity = "0";
+    particle.style.transform = "scale(0)";
 
     container.appendChild(particle);
 
+    // Start animation after a small delay
+    setTimeout(() => {
+      particle.style.opacity = "1";
+      particle.style.transform = "scale(1)";
+    }, 50);
+
     particles.push({
-      direction,
+      direction: Math.sign(speedHorz), // Direction based on horizontal speed
       element: particle,
       left,
       size: initialSize,
-      speedHorz,
+      speedHorz: Math.abs(speedHorz), // Use absolute value for speed
       speedUp,
       spinSpeed,
       spinVal,
       top,
       isPaused: false,
       pauseStartTime: 0,
+      angle,
+      wobbleSpeed: Math.random() * 0.05 + 0.02, // Reduced wobble speed
+      verticalWobble: Math.random() * 50 + 25, // Reduced wobble amount
+      phase: Math.random() * Math.PI * 2,
+      curveAmplitude: Math.random() * 100 + 50,
+      curveFrequency: Math.random() * 0.02 + 0.01,
+      timeOffset: Date.now(),
     });
   }
 
   function refreshParticles() {
     particles.forEach((p) => {
       if (!p.isPaused) {
-        p.speedUp = Math.min(p.speedUp - 0.5, p.speedUp);
+        p.speedUp -= 0.1; // Reduced gravity effect (was 0.2)
 
-        // Gradually increase size
+        // Faster growth rate
         if (p.size < finalSize) {
-          p.size = Math.min(p.size * 1.05, finalSize);
+          p.size = Math.min(p.size * 1.05, finalSize); // Increased growth rate
           const svg = p.element.querySelector("svg");
           if (svg) {
             svg.style.width = `${p.size}px`;
@@ -170,11 +194,33 @@ const applyParticleEffect = (
           }
         }
 
-        p.left = p.left - p.speedHorz * p.direction;
-        p.top = p.top - p.speedUp;
+        const time = (Date.now() - p.timeOffset) * 0.001; // Time in seconds
+
+        // Complex motion pattern combining multiple waves
+        const horizontalWave =
+          Math.sin(time * p.wobbleSpeed + p.phase) * p.curveAmplitude;
+        const verticalWave =
+          Math.cos(time * p.wobbleSpeed * 1.5 + p.phase) * p.verticalWobble;
+
+        // Update position using initial trajectory and wave modifications
+        p.left += p.speedHorz * p.direction + horizontalWave * 0.1;
+        p.top += -p.speedUp + verticalWave * 0.1;
         p.spinVal += p.spinSpeed;
+
+        p.element.setAttribute(
+          "style",
+          [
+            "position:absolute",
+            `top:${p.top}px`,
+            `left:${p.left}px`,
+            `transform:rotate(${p.spinVal}deg)`,
+            "transition: width 1.5s ease-out, height 1.5s ease-out",
+            "opacity: 1",
+          ].join(";")
+        );
       }
 
+      // Remove particles that have fallen below the viewport
       if (
         p.top >=
         Math.max(window.innerHeight, document.body.clientHeight) + p.size
@@ -182,59 +228,20 @@ const applyParticleEffect = (
         particles = particles.filter((o) => o !== p);
         p.element.remove();
       }
-
-      p.element.setAttribute(
-        "style",
-        [
-          "position:absolute",
-          `top:${p.top}px`,
-          `left:${p.left}px`,
-          `transform:rotate(${p.spinVal}deg)`,
-          "transition: width 1.5s ease-out, height 1.5s ease-out",
-        ].join(";")
-      );
     });
   }
 
   let animationFrame: number | undefined;
 
-  let lastParticleTimestamp = 0;
-  const particleGenerationDelay = 300;
-
   function loop() {
-    const currentTime = performance.now();
-    if (
-      particles.length < limit &&
-      currentTime - lastParticleTimestamp > particleGenerationDelay
-    ) {
-      generateParticle();
-      lastParticleTimestamp = currentTime - 100;
-    }
-
     refreshParticles();
     animationFrame = requestAnimationFrame(loop);
   }
 
   loop();
 
-  const isTouchInteraction = "ontouchstart" in window;
-
-  const tap = isTouchInteraction ? "touchstart" : "mousedown";
-  const tapEnd = isTouchInteraction ? "touchend" : "mouseup";
-  const move = isTouchInteraction ? "touchmove" : "mousemove";
-
-  const updateMousePosition = (e: MouseEvent | TouchEvent) => {
-    if ("touches" in e) {
-      mouseX = e.touches?.[0].clientX;
-      mouseY = e.touches?.[0].clientY;
-    } else {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    }
-  };
-
+  // Only handle click/tap events
   const tapHandler = (e: MouseEvent | TouchEvent) => {
-    updateMousePosition(e);
     // Generate burst of particles
     const burstCount = options?.burstCount || 15;
     for (let i = 0; i < burstCount; i++) {
@@ -246,20 +253,12 @@ const applyParticleEffect = (
     }
   };
 
-  const disableAutoAddParticle = () => {};
-
-  element.addEventListener(move, updateMousePosition, { passive: true });
-  element.addEventListener(tap, tapHandler, { passive: true });
-  element.addEventListener(tapEnd, disableAutoAddParticle, { passive: true });
-  element.addEventListener("mouseleave", disableAutoAddParticle, {
-    passive: true,
-  });
+  element.addEventListener("click", tapHandler);
+  element.addEventListener("touchstart", tapHandler);
 
   return () => {
-    element.removeEventListener(move, updateMousePosition);
-    element.removeEventListener(tap, tapHandler);
-    element.removeEventListener(tapEnd, disableAutoAddParticle);
-    element.removeEventListener("mouseleave", disableAutoAddParticle);
+    element.removeEventListener("click", tapHandler);
+    element.removeEventListener("touchstart", tapHandler);
 
     const interval = setInterval(() => {
       if (animationFrame && particles.length === 0) {

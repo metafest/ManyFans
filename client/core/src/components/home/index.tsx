@@ -1,6 +1,6 @@
 import React from "react";
 import { BackgroundLines } from "@/components/ui/background-lines";
-import { MagicBorderButton } from "@/components/ui/magic-border-button";
+import { MagicBorderButton } from "@/components/ui/button/magic-border-button";
 import { CoolMode } from "@/components/ui/cool-mode";
 import FanIcon from "@/assests/icon/fan";
 
@@ -17,21 +17,20 @@ export function Home() {
         </h2>
         <p className="max-w-xl mx-auto text-sm md:text-lg text-neutral-400 text-center">
           Many is better than one. Experience the thrill of exclusive content.
-          {/* who know exactly what you desire. */}
         </p>
 
         <CoolMode
           options={{
             particle: <FanIcon />,
-            burstCount: 20, // Number of fans to generate on click
-            initialSize: 30, // Starting size of fans
-            finalSize: 120, // Final size when falling
-            speedUp: 25, // Initial upward speed
-            speedHorz: 8, // Horizontal speed
+            burstCount: 15,
+            initialSize: 20,
+            finalSize: 80,
+            speedUp: 15,
+            speedHorz: 5,
           }}
         >
           <div className="pt-5">
-            <MagicBorderButton className="h-10 w-28 ">
+            <MagicBorderButton className="h-10 w-28 cursor-pointer">
               <p className="text-base text-gray-300">Turn on!</p>
             </MagicBorderButton>
           </div>
