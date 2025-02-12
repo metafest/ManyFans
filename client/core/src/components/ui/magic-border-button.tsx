@@ -12,7 +12,7 @@ export const MagicBorderButton = ({
   return (
     <button
       className={cn(
-        "relative inline-flex h-12 overflow-hidden rounded-full p-[2.5px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
+        "relative inline-flex h-12 overflow-hidden rounded-full p-[2.5px]  focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
         className
       )}
     >

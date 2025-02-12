@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode, useEffect, useRef, isValidElement } from "react";
-import ReactDOMServer from 'react-dom/server';
+import ReactDOMServer from "react-dom/server";
 
 export interface BaseParticle {
   element: HTMLElement | SVGSVGElement;
@@ -29,6 +29,9 @@ export interface CoolParticleOptions extends BaseParticleOptions {
   particleCount?: number;
   speedHorz?: number;
   speedUp?: number;
+  burstCount?: number;
+  initialSize?: number;
+  finalSize?: number;
 }
 
 const getContainer = () => {
@@ -43,7 +46,7 @@ const getContainer = () => {
   container.setAttribute("id", id);
   container.setAttribute(
     "style",
-    "overflow:hidden; position:fixed; height:100%; top:0; left:0; right:0; bottom:0; pointer-events:none; z-index:2147483647",
+    "overflow:hidden; position:fixed; height:100%; top:0; left:0; right:0; bottom:0; pointer-events:none; z-index:2147483647"
   );
 
   document.body.appendChild(container);
@@ -68,7 +71,7 @@ const createParticleElement = (
       circle.setAttributeNS(
         null,
         "fill",
-        `hsl(${Math.random() * 360}, 70%, 50%)`,
+        `hsl(${Math.random() * 360}, 70%, 50%)`
       );
 
       circleSVG.appendChild(circle);
@@ -92,7 +95,7 @@ const createParticleElement = (
     particle.innerHTML = svgString;
 
     // Ensure SVG takes up the full space of the particle
-    const svg = particle.querySelector('svg');
+    const svg = particle.querySelector("svg");
     if (svg) {
       svg.style.width = `${size}px`;
       svg.style.height = `${size}px`;
@@ -106,36 +109,34 @@ let instanceCounter = 0;
 
 const applyParticleEffect = (
   element: HTMLElement,
-  options?: CoolParticleOptions,
+  options?: CoolParticleOptions
 ): (() => void) => {
   instanceCounter++;
 
   const defaultParticle = "circle";
   const particleType = options?.particle || defaultParticle;
-  const sizes = [15, 20, 25, 35, 45];
-  const limit = 45;
+  const limit = options?.burstCount || 15;
+  const initialSize = options?.initialSize || 20;
+  const finalSize = options?.finalSize || 120;
 
   let particles: CoolParticle[] = [];
-  let autoAddParticle = false;
   let mouseX = 0;
   let mouseY = 0;
 
   const container = getContainer();
 
   function generateParticle() {
-    const size =
-      options?.size || sizes[Math.floor(Math.random() * sizes.length)];
     const speedHorz = options?.speedHorz || Math.random() * 10;
     const speedUp = options?.speedUp || Math.random() * 25;
-    const spinVal = Math.random() * 6;
-    const spinSpeed = Math.random() * 1 * (Math.random() <= 0.5 ? -1 : 1);
-    const top = mouseY - size / 2;
-    const left = mouseX - size / 2;
+    const spinVal = Math.random() * 360;
+    const spinSpeed = (Math.random() * 2 - 1) * 3;
+    const top = mouseY;
+    const left = mouseX;
     const direction = Math.random() <= 0.5 ? -1 : 1;
 
-    const particle = createParticleElement(particleType, size);
+    const particle = createParticleElement(particleType, initialSize);
     particle.style.position = "absolute";
-    // particle.style.transform = `translate3d(${left}px, ${top}px, 0px) rotate(${spinVal}deg)`;
+    particle.style.transition = "width 1.5s ease-out, height 1.5s ease-out";
 
     container.appendChild(particle);
 
@@ -143,49 +144,45 @@ const applyParticleEffect = (
       direction,
       element: particle,
       left,
-      size,
+      size: initialSize,
       speedHorz,
       speedUp,
       spinSpeed,
       spinVal,
       top,
-      isPaused: false, // Add initial pause state
-      pauseStartTime: 0, // Add initial pause timestamp
+      isPaused: false,
+      pauseStartTime: 0,
     });
   }
 
   function refreshParticles() {
     particles.forEach((p) => {
-      // Update particle state
       if (!p.isPaused) {
-        p.speedUp = Math.min(p.size, p.speedUp - 1);
-        
-        // Check if particle should enter pause state
-        if (p.speedUp <= 0) {
-          p.isPaused = true;
-          p.pauseStartTime = Date.now();
+        p.speedUp = Math.min(p.speedUp - 0.5, p.speedUp);
+
+        // Gradually increase size
+        if (p.size < finalSize) {
+          p.size = Math.min(p.size * 1.05, finalSize);
+          const svg = p.element.querySelector("svg");
+          if (svg) {
+            svg.style.width = `${p.size}px`;
+            svg.style.height = `${p.size}px`;
+          }
         }
-      } else {
-        // Check if pause duration has elapsed
-        if (Date.now() - p.pauseStartTime >= 25) {
-          p.isPaused = false;
-        }
-      }
-  
-      // Update position and rotation only when not paused
-      if (!p.isPaused) {
+
         p.left = p.left - p.speedHorz * p.direction;
         p.top = p.top - p.speedUp;
         p.spinVal += p.spinSpeed;
       }
-  
-      // Remove particles that fall off screen
-      if (p.top >= Math.max(window.innerHeight, document.body.clientHeight) + p.size) {
+
+      if (
+        p.top >=
+        Math.max(window.innerHeight, document.body.clientHeight) + p.size
+      ) {
         particles = particles.filter((o) => o !== p);
         p.element.remove();
       }
-  
-      // Update element style
+
       p.element.setAttribute(
         "style",
         [
@@ -193,6 +190,7 @@ const applyParticleEffect = (
           `top:${p.top}px`,
           `left:${p.left}px`,
           `transform:rotate(${p.spinVal}deg)`,
+          "transition: width 1.5s ease-out, height 1.5s ease-out",
         ].join(";")
       );
     });
@@ -206,12 +204,11 @@ const applyParticleEffect = (
   function loop() {
     const currentTime = performance.now();
     if (
-      autoAddParticle &&
       particles.length < limit &&
       currentTime - lastParticleTimestamp > particleGenerationDelay
     ) {
       generateParticle();
-      lastParticleTimestamp = currentTime-100;
+      lastParticleTimestamp = currentTime - 100;
     }
 
     refreshParticles();
@@ -238,12 +235,18 @@ const applyParticleEffect = (
 
   const tapHandler = (e: MouseEvent | TouchEvent) => {
     updateMousePosition(e);
-    autoAddParticle = true;
+    // Generate burst of particles
+    const burstCount = options?.burstCount || 15;
+    for (let i = 0; i < burstCount; i++) {
+      setTimeout(() => {
+        if (particles.length < limit) {
+          generateParticle();
+        }
+      }, i * 50); // Stagger particle generation
+    }
   };
 
-  const disableAutoAddParticle = () => {
-    autoAddParticle = false;
-  };
+  const disableAutoAddParticle = () => {};
 
   element.addEventListener(move, updateMousePosition, { passive: true });
   element.addEventListener(tap, tapHandler, { passive: true });
