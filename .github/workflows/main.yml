@@ -26,14 +26,13 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: |
-          cd ../..
-          pnpm install
+        working-directory: ./
+        run: pnpm install
 
       - name: Build
         run: |
           cd ../..
-          pnpm build --filter=client...
+          pnpm build --filter=core...
 
       - name: Deploy to Vercel
         env:
