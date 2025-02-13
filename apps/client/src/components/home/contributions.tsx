@@ -29,9 +29,10 @@ export function Contributors({ className }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
   const div2Ref = useRef<HTMLDivElement>(null);
+  const div3Ref = useRef<HTMLDivElement>(null);
   const div6Ref = useRef<HTMLDivElement>(null);
   const div7Ref = useRef<HTMLDivElement>(null);
-
+  const refs = [div1Ref, div2Ref, div3Ref, null, null, div6Ref, div7Ref];
   return (
     <div
       className={cn("relative overflow-hidden p-10", className)}
@@ -42,7 +43,7 @@ export function Contributors({ className }: { className?: string }) {
           {developers.map((dev, index) => (
             <Circle
               key={dev.name}
-              ref={index === 0 ? div1Ref : div2Ref}
+              ref={refs[index] || undefined}
               className="relative group size-14"
             >
               <img
@@ -77,6 +78,11 @@ export function Contributors({ className }: { className?: string }) {
       />
       <AnimatedBeam
         containerRef={containerRef}
+        fromRef={div3Ref}
+        toRef={div6Ref}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
         fromRef={div6Ref}
         toRef={div7Ref}
       />
@@ -92,8 +98,13 @@ const developers = [
   },
   {
     name: "Anmol Singh",
-    avatar: "https://avatars.githubusercontent.com/u/141995570?v=4",
-    github: "https://github.com/anmol",
+    avatar: "https://avatars.githubusercontent.com/u/112610338?v=4",
+    github: "https://github.com/anmolsingh0005",
+  },
+  {
+    name: "Chandan SM",
+    avatar: "https://avatars.githubusercontent.com/u/113344692?v=4",
+    github: "https://github.com/Chandan-SM",
   },
 ];
 
