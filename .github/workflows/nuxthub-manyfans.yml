@@ -33,7 +33,11 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
+<<<<<<< HEAD
 >>>>>>> dfa015d (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
+=======
+>>>>>>> 50dbe23 (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
+>>>>>>> efc301e (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -69,4 +73,8 @@ jobs:
       - name: Deploy to NuxtHub
         uses: nuxt-hub/action@v1
         id: deploy
+<<<<<<< HEAD
 >>>>>>> dfa015d (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
+=======
+>>>>>>> 50dbe23 (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
+>>>>>>> efc301e (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
