@@ -16,17 +16,19 @@ export default defineNuxtConfig({
 =======
   compatibilityDate: "2024-07-30",
   future: { compatibilityVersion: 4 },
-  modules: [
-    "@nuxthub/core",
-    "@nuxt/fonts",
-    "@nuxt/ui",
-    "@vueuse/nuxt",
-    "nuxt-auth-utils",
-  ],
+  modules: ["@nuxthub/core", "@nuxt/ui", "@vueuse/nuxt", "nuxt-auth-utils"],
   hub: {
     blob: true,
   },
+<<<<<<< HEAD
 >>>>>>> cf91573 (add server configuration, API endpoints, and image handling components)
+=======
+  $development: {
+    hub: {
+      remote: true,
+    },
+  },
+>>>>>>> dfa015d (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
   experimental: {
     viewTransition: true,
   },

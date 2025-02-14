@@ -17,6 +17,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
+<<<<<<< HEAD
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,12 +26,21 @@ jobs:
         name: Install pnpm
         with:
           run_install: false
+=======
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+>>>>>>> dfa015d (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           cache: "pnpm"
 
+<<<<<<< HEAD
       - name: Get pnpm store directory
         shell: bash
         run: |
@@ -49,3 +59,14 @@ jobs:
         env:
           NUXT_HUB_PROJECT_KEY: ${{ secrets.NUXT_HUB_PROJECT_KEY}}
           NUXT_HUB_USER_TOKEN: ${{ secrets.NUXT_HUB_USER_TOKEN }}
+=======
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build application
+        run: pnpm run build
+
+      - name: Deploy to NuxtHub
+        uses: nuxt-hub/action@v1
+        id: deploy
+>>>>>>> dfa015d (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
