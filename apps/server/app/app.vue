@@ -1,6 +1,9 @@
 <script setup lang="ts">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f2a68fd (add server configuration, API endpoints, and image handling components)
 useHead({
   link: [{ rel: "icon", href: "/favicon.ico" }],
   htmlAttrs: {
@@ -12,6 +15,7 @@ const title = "ManyFans Server";
 =======
 const { getImages } = useFile()
 
+<<<<<<< HEAD
 =======
 >>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
 useHead({
@@ -28,14 +32,31 @@ const description = 'A Nuxt template to build your full-stack image gallery appl
 =======
 const title = "ManyFans Server";
 >>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+useHead({
+  link: [
+    { rel: 'icon', href: '/favicon.ico' }
+  ],
+  htmlAttrs: {
+    lang: 'en'
+  }
+})
+
+const title = 'NuxtHub Image Gallery Starter'
+const description = 'A Nuxt template to build your full-stack image gallery application on the edge.'
+>>>>>>> 3ae8324 (add server configuration, API endpoints, and image handling components)
+>>>>>>> f2a68fd (add server configuration, API endpoints, and image handling components)
 
 useSeoMeta({
   title,
   ogTitle: title,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+>>>>>>> f2a68fd (add server configuration, API endpoints, and image handling components)
   // ogDescription: description,
   // ogSiteName: "NuxtHub image gallery template",
   // ogImage: "https://image-gallery.nuxt.dev/social-card.png",
@@ -57,6 +78,7 @@ useSeoMeta({
 })
 
 await getImages()
+<<<<<<< HEAD
 =======
 >>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
 </script>
@@ -70,5 +92,18 @@ await getImages()
 >>>>>>> cf91573 (add server configuration, API endpoints, and image handling components)
 =======
 >>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+</script>
+
+<template>
+  <div
+    class="bg-black min-h-[100dvh] overflow-x-auto relative"
+    :class="{ 'flex flex-col md:block': $router.currentRoute.value.fullPath !== '/' }"
+  >
+    <UNotifications />
+    <NuxtPage />
+    <ImageThumbnailList :class="$router.currentRoute.value.fullPath !== '/' ? 'opacity-100 z-[9999]' : 'opacity-0 z-[-1]'" />
+>>>>>>> 3ae8324 (add server configuration, API endpoints, and image handling components)
+>>>>>>> f2a68fd (add server configuration, API endpoints, and image handling components)
   </div>
 </template>

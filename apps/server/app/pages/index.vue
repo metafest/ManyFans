@@ -1,8 +1,11 @@
 <template>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+>>>>>>> f2a68fd (add server configuration, API endpoints, and image handling components)
   <div class="p-5">
     <div class="flex px-3 py-3.5 border-b border-gray-200 dark:border-gray-700">
       <UInput v-model="q" placeholder="Filter files..." />
@@ -108,6 +111,7 @@ const filteredRows = computed(() => {
     <ImageGallery />
   </main>
 </template>
+<<<<<<< HEAD
 >>>>>>> cf91573 (add server configuration, API endpoints, and image handling components)
 =======
 </template>
@@ -177,3 +181,6 @@ const filteredRows = computed(() => {
 });
 </script>
 >>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+>>>>>>> 3ae8324 (add server configuration, API endpoints, and image handling components)
+>>>>>>> f2a68fd (add server configuration, API endpoints, and image handling components)
