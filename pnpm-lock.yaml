@@ -23,9 +23,12 @@ importers:
       '@vercel/speed-insights':
         specifier: ^1.2.0
         version: 1.2.0(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
+<<<<<<< HEAD
       aws-sdk:
         specifier: ^2.1692.0
         version: 2.1692.0
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -87,6 +90,7 @@ importers:
 
   apps/server:
     dependencies:
+<<<<<<< HEAD
       '@nuxt/ui':
         specifier: ^2.18.6
         version: 2.21.0(change-case@5.4.4)(magicast@0.3.5)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
@@ -115,6 +119,17 @@ importers:
       wrangler:
         specifier: ^3.79.0
         version: 3.109.1(@cloudflare/workers-types@4.20250204.0)
+=======
+      nuxt:
+        specifier: ^3.15.4
+        version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(yaml@2.7.0)
+      vue:
+        specifier: latest
+        version: 3.5.13(typescript@5.7.3)
+      vue-router:
+        specifier: latest
+        version: 4.5.0(vue@3.5.13(typescript@5.7.3))
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
 
 packages:
 
@@ -126,6 +141,7 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
+<<<<<<< HEAD
   '@antfu/install-pkg@1.0.0':
     resolution: {integrity: sha512-xvX6P/lo1B3ej0OsaErAjqgFYzYVcJpamjLAFLYh9vRJngBrMoUG7aVnrGTeqM7yxbyTD5p3F2+0/QUEh8Vzhw==}
 
@@ -135,6 +151,11 @@ packages:
   '@antfu/utils@8.1.0':
     resolution: {integrity: sha512-XPR7Jfwp0FFl/dFYPX8ZjpmU4/1mIXTjnZ1ba48BLMyKOV62/tiRjdsFcPs2hsYcSud4tzk7w3a3LjX8Fu3huA==}
 
+=======
+  '@antfu/utils@0.7.10':
+    resolution: {integrity: sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@babel/code-frame@7.26.2':
     resolution: {integrity: sha512-RJlIHRueQgwWitWgF8OdFYGZX328Ax5BCemNGlqHfplnRT9ESi8JkFlvaVYbS+UubVY6dpv87Fs2u5M29iNFVQ==}
     engines: {node: '>=6.9.0'}
@@ -279,6 +300,7 @@ packages:
     resolution: {integrity: sha512-YLPHc8yASwjNkmcDMQMY35yiWjoKAKnhUbPRszBRS0YgH+IXtsMp61j+yTcnCE3oO2DgP0U3iejLC8FTtKDC8Q==}
     engines: {node: '>=16.13'}
 
+<<<<<<< HEAD
   '@cloudflare/workerd-darwin-64@1.20250204.0':
     resolution: {integrity: sha512-HpsgbWEfvdcwuZ8WAZhi1TlSCyyHC3tbghpKsOqGDaQNltyAFAWqa278TPNfcitYf/FmV4961v3eqUE+RFdHNQ==}
     engines: {node: '>=16'}
@@ -312,6 +334,8 @@ packages:
   '@cloudflare/workers-types@4.20250204.0':
     resolution: {integrity: sha512-mWoQbYaP+nYztx9I7q9sgaiNlT54Cypszz0RfzMxYnT5W3NXDuwGcjGB+5B5H5VB8tEC2dYnBRpa70lX94ueaQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
@@ -331,6 +355,7 @@ packages:
   '@emnapi/runtime@1.3.1':
     resolution: {integrity: sha512-kEBmG8KyqtxJZv+ygbEim+KCGtIq1fC22Ms3S4ziXmYKm8uyoLX0MHONVKwp+9opg390VaKRNt4a7A9NwmpNhw==}
 
+<<<<<<< HEAD
   '@esbuild-plugins/node-globals-polyfill@0.2.3':
     resolution: {integrity: sha512-r3MIryXDeXDOZh7ih1l/yE9ZLORCd5e8vWg02azWRGj5SPTuoh69A2AIyn0Z31V/kHBfZ4HgWJ+OK3GTTwLmnw==}
     peerDependencies:
@@ -341,198 +366,248 @@ packages:
     peerDependencies:
       esbuild: '*'
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/aix-ppc64@0.24.2':
     resolution: {integrity: sha512-thpVCb/rhxE/BnMLQ7GReQLLN8q9qbHmI55F4489/ByVg2aQaQ6kbcLb6FHkocZzQhxc4gx0sCk0tJkKBFzDhA==}
     engines: {node: '>=18'}
     cpu: [ppc64]
     os: [aix]
 
+<<<<<<< HEAD
   '@esbuild/android-arm64@0.17.19':
     resolution: {integrity: sha512-KBMWvEZooR7+kzY0BtbTQn0OAYY7CsiydT63pVEaPtVYF0hXbUaOyZog37DKxK7NF3XacBJOpYT4adIJh+avxA==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/android-arm64@0.24.2':
     resolution: {integrity: sha512-cNLgeqCqV8WxfcTIOeL4OAtSmL8JjcN6m09XIgro1Wi7cF4t/THaWEa7eL5CMoMBdjoHOTh/vwTO/o2TRXIyzg==}
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [android]
 
+<<<<<<< HEAD
   '@esbuild/android-arm@0.17.19':
     resolution: {integrity: sha512-rIKddzqhmav7MSmoFCmDIb6e2W57geRsM94gV2l38fzhXMwq7hZoClug9USI2pFRGL06f4IOPHHpFNOkWieR8A==}
     engines: {node: '>=12'}
     cpu: [arm]
     os: [android]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/android-arm@0.24.2':
     resolution: {integrity: sha512-tmwl4hJkCfNHwFB3nBa8z1Uy3ypZpxqxfTQOcHX+xRByyYgunVbZ9MzUUfb0RxaHIMnbHagwAxuTL+tnNM+1/Q==}
     engines: {node: '>=18'}
     cpu: [arm]
     os: [android]
 
+<<<<<<< HEAD
   '@esbuild/android-x64@0.17.19':
     resolution: {integrity: sha512-uUTTc4xGNDT7YSArp/zbtmbhO0uEEK9/ETW29Wk1thYUJBz3IVnvgEiEwEa9IeLyvnpKrWK64Utw2bgUmDveww==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [android]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/android-x64@0.24.2':
     resolution: {integrity: sha512-B6Q0YQDqMx9D7rvIcsXfmJfvUYLoP722bgfBlO5cGvNVb5V/+Y7nhBE3mHV9OpxBf4eAS2S68KZztiPaWq4XYw==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [android]
 
+<<<<<<< HEAD
   '@esbuild/darwin-arm64@0.17.19':
     resolution: {integrity: sha512-80wEoCfF/hFKM6WE1FyBHc9SfUblloAWx6FJkFWTWiCoht9Mc0ARGEM47e67W9rI09YoUxJL68WHfDRYEAvOhg==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/darwin-arm64@0.24.2':
     resolution: {integrity: sha512-kj3AnYWc+CekmZnS5IPu9D+HWtUI49hbnyqk0FLEJDbzCIQt7hg7ucF1SQAilhtYpIujfaHr6O0UHlzzSPdOeA==}
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [darwin]
 
+<<<<<<< HEAD
   '@esbuild/darwin-x64@0.17.19':
     resolution: {integrity: sha512-IJM4JJsLhRYr9xdtLytPLSH9k/oxR3boaUIYiHkAawtwNOXKE8KoU8tMvryogdcT8AU+Bflmh81Xn6Q0vTZbQw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/darwin-x64@0.24.2':
     resolution: {integrity: sha512-WeSrmwwHaPkNR5H3yYfowhZcbriGqooyu3zI/3GGpF8AyUdsrrP0X6KumITGA9WOyiJavnGZUwPGvxvwfWPHIA==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [darwin]
 
+<<<<<<< HEAD
   '@esbuild/freebsd-arm64@0.17.19':
     resolution: {integrity: sha512-pBwbc7DufluUeGdjSU5Si+P3SoMF5DQ/F/UmTSb8HXO80ZEAJmrykPyzo1IfNbAoaqw48YRpv8shwd1NoI0jcQ==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/freebsd-arm64@0.24.2':
     resolution: {integrity: sha512-UN8HXjtJ0k/Mj6a9+5u6+2eZ2ERD7Edt1Q9IZiB5UZAIdPnVKDoG7mdTVGhHJIeEml60JteamR3qhsr1r8gXvg==}
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [freebsd]
 
+<<<<<<< HEAD
   '@esbuild/freebsd-x64@0.17.19':
     resolution: {integrity: sha512-4lu+n8Wk0XlajEhbEffdy2xy53dpR06SlzvhGByyg36qJw6Kpfk7cp45DR/62aPH9mtJRmIyrXAS5UWBrJT6TQ==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [freebsd]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/freebsd-x64@0.24.2':
     resolution: {integrity: sha512-TvW7wE/89PYW+IevEJXZ5sF6gJRDY/14hyIGFXdIucxCsbRmLUcjseQu1SyTko+2idmCw94TgyaEZi9HUSOe3Q==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [freebsd]
 
+<<<<<<< HEAD
   '@esbuild/linux-arm64@0.17.19':
     resolution: {integrity: sha512-ct1Tg3WGwd3P+oZYqic+YZF4snNl2bsnMKRkb3ozHmnM0dGWuxcPTTntAF6bOP0Sp4x0PjSF+4uHQ1xvxfRKqg==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/linux-arm64@0.24.2':
     resolution: {integrity: sha512-7HnAD6074BW43YvvUmE/35Id9/NB7BeX5EoNkK9obndmZBUk8xmJJeU7DwmUeN7tkysslb2eSl6CTrYz6oEMQg==}
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [linux]
 
+<<<<<<< HEAD
   '@esbuild/linux-arm@0.17.19':
     resolution: {integrity: sha512-cdmT3KxjlOQ/gZ2cjfrQOtmhG4HJs6hhvm3mWSRDPtZ/lP5oe8FWceS10JaSJC13GBd4eH/haHnqf7hhGNLerA==}
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/linux-arm@0.24.2':
     resolution: {integrity: sha512-n0WRM/gWIdU29J57hJyUdIsk0WarGd6To0s+Y+LwvlC55wt+GT/OgkwoXCXvIue1i1sSNWblHEig00GBWiJgfA==}
     engines: {node: '>=18'}
     cpu: [arm]
     os: [linux]
 
+<<<<<<< HEAD
   '@esbuild/linux-ia32@0.17.19':
     resolution: {integrity: sha512-w4IRhSy1VbsNxHRQpeGCHEmibqdTUx61Vc38APcsRbuVgK0OPEnQ0YD39Brymn96mOx48Y2laBQGqgZ0j9w6SQ==}
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [linux]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/linux-ia32@0.24.2':
     resolution: {integrity: sha512-sfv0tGPQhcZOgTKO3oBE9xpHuUqguHvSo4jl+wjnKwFpapx+vUDcawbwPNuBIAYdRAvIDBfZVvXprIj3HA+Ugw==}
     engines: {node: '>=18'}
     cpu: [ia32]
     os: [linux]
 
+<<<<<<< HEAD
   '@esbuild/linux-loong64@0.17.19':
     resolution: {integrity: sha512-2iAngUbBPMq439a+z//gE+9WBldoMp1s5GWsUSgqHLzLJ9WoZLZhpwWuym0u0u/4XmZ3gpHmzV84PonE+9IIdQ==}
     engines: {node: '>=12'}
     cpu: [loong64]
     os: [linux]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/linux-loong64@0.24.2':
     resolution: {integrity: sha512-CN9AZr8kEndGooS35ntToZLTQLHEjtVB5n7dl8ZcTZMonJ7CCfStrYhrzF97eAecqVbVJ7APOEe18RPI4KLhwQ==}
     engines: {node: '>=18'}
     cpu: [loong64]
     os: [linux]
 
+<<<<<<< HEAD
   '@esbuild/linux-mips64el@0.17.19':
     resolution: {integrity: sha512-LKJltc4LVdMKHsrFe4MGNPp0hqDFA1Wpt3jE1gEyM3nKUvOiO//9PheZZHfYRfYl6AwdTH4aTcXSqBerX0ml4A==}
     engines: {node: '>=12'}
     cpu: [mips64el]
     os: [linux]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/linux-mips64el@0.24.2':
     resolution: {integrity: sha512-iMkk7qr/wl3exJATwkISxI7kTcmHKE+BlymIAbHO8xanq/TjHaaVThFF6ipWzPHryoFsesNQJPE/3wFJw4+huw==}
     engines: {node: '>=18'}
     cpu: [mips64el]
     os: [linux]
 
+<<<<<<< HEAD
   '@esbuild/linux-ppc64@0.17.19':
     resolution: {integrity: sha512-/c/DGybs95WXNS8y3Ti/ytqETiW7EU44MEKuCAcpPto3YjQbyK3IQVKfF6nbghD7EcLUGl0NbiL5Rt5DMhn5tg==}
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/linux-ppc64@0.24.2':
     resolution: {integrity: sha512-shsVrgCZ57Vr2L8mm39kO5PPIb+843FStGt7sGGoqiiWYconSxwTiuswC1VJZLCjNiMLAMh34jg4VSEQb+iEbw==}
     engines: {node: '>=18'}
     cpu: [ppc64]
     os: [linux]
 
+<<<<<<< HEAD
   '@esbuild/linux-riscv64@0.17.19':
     resolution: {integrity: sha512-FC3nUAWhvFoutlhAkgHf8f5HwFWUL6bYdvLc/TTuxKlvLi3+pPzdZiFKSWz/PF30TB1K19SuCxDTI5KcqASJqA==}
     engines: {node: '>=12'}
     cpu: [riscv64]
     os: [linux]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/linux-riscv64@0.24.2':
     resolution: {integrity: sha512-4eSFWnU9Hhd68fW16GD0TINewo1L6dRrB+oLNNbYyMUAeOD2yCK5KXGK1GH4qD/kT+bTEXjsyTCiJGHPZ3eM9Q==}
     engines: {node: '>=18'}
     cpu: [riscv64]
     os: [linux]
 
+<<<<<<< HEAD
   '@esbuild/linux-s390x@0.17.19':
     resolution: {integrity: sha512-IbFsFbxMWLuKEbH+7sTkKzL6NJmG2vRyy6K7JJo55w+8xDk7RElYn6xvXtDW8HCfoKBFK69f3pgBJSUSQPr+4Q==}
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/linux-s390x@0.24.2':
     resolution: {integrity: sha512-S0Bh0A53b0YHL2XEXC20bHLuGMOhFDO6GN4b3YjRLK//Ep3ql3erpNcPlEFed93hsQAjAQDNsvcK+hV90FubSw==}
     engines: {node: '>=18'}
     cpu: [s390x]
     os: [linux]
 
+<<<<<<< HEAD
   '@esbuild/linux-x64@0.17.19':
     resolution: {integrity: sha512-68ngA9lg2H6zkZcyp22tsVt38mlhWde8l3eJLWkyLrp4HwMUr3c1s/M2t7+kHIhvMjglIBrFpncX1SzMckomGw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/linux-x64@0.24.2':
     resolution: {integrity: sha512-8Qi4nQcCTbLnK9WoMjdC9NiTG6/E38RNICU6sUNqK0QFxCYgoARqVqxdFmWkdonVsvGqWhmm7MO0jyTqLqwj0Q==}
     engines: {node: '>=18'}
@@ -545,12 +620,15 @@ packages:
     cpu: [arm64]
     os: [netbsd]
 
+<<<<<<< HEAD
   '@esbuild/netbsd-x64@0.17.19':
     resolution: {integrity: sha512-CwFq42rXCR8TYIjIfpXCbRX0rp1jo6cPIUPSaWwzbVI4aOfX96OXY8M6KNmtPcg7QjYeDmN+DD0Wp3LaBOLf4Q==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/netbsd-x64@0.24.2':
     resolution: {integrity: sha512-VefFaQUc4FMmJuAxmIHgUmfNiLXY438XrL4GDNV1Y1H/RW3qow68xTwjZKfj/+Plp9NANmzbH5R40Meudu8mmw==}
     engines: {node: '>=18'}
@@ -563,66 +641,82 @@ packages:
     cpu: [arm64]
     os: [openbsd]
 
+<<<<<<< HEAD
   '@esbuild/openbsd-x64@0.17.19':
     resolution: {integrity: sha512-cnq5brJYrSZ2CF6c35eCmviIN3k3RczmHz8eYaVlNasVqsNY+JKohZU5MKmaOI+KkllCdzOKKdPs762VCPC20g==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/openbsd-x64@0.24.2':
     resolution: {integrity: sha512-+iDS6zpNM6EnJyWv0bMGLWSWeXGN/HTaF/LXHXHwejGsVi+ooqDfMCCTerNFxEkM3wYVcExkeGXNqshc9iMaOA==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [openbsd]
 
+<<<<<<< HEAD
   '@esbuild/sunos-x64@0.17.19':
     resolution: {integrity: sha512-vCRT7yP3zX+bKWFeP/zdS6SqdWB8OIpaRq/mbXQxTGHnIxspRtigpkUcDMlSCOejlHowLqII7K2JKevwyRP2rg==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [sunos]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/sunos-x64@0.24.2':
     resolution: {integrity: sha512-hTdsW27jcktEvpwNHJU4ZwWFGkz2zRJUz8pvddmXPtXDzVKTTINmlmga3ZzwcuMpUvLw7JkLy9QLKyGpD2Yxig==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [sunos]
 
+<<<<<<< HEAD
   '@esbuild/win32-arm64@0.17.19':
     resolution: {integrity: sha512-yYx+8jwowUstVdorcMdNlzklLYhPxjniHWFKgRqH7IFlUEa0Umu3KuYplf1HUZZ422e3NU9F4LGb+4O0Kdcaag==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/win32-arm64@0.24.2':
     resolution: {integrity: sha512-LihEQ2BBKVFLOC9ZItT9iFprsE9tqjDjnbulhHoFxYQtQfai7qfluVODIYxt1PgdoyQkz23+01rzwNwYfutxUQ==}
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [win32]
 
+<<<<<<< HEAD
   '@esbuild/win32-ia32@0.17.19':
     resolution: {integrity: sha512-eggDKanJszUtCdlVs0RB+h35wNlb5v4TWEkq4vZcmVt5u/HiDZrTXe2bWFQUez3RgNHwx/x4sk5++4NSSicKkw==}
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/win32-ia32@0.24.2':
     resolution: {integrity: sha512-q+iGUwfs8tncmFC9pcnD5IvRHAzmbwQ3GPS5/ceCyHdjXubwQWI12MKWSNSMYLJMq23/IUCvJMS76PDqXe1fxA==}
     engines: {node: '>=18'}
     cpu: [ia32]
     os: [win32]
 
+<<<<<<< HEAD
   '@esbuild/win32-x64@0.17.19':
     resolution: {integrity: sha512-lAhycmKnVOuRYNtRtatQR1LPQf2oYCkRGkSFnseDAKPl8lu5SOsK/e1sXe5a0Pc5kHIHe6P2I/ilntNv2xf3cA==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/win32-x64@0.24.2':
     resolution: {integrity: sha512-7VTgWzgMGvup6aSqDPLiW5zHaxYJGTO4OokMjIlrCtf+VpEL+cXKtCvg723iguPYI5oaUNdS+/V7OU2gvXVWEg==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
 
+<<<<<<< HEAD
   '@fastify/busboy@2.1.1':
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
@@ -659,6 +753,8 @@ packages:
     peerDependencies:
       vue: '>=3'
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
@@ -799,10 +895,13 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
+<<<<<<< HEAD
   '@koa/router@12.0.2':
     resolution: {integrity: sha512-sYcHglGKTxGF+hQ6x67xDfkE9o+NhVlRHBqq6gLywaMc6CojK/5vFZByphdonKinYlMLkEkacm+HEse9HzwgTA==}
     engines: {node: '>= 12'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@kwsites/file-exists@1.1.1':
     resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
 
@@ -912,9 +1011,12 @@ packages:
     peerDependencies:
       vite: '*'
 
+<<<<<<< HEAD
   '@nuxt/icon@1.10.3':
     resolution: {integrity: sha512-ESIiSIpETLLcn5p4U8S0F3AQ5Mox0MoHAVKczamY4STh3Dwrc8labLhtN6lunwpQEv6UGuiutdvfkJ88zu44Ew==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@nuxt/kit@3.15.4':
     resolution: {integrity: sha512-dr7I7eZOoRLl4uxdxeL2dQsH0OrbEiVPIyBHnBpA4co24CBnoJoF+JINuP9l3PAM3IhUzc5JIVq3/YY3lEc3Hw==}
     engines: {node: '>=18.12.0'}
@@ -928,15 +1030,19 @@ packages:
     engines: {node: '>=18.12.0'}
     hasBin: true
 
+<<<<<<< HEAD
   '@nuxt/ui@2.21.0':
     resolution: {integrity: sha512-kvQkB1/TyyUMvfQJTwQ2gubCyHCwyvwIQWWygEASXc8FfnzMtJZ+1ZYqNeWd9i7sr4+Lq2ye0+5t8M+raweYUw==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@nuxt/vite-builder@3.15.4':
     resolution: {integrity: sha512-yBK6tWT973+ExKC3ciTWymZpjJ+enToOtYz574kXCyGO0PbSnuXdoJKTvrwXw1lK97PajCKxExlmwI/3oLOmMQ==}
     engines: {node: ^18.12.0 || ^20.9.0 || >=22.0.0}
     peerDependencies:
       vue: ^3.3.4
 
+<<<<<<< HEAD
   '@nuxthub/core@0.7.37':
     resolution: {integrity: sha512-SOAGUsW+XGA9oghwItTYjx3CtPyKuc7OhBONeGpUMGJ26xs2dKdEW7DV+My2woW2PXBWL4N5YLfV+m5e60yfAg==}
 
@@ -946,6 +1052,8 @@ packages:
   '@nuxtjs/tailwindcss@6.13.1':
     resolution: {integrity: sha512-atL2SaPsxLfMTlXUQvr1UpDYdz6ocNOhH35H+t7M++g4r79QiQScJ7XuyyMR9AyBN19lkPA3nw7NXxazXmYxlA==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@parcel/watcher-android-arm64@2.5.1':
     resolution: {integrity: sha512-KF8+j9nNbUN8vzOFDpRMsaKBHZ/mcjEjMToVMJOhTozkDonQFFrRcfdLWn6yWKCmJKmdVxSgHiYvTCef4/qcBA==}
     engines: {node: '>= 10.0.0'}
@@ -1041,9 +1149,12 @@ packages:
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
 
+<<<<<<< HEAD
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@redocly/ajv@8.11.2':
     resolution: {integrity: sha512-io1JpnwtIcvojV7QKDUSIuMN/ikdOUd1ReEnUnMKGfDVridQZ31J0MmIuqwuRjWDZfmvr+Q0MqCcfHM2gTivOg==}
 
@@ -1231,6 +1342,7 @@ packages:
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
+<<<<<<< HEAD
   '@tailwindcss/aspect-ratio@0.4.2':
     resolution: {integrity: sha512-8QPrypskfBa7QIMuKHg2TA7BqES6vhBrDLOv8Unb6FcFyd3TjKbc6lcmb9UPQHxfl24sXoJ41ux/H7qQQvfaSQ==}
     peerDependencies:
@@ -1259,6 +1371,8 @@ packages:
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -1301,9 +1415,12 @@ packages:
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
 
+<<<<<<< HEAD
   '@types/web-bluetooth@0.0.20':
     resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@unhead/dom@1.11.19':
     resolution: {integrity: sha512-udkgITdIblEWH3hsoFQMKW+6QXNO2qFZlZ2FI37bVAplQSnK/PytTPt/5oA1GWkoVwT0DsQNGHbU6kOg/3SlNg==}
 
@@ -1321,9 +1438,12 @@ packages:
     peerDependencies:
       vue: '>=2.7 || >=3'
 
+<<<<<<< HEAD
   '@uploadthing/mime-types@0.3.4':
     resolution: {integrity: sha512-EB0o0a4y++UJFMLqS8LDVhSQgXUllG6t5fwl5cbmOM0Uay8YY5Nc/JjFwzJ8wccdIKz4oYwQW7EOSfUyaMPbfw==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@vercel/nft@0.27.10':
     resolution: {integrity: sha512-zbaF9Wp/NsZtKLE4uVmL3FyfFwlpDyuymQM1kPbeT0mVOHKDQQNjnnfslB3REg3oZprmNFJuh3pkHBk2qAaizg==}
     engines: {node: '>=16'}
@@ -1366,6 +1486,7 @@ packages:
       vite: ^5.0.0 || ^6.0.0
       vue: ^3.2.25
 
+<<<<<<< HEAD
   '@volar/language-core@2.4.11':
     resolution: {integrity: sha512-lN2C1+ByfW9/JRPpqScuZt/4OrUUse57GLI6TbLgTIqBVemdl1wNcZ1qYGEo2+Gw8coYLgCy7SuKqn6IrQcQgg==}
 
@@ -1375,6 +1496,8 @@ packages:
   '@volar/typescript@2.4.11':
     resolution: {integrity: sha512-2DT+Tdh88Spp5PyPbqhyoYavYCPDsqbHLFwcUI9K1NlY1YgUJvujGdrqUp0zWxnW7KWNTr3xSpMuv2WnaTKDAw==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@vue-macros/common@1.16.1':
     resolution: {integrity: sha512-Pn/AWMTjoMYuquepLZP813BIcq8DTZiNCoaceuNlvaYuOTd8DqBZWc5u0uOMQZMInwME1mdSmmBAcTluiV9Jtg==}
     engines: {node: '>=16.14.0'}
@@ -1412,9 +1535,12 @@ packages:
   '@vue/compiler-ssr@3.5.13':
     resolution: {integrity: sha512-wMH6vrYHxQl/IybKJagqbquvxpWCuVYpoUJfCqFZwa/JY1GdATAQ+TgVtgrwwMZ0D07QhA99rs/EAAWfvG6KpA==}
 
+<<<<<<< HEAD
   '@vue/compiler-vue2@2.7.16':
     resolution: {integrity: sha512-qYC3Psj9S/mfu9uVi5WvNZIzq+xnXMhOwbTFKKDD7b1lhpnn71jXSFdTQ+WsIEk0ONCd7VV2IMm7ONl6tbQ86A==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@vue/devtools-api@6.6.4':
     resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
 
@@ -1429,6 +1555,7 @@ packages:
   '@vue/devtools-shared@7.7.2':
     resolution: {integrity: sha512-uBFxnp8gwW2vD6FrJB8JZLUzVb6PNRG0B0jBnHsOH8uKyva2qINY8PTF5Te4QlTbMDqU5K6qtJDr6cNsKWhbOA==}
 
+<<<<<<< HEAD
   '@vue/language-core@2.2.0':
     resolution: {integrity: sha512-O1ZZFaaBGkKbsRfnVH1ifOK1/1BUkyK+3SQsfnh6PmMmD4qJcTU8godCeA96jjDRTL6zgnK7YzCHfaUlH2r0Mw==}
     peerDependencies:
@@ -1437,6 +1564,8 @@ packages:
       typescript:
         optional: true
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@vue/reactivity@3.5.13':
     resolution: {integrity: sha512-NaCwtw8o48B9I6L1zl2p41OHo/2Z4wqYGGIK1Khu5T7yxrn+ATOixn/Udn2m+6kZKB/J7cuT9DbWWhRxqixACg==}
 
@@ -1454,6 +1583,7 @@ packages:
   '@vue/shared@3.5.13':
     resolution: {integrity: sha512-/hnE/qP5ZoGpol0a5mDi45bOd7t3tjYJBjsgCsivow7D48cJeV5l05RD82lPqi7gRiphZM37rnhW1l6ZoCNNnQ==}
 
+<<<<<<< HEAD
   '@vueuse/core@11.3.0':
     resolution: {integrity: sha512-7OC4Rl1f9G8IT6rUfi9JrKiXy4bfmHhZ5x2Ceojy0jnd3mHNEvV4JaRygH362ror6/NZ+Nl+n13LPzGiPN8cKA==}
 
@@ -1516,6 +1646,8 @@ packages:
   '@vueuse/shared@12.6.1':
     resolution: {integrity: sha512-ukTb2na19KT1/YVjj4CYBDOgiV/xmsSJRL6TcKeiz2db+P5bT3I0OJxy38eRR3WSN8CmSnt7MdVJ16vX6VZFxg==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   abbrev@3.0.0:
     resolution: {integrity: sha512-+/kfrslGQ7TNV2ecmQwMJj/B65g5KVq1/L3SGVZ3tCYGqlzFuFCGBZJtMP99wH3NpEUyAjn0zPdPUg0D+DwrOA==}
     engines: {node: ^18.17.0 || >=20.5.0}
@@ -1524,19 +1656,25 @@ packages:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
     engines: {node: '>=6.5'}
 
+<<<<<<< HEAD
   accepts@1.3.8:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
     engines: {node: '>= 0.6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   acorn-import-attributes@1.9.5:
     resolution: {integrity: sha512-n02Vykv5uA3eHGM/Z2dQrcD56kL8TyDb2p1+0P83PClMnC/nc+anbQRhIOWnSq4Ke/KvDPrY3C9hDtC/A3eHnQ==}
     peerDependencies:
       acorn: ^8
 
+<<<<<<< HEAD
   acorn-walk@8.3.2:
     resolution: {integrity: sha512-cjkyv4OtNCIeqhHrfS81QWXoCBPExR/J62oyEqepVw8WaQeSqpW2uhuLPh1m9eWhDuOo/jUXVTlifvesOWp/4A==}
     engines: {node: '>=0.4.0'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   acorn-walk@8.3.4:
     resolution: {integrity: sha512-ueEepnujpqee2o5aIYnvHU6C0A42MNdsIDeqy5BydrkuC5R1ZuUFnm27EeFJGoEHJQgn3uleRvmTXaJgfXbt4g==}
     engines: {node: '>=0.4.0'}
@@ -1550,9 +1688,12 @@ packages:
     resolution: {integrity: sha512-jRR5wdylq8CkOe6hei19GGZnxM6rBGwFl3Bg0YItGDimvjGtAvdZk4Pu6Cl4u4Igsws4a1fd1Vq3ezrhn4KmFw==}
     engines: {node: '>= 14'}
 
+<<<<<<< HEAD
   alien-signals@0.4.14:
     resolution: {integrity: sha512-itUAVzhczTmP2U5yX67xVpsbbOiquusbWVyA9N+sy6+r6YVbFkahXvNCeEPWEOMhwDYwbVbGHFkVL03N9I5g+Q==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   ansi-colors@4.1.3:
     resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
     engines: {node: '>=6'}
@@ -1601,9 +1742,12 @@ packages:
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
+<<<<<<< HEAD
   as-table@1.0.55:
     resolution: {integrity: sha512-xvsWESUJn0JN421Xb9MQw6AsMHRCUknCe0Wjlxvjud80mU4E6hQf1A6NzQKcYNmYw62MfzEtXc+badstZP3JpQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   ast-kit@1.4.0:
     resolution: {integrity: sha512-BlGeOw73FDsX7z0eZE/wuuafxYoek2yzNJ6l6A1nsb4+z/p87TOPbHaWuN53kFKNuUXiCQa2M+xLF71IqQmRSw==}
     engines: {node: '>=16.14.0'}
@@ -1615,6 +1759,7 @@ packages:
   async-sema@3.1.1:
     resolution: {integrity: sha512-tLRNUXati5MFePdAk8dw7Qt7DpxPB60ofAgn8WRhW6a2rcimZnYBP9oxHiv0OHy+Wz7kPMG+t4LGdt31+4EmGg==}
 
+<<<<<<< HEAD
   async@2.6.4:
     resolution: {integrity: sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==}
 
@@ -1625,6 +1770,11 @@ packages:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
 
+=======
+  async@3.2.6:
+    resolution: {integrity: sha512-htCUDlxyyCLMgaM3xXg0C0LW2xqfuQ6p05pCEIsXuyQ+a1koYKTuBMzRNwmybfLgvJDMd0r1LTn4+E0Ti6C2AA==}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   autoprefixer@10.4.20:
     resolution: {integrity: sha512-XY25y5xSv/wEoqzDyXXME4AFfkZI0P23z6Fs3YgymDnKJkCGOnkL0iTxCa85UTqaSgfcqyf3UA6+c7wUvx/16g==}
     engines: {node: ^10 || ^12 || >=14}
@@ -1632,6 +1782,7 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
+<<<<<<< HEAD
   available-typed-arrays@1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
@@ -1640,6 +1791,8 @@ packages:
     resolution: {integrity: sha512-x511uiJ/57FIsbgUe5csJ13k3uzu25uWQE+XqfBis/sB0SFoiElJWXRkgEAUh0U6n40eT3ay5Ue4oPkRMu1LYw==}
     engines: {node: '>= 10.0.0'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   b4a@1.6.7:
     resolution: {integrity: sha512-OnAYlL5b7LEkALw87fUVafQw5rVR9RjwGd4KUwNQ6DrrNmaVaUCgLipfVlzrPQ4tWOR9P0IXGNOx50jYCCdSJg==}
 
@@ -1662,9 +1815,12 @@ packages:
   birpc@0.2.19:
     resolution: {integrity: sha512-5WeXXAvTmitV1RqJFppT5QtUiz2p1mRSYU000Jkft5ZUCLJIk4uQriYNO50HknxKwM6jd8utNc66K1qGIwwWBQ==}
 
+<<<<<<< HEAD
   blake3-wasm@2.1.5:
     resolution: {integrity: sha512-F1+K8EbfOZE49dtoPtmxUQrpXaBIl3ICvasLh+nJta0xkz+9kF/7uet9fLnwKqhDrmj6g+6K3Tw9yQPUg2ka5g==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
 
@@ -1690,9 +1846,12 @@ packages:
   buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
 
+<<<<<<< HEAD
   buffer@4.9.2:
     resolution: {integrity: sha512-xq+q3SRMOxGivLhBNaUdC64hDTQwejJ+H0T/NB1XMtTVEwNTrfFF3gAxiyW0Bu/xWEGhjVKgUcMhCrUy2+uCWg==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   buffer@6.0.3:
     resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
 
@@ -1724,6 +1883,7 @@ packages:
     resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
     engines: {node: '>=8'}
 
+<<<<<<< HEAD
   cache-content-type@1.0.1:
     resolution: {integrity: sha512-IKufZ1o4Ut42YUrZSo8+qnMTrFuKkvyoLXUywKz9GJ5BrhOFGhLdkx9sG4KAnVvbY6kEcSFjLQul+DVmBm2bgA==}
     engines: {node: '>= 6.0.0'}
@@ -1740,6 +1900,8 @@ packages:
     resolution: {integrity: sha512-YTd+6wGlNlPxSuri7Y6X8tY2dmm12UMH66RpKMhiX6rsk5wXXnYgbUcOt8kiS31/AjfoTOvCsE+w8nZQLQnzHA==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   camelcase-css@2.0.1:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
     engines: {node: '>= 6'}
@@ -1798,10 +1960,13 @@ packages:
     resolution: {integrity: sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA==}
     engines: {node: '>=0.10.0'}
 
+<<<<<<< HEAD
   co@4.6.0:
     resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}
     engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
@@ -1829,10 +1994,13 @@ packages:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
 
+<<<<<<< HEAD
   commander@6.2.1:
     resolution: {integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==}
     engines: {node: '>= 6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   commander@7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
@@ -1861,6 +2029,7 @@ packages:
     resolution: {integrity: sha512-EiPU8G6dQG0GFHNR8ljnZFki/8a+cQwEQ+7wpxdChl02Q8HXlwEZWD5lqAF8vC2sEC3Tehr8hy7vErz88LHyUA==}
     engines: {node: ^14.18.0 || >=16.10.0}
 
+<<<<<<< HEAD
   content-disposition@0.5.4:
     resolution: {integrity: sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ==}
     engines: {node: '>= 0.6'}
@@ -1869,12 +2038,15 @@ packages:
     resolution: {integrity: sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA==}
     engines: {node: '>= 0.6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
   cookie-es@1.2.2:
     resolution: {integrity: sha512-+W7VmiVINB+ywl1HGXJXmrqkOhpKrIiVZV6tQuV54ZyQC7MMuBt81Vc336GMLoHBq5hV/F9eXgt5Mnx0Rha5Fg==}
 
+<<<<<<< HEAD
   cookie@0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
@@ -1883,6 +2055,8 @@ packages:
     resolution: {integrity: sha512-TG2hpqe4ELx54QER/S3HQ9SRVnQnGBtKUz5bLQWtYAQ+o6GpgMs6sYUvaiJjVxb+UXwhRhAEP3m7LbsIZ77Hmw==}
     engines: {node: '>= 0.8'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   copy-anything@3.0.5:
     resolution: {integrity: sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==}
     engines: {node: '>=12.13'}
@@ -1971,9 +2145,12 @@ packages:
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
+<<<<<<< HEAD
   data-uri-to-buffer@2.0.2:
     resolution: {integrity: sha512-ND9qDTLc6diwj+Xe5cdAgVTbLVdXbtxTJRXRhli8Mowuaan+0EJOtdqJ0QCHNSSPyoXGx9HX2/VMnKeC34AChA==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   db0@0.2.4:
     resolution: {integrity: sha512-hIzftLH1nMsF95zSLjDLYLbE9huOXnLYUTAQ5yKF5amp0FpeD+B15XJa8BvGYSOeSCH4gl2WahB/y1FcUByQSg==}
     peerDependencies:
@@ -1997,9 +2174,12 @@ packages:
       sqlite3:
         optional: true
 
+<<<<<<< HEAD
   de-indent@1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     peerDependencies:
@@ -2008,6 +2188,7 @@ packages:
       supports-color:
         optional: true
 
+<<<<<<< HEAD
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
     peerDependencies:
@@ -2016,6 +2197,8 @@ packages:
       supports-color:
         optional: true
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   debug@4.4.0:
     resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
     engines: {node: '>=6.0'}
@@ -2025,9 +2208,12 @@ packages:
       supports-color:
         optional: true
 
+<<<<<<< HEAD
   deep-equal@1.0.1:
     resolution: {integrity: sha512-bHtC0iYvWhyaTzvV3CZgPeZQqCOBGyGsVV7v4eevpdkLHfiSrXUdBG+qAuSz4RI70sszvjQ1QSZ98An1yNwpSw==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
@@ -2040,10 +2226,13 @@ packages:
     resolution: {integrity: sha512-WY/3TUME0x3KPYdRRxEJJvXRHV4PyPoUsxtZa78lwItwRQRHhd2U9xOscaT/YTf8uCXIAjeJOFBVEh/7FtD8Xg==}
     engines: {node: '>=18'}
 
+<<<<<<< HEAD
   define-data-property@1.1.4:
     resolution: {integrity: sha512-rBMvIzlpA8v6E+SJZoo++HAYqsLrkg7MSfIinMPFhmkorw7X+dOXVJQs+QT69zGkzMyfDnIMN2Wid1+NbL3T+A==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   define-lazy-prop@2.0.0:
     resolution: {integrity: sha512-Ds09qNh8yw3khSjiJjiUInaGX9xlqZDY7JVryGxdxV7NPeuqQfplOpQ66yJFZut3jLa5zOwkXw1g9EI2uKh4Og==}
     engines: {node: '>=8'}
@@ -2055,17 +2244,23 @@ packages:
   defu@6.1.4:
     resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
 
+<<<<<<< HEAD
   delegates@1.0.0:
     resolution: {integrity: sha512-bd2L678uiWATM6m5Z1VzNCErI3jiGzt6HGY8OVICs40JQq/HALfbyNJmp0UDakEY4pMMaN0Ly5om/B1VI/+xfQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   denque@2.1.0:
     resolution: {integrity: sha512-HVQE3AAb/pxF8fQAoiqpvg9i3evqug3hoiwakOyZAwJm+6vZehbkYXZ0l4JxS+I3QxM97v5aaRNhj8v5oBhekw==}
     engines: {node: '>=0.10'}
 
+<<<<<<< HEAD
   depd@1.1.2:
     resolution: {integrity: sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==}
     engines: {node: '>= 0.6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   depd@2.0.0:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
     engines: {node: '>= 0.8'}
@@ -2124,10 +2319,13 @@ packages:
     resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
     engines: {node: '>=12'}
 
+<<<<<<< HEAD
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
 
@@ -2168,6 +2366,7 @@ packages:
   errx@0.1.0:
     resolution: {integrity: sha512-fZmsRiDNv07K6s2KkKFTiD2aIvECa7++PKyD5NC32tpRw46qZA3sOz+aM+/V9V0GDHxVTKLziveV4JhzBHDp9Q==}
 
+<<<<<<< HEAD
   es-define-property@1.0.1:
     resolution: {integrity: sha512-e3nRfgfUZ4rNGL232gUgX06QNyyez04KdjFrF+LTRoOXmrOgFKDg4BCdsjW8EnT69eqdYGmRpJwiPVYNrCaW3g==}
     engines: {node: '>= 0.4'}
@@ -2188,6 +2387,11 @@ packages:
     engines: {node: '>=12'}
     hasBin: true
 
+=======
+  es-module-lexer@1.6.0:
+    resolution: {integrity: sha512-qqnD1yMU6tk/jnaMosogGySTZP8YtUgAffA9nMN+E/rjxcfRQ6IEk7IiozUjgxKoFHBGjTLnrHB/YC45r/59EQ==}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   esbuild@0.24.2:
     resolution: {integrity: sha512-+9egpBW8I3CD5XPe0n6BfT5fxLzxrlDzqydF3aviG+9ni1lDC/OvMHcxqEFV0+LANZG5R1bFMWfUrjVsdwxJvA==}
     engines: {node: '>=18'}
@@ -2200,17 +2404,23 @@ packages:
   escape-html@1.0.3:
     resolution: {integrity: sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==}
 
+<<<<<<< HEAD
   escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   escape-string-regexp@5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
 
+<<<<<<< HEAD
   estree-walker@0.6.1:
     resolution: {integrity: sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   estree-walker@2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
 
@@ -2225,10 +2435,13 @@ packages:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
     engines: {node: '>=6'}
 
+<<<<<<< HEAD
   events@1.1.1:
     resolution: {integrity: sha512-kEcvvCBByWXGnZy6JUlgAp2gBIUjfCAV6P6TgT1/aaQKcmuAEC4OZTV1I4EWQLz2gxZw76atuVyvHhTxvi0Flw==}
     engines: {node: '>=0.4.x'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   events@3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
     engines: {node: '>=0.8.x'}
@@ -2241,10 +2454,13 @@ packages:
     resolution: {integrity: sha512-VyhnebXciFV2DESc+p6B+y0LjSm0krU4OgJN44qFAhBY0TJ+1V61tYD2+wHusZ6F9n5K+vl8k0sTy7PEfV4qpg==}
     engines: {node: '>=16.17'}
 
+<<<<<<< HEAD
   exit-hook@2.2.1:
     resolution: {integrity: sha512-eNTPlAD67BmP31LDINZ3U7HSF8l57TxOY2PmBJ1shpCvpnxBF93mWCE8YHBnXs8qiUZJc9WDcWIeC3a2HIAMfw==}
     engines: {node: '>=6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   externality@1.0.2:
     resolution: {integrity: sha512-LyExtJWKxtgVzmgtEHyQtLFpw1KFhQphF9nTG8TpAIVkiI/xQ3FJh75tRFLYl4hkn7BNIIdLJInuDAavX35pMw==}
 
@@ -2285,10 +2501,13 @@ packages:
   flatted@3.3.2:
     resolution: {integrity: sha512-AiwGJM8YcNOaobumgtng+6NHuOqC3A7MixFeDafM3X9cIUM+xUXoS5Vfgf+OihAYe20fxqNM9yPBXJzRtZ/4eA==}
 
+<<<<<<< HEAD
   for-each@0.3.5:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   foreground-child@3.3.0:
     resolution: {integrity: sha512-Ld2g8rrAyMYFXBhEqMz8ZAHBi4J4uS1i/CxGMDnjyFWddMXLVcDp051DZfu+t7+ab7Wv6SMqpWmyFIj5UbfFvg==}
     engines: {node: '>=14'}
@@ -2318,10 +2537,13 @@ packages:
     resolution: {integrity: sha512-Z4XaCL6dUDHfP/jT25jJKMmtxvuwbkrD1vNSMFlo9lNLY2c5FHYSQgHPRZUjAB26TpDEoW9HCOgplrdbaPV/ew==}
     engines: {node: '>=14.14'}
 
+<<<<<<< HEAD
   fs-extra@9.1.0:
     resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==}
     engines: {node: '>=10'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   fs-minipass@2.1.0:
     resolution: {integrity: sha512-V/JgOLFCS+R6Vcq0slCuaeWEdNC3ouDlJMNIsacH2VtALiu9mV4LPrHc5cDl8k5aw6J8jwgWWpiTo5RYhmIzvg==}
     engines: {node: '>= 8'}
@@ -2349,6 +2571,7 @@ packages:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
+<<<<<<< HEAD
   get-intrinsic@1.2.7:
     resolution: {integrity: sha512-VW6Pxhsrk0KAOqs3WEd0klDiF/+V7gQOpAvY1jVU/LHmaD/kQO4523aiJuikX/QAKYiW6x8Jh+RJej1almdtCA==}
     engines: {node: '>= 0.4'}
@@ -2363,6 +2586,11 @@ packages:
   get-source@2.0.12:
     resolution: {integrity: sha512-X5+4+iD+HoSeEED+uwrQ07BOQr0kEDFMVqqpBuI+RaZBpBpHCuXxo70bjar6f0b0u/DQJsJ7ssurpP0V60Az+w==}
 
+=======
+  get-port-please@3.1.2:
+    resolution: {integrity: sha512-Gxc29eLs1fbn6LQ4jSU4vXjlwyZhF5HsGuMAa7gqBP4Rw4yxxltyDUuF5MBclFzDTXO+ACchGQoeela4DSfzdQ==}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   get-stream@6.0.1:
     resolution: {integrity: sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==}
     engines: {node: '>=10'}
@@ -2412,18 +2640,24 @@ packages:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
     engines: {node: '>=4'}
 
+<<<<<<< HEAD
   globals@15.15.0:
     resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
     engines: {node: '>=18'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   globby@14.1.0:
     resolution: {integrity: sha512-0Ia46fDOaT7k4og1PDW4YbodWWr3scS2vAr2lTbsplOt2WkKp0vQbkI9wKis/T5LV/dqPjO3bpS/z6GTJB82LA==}
     engines: {node: '>=18'}
 
+<<<<<<< HEAD
   gopd@1.2.0:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
@@ -2438,6 +2672,7 @@ packages:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
 
+<<<<<<< HEAD
   has-property-descriptors@1.0.2:
     resolution: {integrity: sha512-55JNKuIW+vq4Ke1BjOTjM2YctQIvCT7GFzHwmfZPGo5wnrgkid0YQtnAleFSqumZm4az3n2BS+erby5ipJdgrg==}
 
@@ -2449,14 +2684,19 @@ packages:
     resolution: {integrity: sha512-NqADB8VjPFLM2V0VvHUewwwsw0ZWBaIdgo+ieHtK3hasLz4qeCRjYcqfB6AQrBggRKppKF8L52/VqdVsO47Dlw==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
+<<<<<<< HEAD
   he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   hookable@5.5.3:
     resolution: {integrity: sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==}
 
@@ -2464,6 +2704,7 @@ packages:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
     engines: {node: '>=8'}
 
+<<<<<<< HEAD
   http-assert@1.5.0:
     resolution: {integrity: sha512-uPpH7OKX4H25hBmU6G1jWNaqJGpTXxey+YOUizJUAgu0AjLUeC8D73hTrhvDS5D+GJN1DN1+hhc/eF/wpxtp0w==}
     engines: {node: '>= 0.8'}
@@ -2476,6 +2717,8 @@ packages:
     resolution: {integrity: sha512-Kpk9Sm7NmI+RHhnj6OIWDI1d6fIoFAtFt9RLaTMRlg/8w49juAStsrBgp0Dp4OdxdVbRIeKhtCUvoi/RuAhO4g==}
     engines: {node: '>= 0.6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   http-errors@2.0.0:
     resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
     engines: {node: '>= 0.8'}
@@ -2499,9 +2742,12 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
+<<<<<<< HEAD
   ieee754@1.1.13:
     resolution: {integrity: sha512-4vf7I2LYV/HaWerSo3XmlMkp5eZ83i+/CDluXi/IGTs/O1sejBNhTtnxzmRZfvOUqj7lZjqHkeTvpgSFDlWZTg==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
 
@@ -2523,9 +2769,12 @@ packages:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
     deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
+<<<<<<< HEAD
   inherits@2.0.3:
     resolution: {integrity: sha512-x00IRNXNy63jwGkJmzPigoySHbaqpNuzKbBOmzK+g2OdZpQ9w+sxCN+VSB3ja7IAge2OP2qpfxTjeNcyjmW1uw==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
@@ -2543,10 +2792,13 @@ packages:
   iron-webcrypto@1.2.1:
     resolution: {integrity: sha512-feOM6FaSr6rEABp/eDfVseKyTMDt+KGpeB35SkVn9Tyn0CqvVsY3EwI0v5i8nMHyJnzCIQf7nsy3p41TPkJZhg==}
 
+<<<<<<< HEAD
   is-arguments@1.2.0:
     resolution: {integrity: sha512-7bVbi0huj/wrIAOzb8U1aszg9kdi3KN/CyU19CTI7tAoZYEZoL9yCDXpbXN+uPsuWnP02cyug1gleqq+TU+YCA==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   is-arrayish@0.3.2:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
 
@@ -2611,10 +2863,13 @@ packages:
   is-reference@1.2.1:
     resolution: {integrity: sha512-U82MsXXiFIrjCK4otLT+o2NA2Cd2g5MLoOVXUZjIOhLurrRxpEXzI8O0KZHr3IjLvlAH1kTPYSuqer5T9ZVBKQ==}
 
+<<<<<<< HEAD
   is-regex@1.2.1:
     resolution: {integrity: sha512-MjYsKHO5O7mCsmRGxWcLWheFqN9DJ/2TmngvjKXihe6efViPqc274+Fx/4fYj/r03+ESvBdTXK0V6tA3rgez1g==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   is-ssh@1.4.1:
     resolution: {integrity: sha512-JNeu1wQsHjyHgn9NcWTaXq6zWSR6hqE0++zhfZlkFBbScNkyvxCdeV8sRkSBaeLKxmbpR21brail63ACNxJ0Tg==}
 
@@ -2626,10 +2881,13 @@ packages:
     resolution: {integrity: sha512-LnQR4bZ9IADDRSkvpqMGvt/tEJWclzklNgSw48V5EAaAeDd6qGvN8ei6k5p0tvxSR171VmGyHuTiAOfxAbr8kA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
+<<<<<<< HEAD
   is-typed-array@1.1.15:
     resolution: {integrity: sha512-p3EcsicXjit7SaskXHs1hA91QxgTw46Fv6EFKKGS5DRFLD8yKnohjF3hxoju94b/OcMZoQukzpPpBE9uLVKzgQ==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   is-what@4.1.16:
     resolution: {integrity: sha512-ZhMwEosbFJkA0YhFnNDgTM4ZxDRsS6HqTo7qsZM08fehyRYIYa0yHu5R6mgo1n/8MgaPBXiPimPD77baVFYg+A==}
     engines: {node: '>=12.13'}
@@ -2663,10 +2921,13 @@ packages:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
     hasBin: true
 
+<<<<<<< HEAD
   jmespath@0.16.0:
     resolution: {integrity: sha512-9FzQjJ7MATs1tSpnco1K6ayiYE3figslrXA72G2HQ/n76RzvYlofyi5QM+iX4YRs/pu3yzxlVQSST23+dMDknw==}
     engines: {node: '>= 0.6.0'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   js-levenshtein@1.1.6:
     resolution: {integrity: sha512-X2BB11YZtrRqY4EnQcLX5Rh373zbK4alC1FW7D7MBhL2gtcC17cTnr6DmfHZeS0s2rTHjUTMMHfG7gO8SSdw+g==}
     engines: {node: '>=0.10.0'}
@@ -2697,10 +2958,13 @@ packages:
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
 
+<<<<<<< HEAD
   keygrip@1.1.0:
     resolution: {integrity: sha512-iYSchDJ+liQ8iwbSI2QqsQOvqv58eJCEanyJPJi+Khyu8smkcKSFUCbPwzFcL7YVtZ6eONjqRX/38caJ7QjRAQ==}
     engines: {node: '>= 0.6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   kleur@3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
@@ -2712,6 +2976,7 @@ packages:
   knitwork@1.2.0:
     resolution: {integrity: sha512-xYSH7AvuQ6nXkq42x0v5S8/Iry+cfulBz/DJQzhIyESdLD7425jXsPy4vn5cCXU+HhRN2kVw51Vd1K6/By4BQg==}
 
+<<<<<<< HEAD
   koa-compose@4.1.0:
     resolution: {integrity: sha512-8ODW8TrDuMYvXRwra/Kh7/rJo9BtOfPc6qO8eAfC80CnCvSjSl0bkRM24X6/XBBEyj0v1nRUQ1LyOy3dbqOWXw==}
 
@@ -2731,6 +2996,8 @@ packages:
     resolution: {integrity: sha512-7fNBIdrU2PEgLljXoPWoyY4r1e+ToWCmzS/wwMPbUNs7X+5MMET1ObhJBlUkF5uZG9B6QhM2zS1TsH6adegkiQ==}
     engines: {node: ^4.8.4 || ^6.10.1 || ^7.10.1 || >= 8.1.4}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
 
@@ -2760,15 +3027,19 @@ packages:
     resolution: {integrity: sha512-bbgPw/wmroJsil/GgL4qjDzs5YLTBMQ99weRsok1XCDccQeehbHA/I1oRvk2NPtr7KGZgT/Y5tPRnAtMqeG2Kg==}
     engines: {node: '>=14'}
 
+<<<<<<< HEAD
   lodash.castarray@4.4.0:
     resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   lodash.defaults@4.2.0:
     resolution: {integrity: sha512-qjxPLHd3r5DnsdGacqOMU6pb/avJzdh9tFX2ymgoZE27BmjXrNy/y4LoaiTeAb+O3gL8AfpJGtqfX/ae2leYYQ==}
 
   lodash.isarguments@3.1.0:
     resolution: {integrity: sha512-chi4NHZlZqZD18a0imDHnZPrDeBbTtVN7GXMwuGdRH9qotxAjYs3aVLKc7zNOG9eddR5Ksd8rvFEBc9SsggPpg==}
 
+<<<<<<< HEAD
   lodash.isplainobject@4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
 
@@ -2778,6 +3049,11 @@ packages:
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
+=======
+  lodash.memoize@4.1.2:
+    resolution: {integrity: sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
 
@@ -2799,9 +3075,12 @@ packages:
     resolution: {integrity: sha512-686fgAHaJY7wLTFEq7nnKqeQrhqmXB19d1HnqT35Ci7BN6hbAYLZUezTQ062uUHM7ggZEQlqJ94Ftls+KDXU8Q==}
     engines: {node: '>=16.14.0'}
 
+<<<<<<< HEAD
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
@@ -2811,20 +3090,26 @@ packages:
   make-error@1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
 
+<<<<<<< HEAD
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   mdn-data@2.0.28:
     resolution: {integrity: sha512-aylIc7Z9y4yzHYAJNuESG3hfhC+0Ibp/MAMiaOZgNv4pmEdFyfZhhhny4MNiAfWdBQ1RQ2mfDWmM1x8SvGyp8g==}
 
   mdn-data@2.0.30:
     resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
 
+<<<<<<< HEAD
   media-typer@0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
     engines: {node: '>= 0.6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
 
@@ -2840,6 +3125,7 @@ packages:
     resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
     engines: {node: '>=8.6'}
 
+<<<<<<< HEAD
   mime-db@1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
     engines: {node: '>= 0.6'}
@@ -2848,6 +3134,8 @@ packages:
     resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
     engines: {node: '>= 0.6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   mime@1.6.0:
     resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
     engines: {node: '>=4'}
@@ -2867,6 +3155,7 @@ packages:
     resolution: {integrity: sha512-vqiC06CuhBTUdZH+RYl8sFrL096vA45Ok5ISO6sE/Mr1jRbGH4Csnhi8f3wKVl7x8mO4Au7Ir9D3Oyv1VYMFJw==}
     engines: {node: '>=12'}
 
+<<<<<<< HEAD
   mini-svg-data-uri@1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
@@ -2876,6 +3165,8 @@ packages:
     engines: {node: '>=16.13'}
     hasBin: true
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
 
@@ -2887,9 +3178,12 @@ packages:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+<<<<<<< HEAD
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   minipass@3.3.6:
     resolution: {integrity: sha512-DxiNidxSEK+tHG6zOIklvNOwm3hvCrbUrdtzY74U6HKTJxvIDfOUL5W5P2Ghd3DTkhhKPYGqeNUIh5qcM4YBfw==}
     engines: {node: '>=8'}
@@ -2913,10 +3207,13 @@ packages:
   mitt@3.0.1:
     resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
 
+<<<<<<< HEAD
   mkdirp@0.5.6:
     resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}
     hasBin: true
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   mkdirp@1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
@@ -2960,6 +3257,7 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
+<<<<<<< HEAD
   muggle-string@0.4.1:
     resolution: {integrity: sha512-VNTrAak/KhO2i8dqqnqnAHOa3cYBwXEZe9h+D5h/1ZqFSTEFHdM65lR7RoIqq3tBBYavsOXV84NoHXZ0AkPyqQ==}
 
@@ -2967,6 +3265,8 @@ packages:
     resolution: {integrity: sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==}
     hasBin: true
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
 
@@ -2983,10 +3283,13 @@ packages:
   nanotar@0.2.0:
     resolution: {integrity: sha512-9ca1h0Xjvo9bEkE4UOxgAzLV0jHKe6LMaxo37ND2DAhhAtd0j8pR1Wxz+/goMrZO8AEZTWCmyaOsFI/W5AdpCQ==}
 
+<<<<<<< HEAD
   negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   next-themes@0.4.4:
     resolution: {integrity: sha512-LDQ2qIOJF0VnuVrrMSMLrWGjRMkq+0mpgl6e0juCLqdJ+oo8Q84JRWT6Wh11VDQKkMMe+dVzDKLWs5n87T+PkQ==}
     peerDependencies:
@@ -3014,9 +3317,12 @@ packages:
       sass:
         optional: true
 
+<<<<<<< HEAD
   nitro-cloudflare-dev@0.2.1:
     resolution: {integrity: sha512-zHAN21dp+As0ldkAr5tWTop/I721j7MssZG6qb7a7EMorFwdRIhyTUwltr2L6v4qT4209S4eb2S9rszP1fxS7A==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   nitropack@2.10.4:
     resolution: {integrity: sha512-sJiG/MIQlZCVSw2cQrFG1H6mLeSqHlYfFerRjLKz69vUfdu0EL2l0WdOxlQbzJr3mMv/l4cOlCCLzVRzjzzF/g==}
     engines: {node: ^16.11.0 || >=17.0.0}
@@ -3128,17 +3434,23 @@ packages:
     resolution: {integrity: sha512-1FlR+gjXK7X+AsAHso35MnyN5KqGwJRi/31ft6x0M194ht7S+rWAvd7PHss9xSKMzE0asv1pyIHaJYq+BbacAQ==}
     engines: {node: '>=12'}
 
+<<<<<<< HEAD
   only@0.0.2:
     resolution: {integrity: sha512-Fvw+Jemq5fjjyWz6CpKx6w9s7xxqo3+JCyM0WXWeCSOboZ8ABkyvP8ID4CZuChA/wxSx+XSJmdOm8rGVyJ1hdQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   open@10.1.0:
     resolution: {integrity: sha512-mnkeQ1qP5Ue2wd+aivTD3NHd/lZ96Lu0jgf0pwktLPtx6cTZiH7tyeGRRHs0zX0rbrahXPnXlUnbeXyaBBuIaw==}
     engines: {node: '>=18'}
 
+<<<<<<< HEAD
   open@7.4.2:
     resolution: {integrity: sha512-MVHddDVweXZF3awtlAS+6pgKLlm/JgxZ90+/NBurBoQctVOOB/zDdVjcyPzQ+0laDGbsWgrRkflI65sQeOgT9Q==}
     engines: {node: '>=8'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   open@8.4.2:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
@@ -3177,9 +3489,12 @@ packages:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
     engines: {node: '>= 0.8'}
 
+<<<<<<< HEAD
   path-browserify@1.0.1:
     resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   path-is-absolute@1.0.1:
     resolution: {integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==}
     engines: {node: '>=0.10.0'}
@@ -3199,9 +3514,12 @@ packages:
     resolution: {integrity: sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==}
     engines: {node: '>=16 || 14 >=14.18'}
 
+<<<<<<< HEAD
   path-to-regexp@6.3.0:
     resolution: {integrity: sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   path-type@6.0.0:
     resolution: {integrity: sha512-Vj7sf++t5pBD637NSfkxpHSMfWaeig5+DKWLhcqIYx6mWQz5hdJTGDVMQiJcw1ZYkhs7AazKDGpRVji1LJCZUQ==}
     engines: {node: '>=18'}
@@ -3241,6 +3559,7 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
 
+<<<<<<< HEAD
   portfinder@1.0.32:
     resolution: {integrity: sha512-on2ZJVVDXRADWE6jnQaX0ioEylzgBpQk8r55NE4wjXW1ZxO+BgDlY6DXwj20i0V8eB4SenDQ00WEaxfiIQPcxg==}
     engines: {node: '>= 0.12.0'}
@@ -3249,6 +3568,8 @@ packages:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   postcss-calc@10.1.1:
     resolution: {integrity: sha512-NYEsLHh8DgG/PRH2+G9BTuUdtf9ViS+vdoQ0YA5OQdGsfN4ztiwtDWNtBl9EKeqNMFnIu8IKZ0cLxEQ5r5KVMw==}
     engines: {node: ^18.12 || ^20.9 || >=22.0}
@@ -3357,12 +3678,15 @@ packages:
     peerDependencies:
       postcss: ^8.2.14
 
+<<<<<<< HEAD
   postcss-nesting@13.0.1:
     resolution: {integrity: sha512-VbqqHkOBOt4Uu3G8Dm8n6lU5+9cJFxiuty9+4rcoyRPO9zZS1JIs6td49VIoix3qYqELHlJIn46Oih9SAKo+yQ==}
     engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.4
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   postcss-normalize-charset@7.0.0:
     resolution: {integrity: sha512-ABisNUXMeZeDNzCQxPxBCkXexvBrUHV+p7/BXOY+ulxkcjUZO0cp8ekGBwvIh2LbCwnWbyMPNJVtBSdyhM2zYQ==}
     engines: {node: ^18.12.0 || ^20.9.0 || >=22.0}
@@ -3435,10 +3759,13 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
 
+<<<<<<< HEAD
   postcss-selector-parser@6.0.10:
     resolution: {integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==}
     engines: {node: '>=4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   postcss-selector-parser@6.1.2:
     resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
     engines: {node: '>=4'}
@@ -3485,9 +3812,12 @@ packages:
     resolution: {integrity: sha512-mQUvGU6aUFQ+rNvTIAcZuWGRT9a6f6Yrg9bHs4ImKF+HZCEK+plBvnAZYSIQztknZF2qnzNtr6F8s0+IuptdlQ==}
     engines: {node: ^14.13.1 || >=16.0.0}
 
+<<<<<<< HEAD
   printable-characters@1.0.42:
     resolution: {integrity: sha512-dKp+C4iXWK4vVYZmYSd0KBH5F/h1HoZRsbJ82AVKRO3PEo8L4lBS/vLwhVtpwwuYcoIsVY+1JYKR268yn480uQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
 
@@ -3502,6 +3832,7 @@ packages:
   protocols@2.0.2:
     resolution: {integrity: sha512-hHVTzba3wboROl0/aWRRG9dMytgH6ow//STBZh43l/wQgmMhYhOFi0EHWAPtoCz9IAUymsyP0TSBHkhgMEGNnQ==}
 
+<<<<<<< HEAD
   punycode@1.3.2:
     resolution: {integrity: sha512-RofWgt/7fL5wP1Y7fxE7/EmTLzQVnB0ycyibJ0OOHIlJqTNzglYFxVwETOcIoJqJmpDXJ9xImDv+Fq34F/d4Dw==}
 
@@ -3510,6 +3841,8 @@ packages:
     engines: {node: '>=0.4.x'}
     deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -3564,11 +3897,14 @@ packages:
     resolution: {integrity: sha512-DJnGAeenTdpMEH6uAJRK/uiyEIH9WVsUmoLwzudwGJUwZPp80PDBWPHXSAGNPwNvIXAbe7MSUB1zQFugFml66A==}
     engines: {node: '>=4'}
 
+<<<<<<< HEAD
   replace-in-file@6.3.5:
     resolution: {integrity: sha512-arB9d3ENdKva2fxRnSjwBEXfK1npgyci7ZZuwysgAp7ORjHSyxz6oqIjTEv8R0Ydl4Ll7uOAZXL4vbkhGIizCg==}
     engines: {node: '>=10'}
     hasBin: true
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
@@ -3581,10 +3917,13 @@ packages:
     resolution: {integrity: sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==}
     engines: {node: '>=8'}
 
+<<<<<<< HEAD
   resolve-path@1.4.0:
     resolution: {integrity: sha512-i1xevIst/Qa+nA9olDxLWnLk8YZbi8R/7JPbCMcgyWaFR6bKWaexgJgEB5oc2PKMjYdrHynyz0NY+if+H98t1w==}
     engines: {node: '>= 0.8'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   resolve@1.22.10:
     resolution: {integrity: sha512-NPRy+/ncIMeDlTAsuqwKIiferiawhefFJtkNSW0qZJEqMEb+qBt/77B/jGeeek+F0uOeN05CDa6HXbbIgtVX4w==}
     engines: {node: '>= 0.4'}
@@ -3601,6 +3940,7 @@ packages:
     resolution: {integrity: sha512-l0OE8wL34P4nJH/H2ffoaniAokM2qSmrtXHmlpvYr5AVVX8msAyW0l8NVJFDxlSK4u3Uh/f41cQheDVdnYijwQ==}
     hasBin: true
 
+<<<<<<< HEAD
   rollup-plugin-inject@3.0.2:
     resolution: {integrity: sha512-ptg9PQwzs3orn4jkgXJ74bfs5vYz1NCZlSQMBUA0wKcGp5i5pA1AO3fOUEte8enhGUC+iapTCzEWw2jEFFUO/w==}
     deprecated: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
@@ -3608,6 +3948,8 @@ packages:
   rollup-plugin-node-polyfills@0.2.1:
     resolution: {integrity: sha512-4kCrKPTJ6sK4/gLL/U5QzVT8cxJcofO0OU74tnB19F40cmuAKSzH5/siithxlofFEjwvw1YAhPmbvGNA6jEroA==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   rollup-plugin-visualizer@5.14.0:
     resolution: {integrity: sha512-VlDXneTDaKsHIw8yzJAFWtrzguoJ/LnQ+lMpoVfYJ3jJF4Ihe5oYLAqLklIK/35lgUY+1yEzCkHyZ1j4A5w5fA==}
     engines: {node: '>=18'}
@@ -3621,9 +3963,12 @@ packages:
       rollup:
         optional: true
 
+<<<<<<< HEAD
   rollup-pluginutils@2.8.2:
     resolution: {integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   rollup@4.34.6:
     resolution: {integrity: sha512-wc2cBWqJgkU3Iz5oztRkQbfVkbxoz5EhnCGOrnJvnLnQ7O0WhQUYyv18qQI79O8L7DdHrrlJNeCHd4VGpnaXKQ==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
@@ -3642,6 +3987,7 @@ packages:
   safe-buffer@5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
 
+<<<<<<< HEAD
   safe-regex-test@1.1.0:
     resolution: {integrity: sha512-x/+Cz4YrimQxQccJf5mKEbIa1NzeCRNI5Ecl/ekmlYaampdNLPalVyIcCZNNH3MvmqBugV5TMYZXv0ljslUlaw==}
     engines: {node: '>= 0.4'}
@@ -3649,6 +3995,8 @@ packages:
   sax@1.2.1:
     resolution: {integrity: sha512-8I2a3LovHTOpm7NV5yOyO8IHqgVsfK4+UuySrXU8YXkSRX7k6hCV9b3HrkKCr3nMpgj+0bmocaJJWpvp1oc7ZA==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   scheduler@0.25.0:
     resolution: {integrity: sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==}
 
@@ -3678,6 +4026,7 @@ packages:
     resolution: {integrity: sha512-VqpjJZKadQB/PEbEwvFdO43Ax5dFBZ2UECszz8bQ7pi7wt//PWe1P6MN7eCnjsatYtBT6EuiClbjSWP2WrIoTw==}
     engines: {node: '>= 0.8.0'}
 
+<<<<<<< HEAD
   set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -3685,6 +4034,8 @@ packages:
   setprototypeof@1.1.0:
     resolution: {integrity: sha512-BvE/TwpZX4FXExxOxZyRGQQv651MSwmWKZGqvmPcRIjDqWub67kTKuIMx43cZZrS/cBBzwBcNDWoFxt2XEFIpQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
@@ -3746,14 +4097,18 @@ packages:
     resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
     engines: {node: '>= 8'}
 
+<<<<<<< HEAD
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
     deprecated: Please use @jridgewell/sourcemap-codec instead
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   speakingurl@14.0.1:
     resolution: {integrity: sha512-1POYv7uv2gXoyGFpBCmpDVSNV74IfsWlDW216UPjbWufNf+bSU6GdbDsxdcxtfwb4xlI3yxzOTKClUosxARYrQ==}
     engines: {node: '>=0.10.0'}
 
+<<<<<<< HEAD
   stacktracey@2.1.8:
     resolution: {integrity: sha512-Kpij9riA+UNg7TnphqjH7/CzctQ/owJGNbFkfEeve4Z4uxT5+JapVLFXcsurIfN34gnTWZNJ/f7NMG0E8JDzTw==}
 
@@ -3764,6 +4119,11 @@ packages:
     resolution: {integrity: sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==}
     engines: {node: '>= 0.6'}
 
+=======
+  standard-as-callback@2.1.0:
+    resolution: {integrity: sha512-qoRRSyROncaz1z0mvYqIE4lCd9p2R90i6GxW3uZv5ucSu8tU7B5HXUP1gG8pVZsYNVaXjk8ClXHPttLyxAL48A==}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   statuses@2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
@@ -3771,10 +4131,13 @@ packages:
   std-env@3.8.0:
     resolution: {integrity: sha512-Bc3YwwCB+OzldMxOXJIIvC6cPRWr/LxOp48CdQTOkPyk/t4JWWJbrilwBd7RJzKV8QW7tJkcgAmeuLLJugl5/w==}
 
+<<<<<<< HEAD
   stoppable@1.1.0:
     resolution: {integrity: sha512-KXDYZ9dszj6bzvnEMRYvxgeTHU74QBFL54XKtP3nyMuJ81CFYtABZ3bAzL2EdFUaEwJOBOgENyFj3R7oTzDyyw==}
     engines: {node: '>=4', npm: '>=6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   streamsearch@1.1.0:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
     engines: {node: '>=10.0.0'}
@@ -3866,6 +4229,7 @@ packages:
     resolution: {integrity: sha512-ulAk51I9UVUyJgxlv9M6lFot2WP3e7t8Kz9+IS6D4rVba1tR9kON+Ey69f+1R4Q8cd45Lod6a4IcJIxnzGc/zA==}
     engines: {node: '>=18'}
 
+<<<<<<< HEAD
   tailwind-config-viewer@2.0.4:
     resolution: {integrity: sha512-icvcmdMmt9dphvas8wL40qttrHwAnW3QEN4ExJ2zICjwRsPj7gowd1cOceaWG3IfTuM/cTNGQcx+bsjMtmV+cw==}
     engines: {node: '>=13'}
@@ -3876,6 +4240,8 @@ packages:
   tailwind-merge@2.6.0:
     resolution: {integrity: sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   tailwind-merge@3.0.1:
     resolution: {integrity: sha512-AvzE8FmSoXC7nC+oU5GlQJbip2UO7tmOhOfQyOmPhrStOGXHU08j8mZEHZ4BmCqY5dWTCo4ClWkNyRNx1wpT0g==}
 
@@ -4010,10 +4376,13 @@ packages:
     resolution: {integrity: sha512-6kSc32kT0rbwxD6QL1CYe8IqdzN/J/ILMrNK+HMQCKH3insCDRY/3ITb0vcBss0a3t72fzh2YSzj8ko1HgwT3g==}
     engines: {node: '>=16'}
 
+<<<<<<< HEAD
   type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   typescript@5.7.3:
     resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
     engines: {node: '>=14.17'}
@@ -4034,6 +4403,7 @@ packages:
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
+<<<<<<< HEAD
   undici@5.28.5:
     resolution: {integrity: sha512-zICwjrDrcrUE0pyyJc1I2QzBkLM8FINsgOrt6WjA+BgajVq9Nxu2PbFFXUrAggLfDXlZGZBVZYw7WNV5KiBiBA==}
     engines: {node: '>=14.0'}
@@ -4044,6 +4414,11 @@ packages:
   unenv@2.0.0-rc.1:
     resolution: {integrity: sha512-PU5fb40H8X149s117aB4ytbORcCvlASdtF97tfls4BPIyj4PeVxvpSuy1jAptqYHqB0vb2w2sHvzM0XWcp2OKg==}
 
+=======
+  unenv@1.10.0:
+    resolution: {integrity: sha512-wY5bskBQFL9n3Eca5XnhH6KbUo/tfvkwm9OpcdCvLaeA7piBNbavbOKJySEwQ1V0RH6HvNlSAFRTpvTqgKRQXQ==}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   unhead@1.11.19:
     resolution: {integrity: sha512-O5AYb3+xUOzBlwDmPfC/DgGp9rDMoGkB4gFkhoaz8IonQqP8W8qqetxYf5ZyEdntvXnFsMWS8lZF//5176xo6Q==}
 
@@ -4168,9 +4543,12 @@ packages:
   uri-js-replace@1.0.1:
     resolution: {integrity: sha512-W+C9NWNLFOoBI2QWDp4UT9pv65r2w5Cx+3sTYFvtMdDBxkKt1syCqsUdSFAChbEe1uK5TfS04wt/nGwmaeIQ0g==}
 
+<<<<<<< HEAD
   url@0.10.3:
     resolution: {integrity: sha512-hzSUW2q06EqL1gKM/a+obYHLIO6ct2hwPuviqTTOcfFVc61UbfJ2Q32+uGL/HCPxKqrdGB5QUwIe7UqlDgwsOQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   urlpattern-polyfill@8.0.2:
     resolution: {integrity: sha512-Qp95D4TPJl1kC9SKigDcqgyM2VDVO4RiJc2d4qe5GrYm+zbIQCWWKAFaJNQ4BhdFeDGwBmAxqJBwWSJDb9T3BQ==}
 
@@ -4187,10 +4565,13 @@ packages:
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
 
+<<<<<<< HEAD
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   vite-hot-client@0.2.4:
     resolution: {integrity: sha512-a1nzURqO7DDmnXqabFOliz908FRmIppkBKsJthS8rbe8hBEXwEwe4C3Pp33Z1JoFCYfVL4kTOMLKk0ZZxREIeA==}
     peerDependencies:
@@ -4317,6 +4698,7 @@ packages:
   vue-bundle-renderer@2.1.1:
     resolution: {integrity: sha512-+qALLI5cQncuetYOXp4yScwYvqh8c6SMXee3B+M7oTZxOgtESP0l4j/fXdEJoZ+EdMxkGWIj+aSEyjXkOdmd7g==}
 
+<<<<<<< HEAD
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
     engines: {node: '>=12'}
@@ -4328,6 +4710,8 @@ packages:
       '@vue/composition-api':
         optional: true
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
 
@@ -4336,12 +4720,15 @@ packages:
     peerDependencies:
       vue: ^3.2.0
 
+<<<<<<< HEAD
   vue-tsc@2.2.0:
     resolution: {integrity: sha512-gtmM1sUuJ8aSb0KoAFmK9yMxb8TxjewmxqTJ1aKphD5Cbu0rULFY6+UQT51zW7SpUcenfPUuflKyVwyx9Qdnxg==}
     hasBin: true
     peerDependencies:
       typescript: '>=5.0.0'
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   vue@3.5.13:
     resolution: {integrity: sha512-wmeiSMxkZCSc+PM2w2VRsOYAZC8GdipNFRTsLSfodVqI9mbejKeXEGr8SckuLnrQPGe3oJN5c3K0vpoU9q/wCQ==}
     peerDependencies:
@@ -4362,10 +4749,13 @@ packages:
   whatwg-url@5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
 
+<<<<<<< HEAD
   which-typed-array@1.1.18:
     resolution: {integrity: sha512-qEcY+KJYlWyLH9vNbsr6/5j59AXk5ni5aakf8ldzBvGde6Iz4sxZGkJyWSAueTG7QhOvNRYb1lDdFmL5Td0QKA==}
     engines: {node: '>= 0.4'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
     engines: {node: '>= 8'}
@@ -4376,6 +4766,7 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     hasBin: true
 
+<<<<<<< HEAD
   workerd@1.20250204.0:
     resolution: {integrity: sha512-zcKufjVFsQMiD3/acg1Ix00HIMCkXCrDxQXYRDn/1AIz3QQGkmbVDwcUk1Ki2jBUoXmBCMsJdycRucgMVEypWg==}
     engines: {node: '>=16'}
@@ -4391,6 +4782,8 @@ packages:
       '@cloudflare/workers-types':
         optional: true
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
     engines: {node: '>=10'}
@@ -4414,6 +4807,7 @@ packages:
       utf-8-validate:
         optional: true
 
+<<<<<<< HEAD
   xml2js@0.6.2:
     resolution: {integrity: sha512-T4rieHaC1EXcES0Kxxj4JWgaUQHDk+qwHcYOCFHfiwKz7tOVPLq7Hjq9dM1WCMhylqMEfP7hMcOIChvotiZegA==}
     engines: {node: '>=4.0.0'}
@@ -4422,6 +4816,8 @@ packages:
     resolution: {integrity: sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==}
     engines: {node: '>=4.0'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   y18n@5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
     engines: {node: '>=10'}
@@ -4452,17 +4848,23 @@ packages:
     resolution: {integrity: sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==}
     engines: {node: '>=12'}
 
+<<<<<<< HEAD
   ylru@1.4.0:
     resolution: {integrity: sha512-2OQsPNEmBCvXuFlIni/a+Rn+R2pHW9INm0BxXJ4hVDA8TirqMj+J/Rp9ItLatT/5pZqWwefVrTQcHpixsxnVlA==}
     engines: {node: '>= 4.0.0'}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   yn@3.1.1:
     resolution: {integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==}
     engines: {node: '>=6'}
 
+<<<<<<< HEAD
   youch@3.2.3:
     resolution: {integrity: sha512-ZBcWz/uzZaQVdCvfV4uk616Bbpf2ee+F/AvuKDR5EwX/Y4v06xWdtMluqTD7+KlZdM93lLm9gMZYo0sKBS0pgw==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   zhead@2.2.4:
     resolution: {integrity: sha512-8F0OI5dpWIA5IGG5NHUg9staDwz/ZPxZtvGVf01j7vHqSyZ0raHY+78atOVxRqb73AotX22uV1pXt3gYSstGag==}
 
@@ -4470,12 +4872,15 @@ packages:
     resolution: {integrity: sha512-zK7YHHz4ZXpW89AHXUPbQVGKI7uvkd3hzusTdotCg1UxyaVtg0zFJSTfW/Dq5f7OBBVnq6cZIaC8Ti4hb6dtCA==}
     engines: {node: '>= 14'}
 
+<<<<<<< HEAD
   zod@3.22.3:
     resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
 
   zod@3.24.2:
     resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -4485,6 +4890,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
+<<<<<<< HEAD
   '@antfu/install-pkg@1.0.0':
     dependencies:
       package-manager-detector: 0.2.9
@@ -4494,6 +4900,10 @@ snapshots:
 
   '@antfu/utils@8.1.0': {}
 
+=======
+  '@antfu/utils@0.7.10': {}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@babel/code-frame@7.26.2':
     dependencies:
       '@babel/helper-validator-identifier': 7.25.9
@@ -4690,6 +5100,7 @@ snapshots:
     dependencies:
       mime: 3.0.0
 
+<<<<<<< HEAD
   '@cloudflare/workerd-darwin-64@1.20250204.0':
     optional: true
 
@@ -4707,6 +5118,8 @@ snapshots:
 
   '@cloudflare/workers-types@4.20250204.0': {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
@@ -4724,6 +5137,7 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
+<<<<<<< HEAD
   '@esbuild-plugins/node-globals-polyfill@0.2.3(esbuild@0.17.19)':
     dependencies:
       esbuild: 0.17.19
@@ -4830,21 +5244,75 @@ snapshots:
   '@esbuild/linux-x64@0.17.19':
     optional: true
 
+=======
+  '@esbuild/aix-ppc64@0.24.2':
+    optional: true
+
+  '@esbuild/android-arm64@0.24.2':
+    optional: true
+
+  '@esbuild/android-arm@0.24.2':
+    optional: true
+
+  '@esbuild/android-x64@0.24.2':
+    optional: true
+
+  '@esbuild/darwin-arm64@0.24.2':
+    optional: true
+
+  '@esbuild/darwin-x64@0.24.2':
+    optional: true
+
+  '@esbuild/freebsd-arm64@0.24.2':
+    optional: true
+
+  '@esbuild/freebsd-x64@0.24.2':
+    optional: true
+
+  '@esbuild/linux-arm64@0.24.2':
+    optional: true
+
+  '@esbuild/linux-arm@0.24.2':
+    optional: true
+
+  '@esbuild/linux-ia32@0.24.2':
+    optional: true
+
+  '@esbuild/linux-loong64@0.24.2':
+    optional: true
+
+  '@esbuild/linux-mips64el@0.24.2':
+    optional: true
+
+  '@esbuild/linux-ppc64@0.24.2':
+    optional: true
+
+  '@esbuild/linux-riscv64@0.24.2':
+    optional: true
+
+  '@esbuild/linux-s390x@0.24.2':
+    optional: true
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/linux-x64@0.24.2':
     optional: true
 
   '@esbuild/netbsd-arm64@0.24.2':
     optional: true
 
+<<<<<<< HEAD
   '@esbuild/netbsd-x64@0.17.19':
     optional: true
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@esbuild/netbsd-x64@0.24.2':
     optional: true
 
   '@esbuild/openbsd-arm64@0.24.2':
     optional: true
 
+<<<<<<< HEAD
   '@esbuild/openbsd-x64@0.17.19':
     optional: true
 
@@ -4918,6 +5386,23 @@ snapshots:
       '@iconify/types': 2.0.0
       vue: 3.5.13(typescript@5.7.3)
 
+=======
+  '@esbuild/openbsd-x64@0.24.2':
+    optional: true
+
+  '@esbuild/sunos-x64@0.24.2':
+    optional: true
+
+  '@esbuild/win32-arm64@0.24.2':
+    optional: true
+
+  '@esbuild/win32-ia32@0.24.2':
+    optional: true
+
+  '@esbuild/win32-x64@0.24.2':
+    optional: true
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
       '@img/sharp-libvips-darwin-arm64': 1.0.4
@@ -5044,6 +5529,38 @@ snapshots:
       path-to-regexp: 6.3.0
     transitivePeerDependencies:
       - supports-color
+
+  '@kwsites/file-exists@1.1.1':
+    dependencies:
+      debug: 4.4.0(supports-color@9.4.0)
+    transitivePeerDependencies:
+      - supports-color
+
+  '@kwsites/promise-deferred@1.1.1': {}
+
+  '@mapbox/node-pre-gyp@2.0.0':
+    dependencies:
+      consola: 3.4.0
+      detect-libc: 2.0.3
+      https-proxy-agent: 7.0.6(supports-color@9.4.0)
+      node-fetch: 2.7.0
+      nopt: 8.1.0
+      semver: 7.7.1
+      tar: 7.4.3
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
+
+  '@netlify/functions@2.8.2':
+    dependencies:
+      '@netlify/serverless-functions-api': 1.26.1
+
+  '@netlify/node-cookies@0.1.0': {}
+
+  '@netlify/serverless-functions-api@1.26.1':
+    dependencies:
+      '@netlify/node-cookies': 0.1.0
+      urlpattern-polyfill: 8.0.2
 
   '@kwsites/file-exists@1.1.1':
     dependencies:
@@ -5215,6 +5732,7 @@ snapshots:
       - utf-8-validate
       - vue
 
+<<<<<<< HEAD
   '@nuxt/icon@1.10.3(magicast@0.3.5)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@iconify/collections': 1.0.517
@@ -5237,6 +5755,8 @@ snapshots:
       - vite
       - vue
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@nuxt/kit@3.15.4(magicast@0.3.5)':
     dependencies:
       c12: 2.0.2(magicast@0.3.5)
@@ -5289,6 +5809,7 @@ snapshots:
       - magicast
       - supports-color
 
+<<<<<<< HEAD
   '@nuxt/ui@2.21.0(change-case@5.4.4)(magicast@0.3.5)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@headlessui/tailwindcss': 0.2.2(tailwindcss@3.4.17)
@@ -5333,6 +5854,9 @@ snapshots:
       - vue
 
   '@nuxt/vite-builder@3.15.4(@types/node@20.17.17)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vue-tsc@2.2.0(typescript@5.7.3))(vue@3.5.13(typescript@5.7.3))(yaml@2.7.0)':
+=======
+  '@nuxt/vite-builder@3.15.4(@types/node@20.17.17)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))(yaml@2.7.0)':
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
     dependencies:
       '@nuxt/kit': 3.15.4(magicast@0.3.5)
       '@rollup/plugin-replace': 6.0.2(rollup@4.34.6)
@@ -5363,7 +5887,11 @@ snapshots:
       unplugin: 2.2.0
       vite: 6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0)
       vite-node: 3.0.5(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0)
+<<<<<<< HEAD
       vite-plugin-checker: 0.8.0(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))
+=======
+      vite-plugin-checker: 0.8.0(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
       vue: 3.5.13(typescript@5.7.3)
       vue-bundle-renderer: 2.1.1
     transitivePeerDependencies:
@@ -5391,6 +5919,7 @@ snapshots:
       - vue-tsc
       - yaml
 
+<<<<<<< HEAD
   '@nuxthub/core@0.7.37(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))':
     dependencies:
       '@cloudflare/workers-types': 4.20250204.0
@@ -5466,6 +5995,8 @@ snapshots:
       - supports-color
       - ts-node
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@parcel/watcher-android-arm64@2.5.1':
     optional: true
 
@@ -5536,8 +6067,11 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
+<<<<<<< HEAD
   '@popperjs/core@2.11.8': {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@redocly/ajv@8.11.2':
     dependencies:
       fast-deep-equal: 3.1.3
@@ -5689,6 +6223,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
+<<<<<<< HEAD
   '@tailwindcss/aspect-ratio@0.4.2(tailwindcss@3.4.17)':
     dependencies:
       tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@20.17.17)(typescript@5.7.3))
@@ -5717,6 +6252,8 @@ snapshots:
       '@tanstack/virtual-core': 3.13.0
       vue: 3.5.13(typescript@5.7.3)
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@trysound/sax@0.2.0': {}
 
   '@tsconfig/node10@1.0.11':
@@ -5755,8 +6292,11 @@ snapshots:
 
   '@types/resolve@1.20.2': {}
 
+<<<<<<< HEAD
   '@types/web-bluetooth@0.0.20': {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@unhead/dom@1.11.19':
     dependencies:
       '@unhead/schema': 1.11.19
@@ -5785,8 +6325,11 @@ snapshots:
       unhead: 1.11.19
       vue: 3.5.13(typescript@5.7.3)
 
+<<<<<<< HEAD
   '@uploadthing/mime-types@0.3.4': {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@vercel/nft@0.27.10(rollup@4.34.6)':
     dependencies:
       '@mapbox/node-pre-gyp': 2.0.0
@@ -5828,6 +6371,7 @@ snapshots:
       vite: 6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0)
       vue: 3.5.13(typescript@5.7.3)
 
+<<<<<<< HEAD
   '@volar/language-core@2.4.11':
     dependencies:
       '@volar/source-map': 2.4.11
@@ -5840,6 +6384,8 @@ snapshots:
       path-browserify: 1.0.1
       vscode-uri: 3.1.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@vue-macros/common@1.16.1(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@vue/compiler-sfc': 3.5.13
@@ -5911,11 +6457,14 @@ snapshots:
       '@vue/compiler-dom': 3.5.13
       '@vue/shared': 3.5.13
 
+<<<<<<< HEAD
   '@vue/compiler-vue2@2.7.16':
     dependencies:
       de-indent: 1.0.2
       he: 1.2.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@vue/devtools-api@6.6.4': {}
 
   '@vue/devtools-core@7.6.8(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))':
@@ -5944,6 +6493,7 @@ snapshots:
     dependencies:
       rfdc: 1.4.1
 
+<<<<<<< HEAD
   '@vue/language-core@2.2.0(typescript@5.7.3)':
     dependencies:
       '@volar/language-core': 2.4.11
@@ -5957,6 +6507,8 @@ snapshots:
     optionalDependencies:
       typescript: 5.7.3
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   '@vue/reactivity@3.5.13':
     dependencies:
       '@vue/shared': 3.5.13
@@ -5981,6 +6533,7 @@ snapshots:
 
   '@vue/shared@3.5.13': {}
 
+<<<<<<< HEAD
   '@vueuse/core@11.3.0(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@types/web-bluetooth': 0.0.20
@@ -6035,12 +6588,15 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   abbrev@3.0.0: {}
 
   abort-controller@3.0.0:
     dependencies:
       event-target-shim: 5.0.1
 
+<<<<<<< HEAD
   accepts@1.3.8:
     dependencies:
       mime-types: 2.1.35
@@ -6051,6 +6607,11 @@ snapshots:
       acorn: 8.14.0
 
   acorn-walk@8.3.2: {}
+=======
+  acorn-import-attributes@1.9.5(acorn@8.14.0):
+    dependencies:
+      acorn: 8.14.0
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
 
   acorn-walk@8.3.4:
     dependencies:
@@ -6061,8 +6622,11 @@ snapshots:
 
   agent-base@7.1.3: {}
 
+<<<<<<< HEAD
   alien-signals@0.4.14: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   ansi-colors@4.1.3: {}
 
   ansi-escapes@4.3.2:
@@ -6113,10 +6677,13 @@ snapshots:
 
   argparse@2.0.1: {}
 
+<<<<<<< HEAD
   as-table@1.0.55:
     dependencies:
       printable-characters: 1.0.42
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   ast-kit@1.4.0:
     dependencies:
       '@babel/parser': 7.26.8
@@ -6129,6 +6696,7 @@ snapshots:
 
   async-sema@3.1.1: {}
 
+<<<<<<< HEAD
   async@2.6.4:
     dependencies:
       lodash: 4.17.21
@@ -6137,6 +6705,10 @@ snapshots:
 
   at-least-node@1.0.0: {}
 
+=======
+  async@3.2.6: {}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   autoprefixer@10.4.20(postcss@8.5.2):
     dependencies:
       browserslist: 4.24.4
@@ -6147,6 +6719,7 @@ snapshots:
       postcss: 8.5.2
       postcss-value-parser: 4.2.0
 
+<<<<<<< HEAD
   available-typed-arrays@1.0.7:
     dependencies:
       possible-typed-array-names: 1.1.0
@@ -6164,6 +6737,8 @@ snapshots:
       uuid: 8.0.0
       xml2js: 0.6.2
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   b4a@1.6.7: {}
 
   balanced-match@1.0.2: {}
@@ -6181,8 +6756,11 @@ snapshots:
 
   birpc@0.2.19: {}
 
+<<<<<<< HEAD
   blake3-wasm@2.1.5: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   boolbase@1.0.0: {}
 
   brace-expansion@1.1.11:
@@ -6209,12 +6787,15 @@ snapshots:
 
   buffer-from@1.1.2: {}
 
+<<<<<<< HEAD
   buffer@4.9.2:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.1.13
       isarray: 1.0.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   buffer@6.0.3:
     dependencies:
       base64-js: 1.5.1
@@ -6264,6 +6845,7 @@ snapshots:
 
   cac@6.7.14: {}
 
+<<<<<<< HEAD
   cache-content-type@1.0.1:
     dependencies:
       mime-types: 2.1.35
@@ -6286,6 +6868,8 @@ snapshots:
       call-bind-apply-helpers: 1.0.2
       get-intrinsic: 1.2.7
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   camelcase-css@2.0.1: {}
 
   caniuse-api@3.0.0:
@@ -6350,8 +6934,11 @@ snapshots:
 
   cluster-key-slot@1.1.2: {}
 
+<<<<<<< HEAD
   co@4.6.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   color-convert@2.0.1:
     dependencies:
       color-name: 1.1.4
@@ -6378,8 +6965,11 @@ snapshots:
 
   commander@4.1.1: {}
 
+<<<<<<< HEAD
   commander@6.2.1: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   commander@7.2.0: {}
 
   commander@8.3.0: {}
@@ -6402,16 +6992,20 @@ snapshots:
 
   consola@3.4.0: {}
 
+<<<<<<< HEAD
   content-disposition@0.5.4:
     dependencies:
       safe-buffer: 5.2.1
 
   content-type@1.0.5: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   convert-source-map@2.0.0: {}
 
   cookie-es@1.2.2: {}
 
+<<<<<<< HEAD
   cookie@0.5.0: {}
 
   cookies@0.9.1:
@@ -6419,6 +7013,8 @@ snapshots:
       depd: 2.0.0
       keygrip: 1.1.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   copy-anything@3.0.5:
     dependencies:
       is-what: 4.1.16
@@ -6527,28 +7123,39 @@ snapshots:
 
   csstype@3.1.3: {}
 
+<<<<<<< HEAD
   data-uri-to-buffer@2.0.2: {}
 
   db0@0.2.4: {}
 
   de-indent@1.0.2: {}
 
+=======
+  db0@0.2.4: {}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   debug@2.6.9:
     dependencies:
       ms: 2.0.0
 
+<<<<<<< HEAD
   debug@3.2.7:
     dependencies:
       ms: 2.1.3
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   debug@4.4.0(supports-color@9.4.0):
     dependencies:
       ms: 2.1.3
     optionalDependencies:
       supports-color: 9.4.0
 
+<<<<<<< HEAD
   deep-equal@1.0.1: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   deepmerge@4.3.1: {}
 
   default-browser-id@5.0.0: {}
@@ -6558,24 +7165,32 @@ snapshots:
       bundle-name: 4.1.0
       default-browser-id: 5.0.0
 
+<<<<<<< HEAD
   define-data-property@1.1.4:
     dependencies:
       es-define-property: 1.0.1
       es-errors: 1.3.0
       gopd: 1.2.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   define-lazy-prop@2.0.0: {}
 
   define-lazy-prop@3.0.0: {}
 
   defu@6.1.4: {}
 
+<<<<<<< HEAD
   delegates@1.0.0: {}
 
   denque@2.1.0: {}
 
   depd@1.1.2: {}
 
+=======
+  denque@2.1.0: {}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   depd@2.0.0: {}
 
   destr@2.0.3: {}
@@ -6621,12 +7236,15 @@ snapshots:
 
   dotenv@16.4.7: {}
 
+<<<<<<< HEAD
   dunder-proto@1.0.1:
     dependencies:
       call-bind-apply-helpers: 1.0.2
       es-errors: 1.3.0
       gopd: 1.2.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   duplexer@0.1.2: {}
 
   eastasianwidth@0.2.0: {}
@@ -6654,6 +7272,7 @@ snapshots:
 
   errx@0.1.0: {}
 
+<<<<<<< HEAD
   es-define-property@1.0.1: {}
 
   es-errors@1.3.0: {}
@@ -6689,6 +7308,10 @@ snapshots:
       '@esbuild/win32-ia32': 0.17.19
       '@esbuild/win32-x64': 0.17.19
 
+=======
+  es-module-lexer@1.6.0: {}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   esbuild@0.24.2:
     optionalDependencies:
       '@esbuild/aix-ppc64': 0.24.2
@@ -6721,12 +7344,17 @@ snapshots:
 
   escape-html@1.0.3: {}
 
+<<<<<<< HEAD
   escape-string-regexp@4.0.0: {}
 
   escape-string-regexp@5.0.0: {}
 
   estree-walker@0.6.1: {}
 
+=======
+  escape-string-regexp@5.0.0: {}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   estree-walker@2.0.2: {}
 
   estree-walker@3.0.3:
@@ -6737,8 +7365,11 @@ snapshots:
 
   event-target-shim@5.0.1: {}
 
+<<<<<<< HEAD
   events@1.1.1: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   events@3.3.0: {}
 
   execa@7.2.0:
@@ -6765,8 +7396,11 @@ snapshots:
       signal-exit: 4.1.0
       strip-final-newline: 3.0.0
 
+<<<<<<< HEAD
   exit-hook@2.2.1: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   externality@1.0.2:
     dependencies:
       enhanced-resolve: 5.18.1
@@ -6806,10 +7440,13 @@ snapshots:
 
   flatted@3.3.2: {}
 
+<<<<<<< HEAD
   for-each@0.3.5:
     dependencies:
       is-callable: 1.2.7
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   foreground-child@3.3.0:
     dependencies:
       cross-spawn: 7.0.6
@@ -6834,6 +7471,7 @@ snapshots:
       jsonfile: 6.1.0
       universalify: 2.0.1
 
+<<<<<<< HEAD
   fs-extra@9.1.0:
     dependencies:
       at-least-node: 1.0.0
@@ -6841,6 +7479,8 @@ snapshots:
       jsonfile: 6.1.0
       universalify: 2.0.1
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   fs-minipass@2.1.0:
     dependencies:
       minipass: 3.3.6
@@ -6858,6 +7498,7 @@ snapshots:
 
   get-caller-file@2.0.5: {}
 
+<<<<<<< HEAD
   get-intrinsic@1.2.7:
     dependencies:
       call-bind-apply-helpers: 1.0.2
@@ -6883,6 +7524,10 @@ snapshots:
       data-uri-to-buffer: 2.0.2
       source-map: 0.6.1
 
+=======
+  get-port-please@3.1.2: {}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   get-stream@6.0.1: {}
 
   get-stream@8.0.1: {}
@@ -6943,8 +7588,11 @@ snapshots:
 
   globals@11.12.0: {}
 
+<<<<<<< HEAD
   globals@15.15.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   globby@14.1.0:
     dependencies:
       '@sindresorhus/merge-streams': 2.3.0
@@ -6954,8 +7602,11 @@ snapshots:
       slash: 5.1.0
       unicorn-magic: 0.3.0
 
+<<<<<<< HEAD
   gopd@1.2.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   graceful-fs@4.2.11: {}
 
   gzip-size@7.0.0:
@@ -6977,6 +7628,7 @@ snapshots:
 
   has-flag@4.0.0: {}
 
+<<<<<<< HEAD
   has-property-descriptors@1.0.2:
     dependencies:
       es-define-property: 1.0.1
@@ -6987,16 +7639,22 @@ snapshots:
     dependencies:
       has-symbols: 1.1.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
 
+<<<<<<< HEAD
   he@1.2.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   hookable@5.5.3: {}
 
   html-tags@3.3.1: {}
 
+<<<<<<< HEAD
   http-assert@1.5.0:
     dependencies:
       deep-equal: 1.0.1
@@ -7017,6 +7675,8 @@ snapshots:
       statuses: 1.5.0
       toidentifier: 1.0.1
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   http-errors@2.0.0:
     dependencies:
       depd: 2.0.0
@@ -7040,8 +7700,11 @@ snapshots:
 
   human-signals@5.0.0: {}
 
+<<<<<<< HEAD
   ieee754@1.1.13: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   ieee754@1.2.1: {}
 
   ignore@7.0.3: {}
@@ -7065,8 +7728,11 @@ snapshots:
       once: 1.4.0
       wrappy: 1.0.2
 
+<<<<<<< HEAD
   inherits@2.0.3: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   inherits@2.0.4: {}
 
   ini@1.3.8: {}
@@ -7089,11 +7755,14 @@ snapshots:
 
   iron-webcrypto@1.2.1: {}
 
+<<<<<<< HEAD
   is-arguments@1.2.0:
     dependencies:
       call-bound: 1.0.3
       has-tostringtag: 1.0.2
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   is-arrayish@0.3.2:
     optional: true
 
@@ -7145,6 +7814,7 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.6
 
+<<<<<<< HEAD
   is-regex@1.2.1:
     dependencies:
       call-bound: 1.0.3
@@ -7152,6 +7822,8 @@ snapshots:
       has-tostringtag: 1.0.2
       hasown: 2.0.2
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   is-ssh@1.4.1:
     dependencies:
       protocols: 2.0.2
@@ -7160,10 +7832,13 @@ snapshots:
 
   is-stream@3.0.0: {}
 
+<<<<<<< HEAD
   is-typed-array@1.1.15:
     dependencies:
       which-typed-array: 1.1.18
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   is-what@4.1.16: {}
 
   is-wsl@2.2.0:
@@ -7192,8 +7867,11 @@ snapshots:
 
   jiti@2.4.2: {}
 
+<<<<<<< HEAD
   jmespath@0.16.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   js-levenshtein@1.1.6: {}
 
   js-tokens@4.0.0: {}
@@ -7216,16 +7894,20 @@ snapshots:
     optionalDependencies:
       graceful-fs: 4.2.11
 
+<<<<<<< HEAD
   keygrip@1.1.0:
     dependencies:
       tsscmp: 1.0.6
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   kleur@3.0.3: {}
 
   klona@2.0.6: {}
 
   knitwork@1.2.0: {}
 
+<<<<<<< HEAD
   koa-compose@4.1.0: {}
 
   koa-convert@2.0.0:
@@ -7276,6 +7958,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   kolorist@1.8.0: {}
 
   launch-editor@2.9.1:
@@ -7322,18 +8006,26 @@ snapshots:
       mlly: 1.7.4
       pkg-types: 1.3.1
 
+<<<<<<< HEAD
   lodash.castarray@4.4.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   lodash.defaults@4.2.0: {}
 
   lodash.isarguments@3.1.0: {}
 
+<<<<<<< HEAD
   lodash.isplainobject@4.0.6: {}
 
   lodash.memoize@4.1.2: {}
 
   lodash.merge@4.6.2: {}
 
+=======
+  lodash.memoize@4.1.2: {}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   lodash.uniq@4.5.0: {}
 
   lodash@4.17.21: {}
@@ -7352,10 +8044,13 @@ snapshots:
     dependencies:
       magic-string: 0.30.17
 
+<<<<<<< HEAD
   magic-string@0.25.9:
     dependencies:
       sourcemap-codec: 1.4.8
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -7369,14 +8064,20 @@ snapshots:
   make-error@1.3.6:
     optional: true
 
+<<<<<<< HEAD
   math-intrinsics@1.1.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   mdn-data@2.0.28: {}
 
   mdn-data@2.0.30: {}
 
+<<<<<<< HEAD
   media-typer@0.3.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   merge-stream@2.0.0: {}
 
   merge2@1.4.1: {}
@@ -7388,12 +8089,15 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
+<<<<<<< HEAD
   mime-db@1.52.0: {}
 
   mime-types@2.1.35:
     dependencies:
       mime-db: 1.52.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   mime@1.6.0: {}
 
   mime@3.0.0: {}
@@ -7402,6 +8106,7 @@ snapshots:
 
   mimic-fn@4.0.0: {}
 
+<<<<<<< HEAD
   mini-svg-data-uri@1.4.4: {}
 
   miniflare@3.20250204.1:
@@ -7421,6 +8126,8 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   minimatch@3.1.2:
     dependencies:
       brace-expansion: 1.1.11
@@ -7433,8 +8140,11 @@ snapshots:
     dependencies:
       brace-expansion: 2.0.1
 
+<<<<<<< HEAD
   minimist@1.2.8: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   minipass@3.3.6:
     dependencies:
       yallist: 4.0.0
@@ -7455,10 +8165,13 @@ snapshots:
 
   mitt@3.0.1: {}
 
+<<<<<<< HEAD
   mkdirp@0.5.6:
     dependencies:
       minimist: 1.2.8
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   mkdirp@1.0.4: {}
 
   mkdirp@3.0.1: {}
@@ -7490,10 +8203,13 @@ snapshots:
 
   ms@2.1.3: {}
 
+<<<<<<< HEAD
   muggle-string@0.4.1: {}
 
   mustache@4.2.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   mz@2.7.0:
     dependencies:
       any-promise: 1.3.0
@@ -7506,8 +8222,11 @@ snapshots:
 
   nanotar@0.2.0: {}
 
+<<<<<<< HEAD
   negotiator@0.6.3: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   next-themes@0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
@@ -7538,6 +8257,7 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
+<<<<<<< HEAD
   nitro-cloudflare-dev@0.2.1:
     dependencies:
       consola: 3.4.0
@@ -7545,6 +8265,9 @@ snapshots:
       pkg-types: 1.3.1
 
   nitropack@2.10.4(typescript@5.7.3)(xml2js@0.6.2):
+=======
+  nitropack@2.10.4(typescript@5.7.3):
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@netlify/functions': 2.8.2
@@ -7614,8 +8337,11 @@ snapshots:
       unstorage: 1.14.4(db0@0.2.4)(ioredis@5.5.0)
       untyped: 1.5.2
       unwasm: 0.3.9
+<<<<<<< HEAD
     optionalDependencies:
       xml2js: 0.6.2
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -7680,7 +8406,11 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
+<<<<<<< HEAD
   nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0):
+=======
+  nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(yaml@2.7.0):
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
     dependencies:
       '@nuxt/cli': 3.21.1(magicast@0.3.5)
       '@nuxt/devalue': 2.0.2
@@ -7688,7 +8418,11 @@ snapshots:
       '@nuxt/kit': 3.15.4(magicast@0.3.5)
       '@nuxt/schema': 3.15.4
       '@nuxt/telemetry': 2.6.5(magicast@0.3.5)
+<<<<<<< HEAD
       '@nuxt/vite-builder': 3.15.4(@types/node@20.17.17)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vue-tsc@2.2.0(typescript@5.7.3))(vue@3.5.13(typescript@5.7.3))(yaml@2.7.0)
+=======
+      '@nuxt/vite-builder': 3.15.4(@types/node@20.17.17)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))(yaml@2.7.0)
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
       '@unhead/dom': 1.11.19
       '@unhead/shared': 1.11.19
       '@unhead/ssr': 1.11.19
@@ -7718,7 +8452,11 @@ snapshots:
       magic-string: 0.30.17
       mlly: 1.7.4
       nanotar: 0.2.0
+<<<<<<< HEAD
       nitropack: 2.10.4(typescript@5.7.3)(xml2js@0.6.2)
+=======
+      nitropack: 2.10.4(typescript@5.7.3)
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
       nypm: 0.5.2
       ofetch: 1.4.1
       ohash: 1.1.4
@@ -7844,8 +8582,11 @@ snapshots:
     dependencies:
       mimic-fn: 4.0.0
 
+<<<<<<< HEAD
   only@0.0.2: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   open@10.1.0:
     dependencies:
       default-browser: 5.2.1
@@ -7853,11 +8594,14 @@ snapshots:
       is-inside-container: 1.0.0
       is-wsl: 3.1.0
 
+<<<<<<< HEAD
   open@7.4.2:
     dependencies:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   open@8.4.2:
     dependencies:
       define-lazy-prop: 2.0.0
@@ -7902,8 +8646,11 @@ snapshots:
 
   parseurl@1.3.3: {}
 
+<<<<<<< HEAD
   path-browserify@1.0.1: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   path-is-absolute@1.0.1: {}
 
   path-key@3.1.1: {}
@@ -7917,8 +8664,11 @@ snapshots:
       lru-cache: 10.4.3
       minipass: 7.1.2
 
+<<<<<<< HEAD
   path-to-regexp@6.3.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   path-type@6.0.0: {}
 
   pathe@1.1.2: {}
@@ -7945,6 +8695,7 @@ snapshots:
 
   pluralize@8.0.0: {}
 
+<<<<<<< HEAD
   portfinder@1.0.32:
     dependencies:
       async: 2.6.4
@@ -7955,6 +8706,8 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   postcss-calc@10.1.1(postcss@8.5.2):
     dependencies:
       postcss: 8.5.2
@@ -8056,6 +8809,7 @@ snapshots:
       postcss: 8.5.2
       postcss-selector-parser: 6.1.2
 
+<<<<<<< HEAD
   postcss-nesting@13.0.1(postcss@8.5.2):
     dependencies:
       '@csstools/selector-resolve-nested': 3.0.0(postcss-selector-parser@7.1.0)
@@ -8063,6 +8817,8 @@ snapshots:
       postcss: 8.5.2
       postcss-selector-parser: 7.1.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   postcss-normalize-charset@7.0.0(postcss@8.5.2):
     dependencies:
       postcss: 8.5.2
@@ -8125,11 +8881,14 @@ snapshots:
       postcss: 8.5.2
       postcss-value-parser: 4.2.0
 
+<<<<<<< HEAD
   postcss-selector-parser@6.0.10:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   postcss-selector-parser@6.1.2:
     dependencies:
       cssesc: 3.0.0
@@ -8178,8 +8937,11 @@ snapshots:
 
   pretty-bytes@6.1.1: {}
 
+<<<<<<< HEAD
   printable-characters@1.0.42: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   process-nextick-args@2.0.1: {}
 
   process@0.11.10: {}
@@ -8191,10 +8953,13 @@ snapshots:
 
   protocols@2.0.2: {}
 
+<<<<<<< HEAD
   punycode@1.3.2: {}
 
   querystring@0.2.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   queue-microtask@1.2.3: {}
 
   radix3@1.1.2: {}
@@ -8255,23 +9020,29 @@ snapshots:
     dependencies:
       redis-errors: 1.2.0
 
+<<<<<<< HEAD
   replace-in-file@6.3.5:
     dependencies:
       chalk: 4.1.2
       glob: 7.2.3
       yargs: 17.7.2
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   require-directory@2.1.1: {}
 
   require-from-string@2.0.2: {}
 
   resolve-from@5.0.0: {}
 
+<<<<<<< HEAD
   resolve-path@1.4.0:
     dependencies:
       http-errors: 1.6.3
       path-is-absolute: 1.0.1
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   resolve@1.22.10:
     dependencies:
       is-core-module: 2.16.1
@@ -8286,6 +9057,7 @@ snapshots:
     dependencies:
       glob: 10.4.5
 
+<<<<<<< HEAD
   rollup-plugin-inject@3.0.2:
     dependencies:
       estree-walker: 0.6.1
@@ -8296,6 +9068,8 @@ snapshots:
     dependencies:
       rollup-plugin-inject: 3.0.2
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   rollup-plugin-visualizer@5.14.0(rollup@4.34.6):
     dependencies:
       open: 8.4.2
@@ -8305,10 +9079,13 @@ snapshots:
     optionalDependencies:
       rollup: 4.34.6
 
+<<<<<<< HEAD
   rollup-pluginutils@2.8.2:
     dependencies:
       estree-walker: 0.6.1
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   rollup@4.34.6:
     dependencies:
       '@types/estree': 1.0.6
@@ -8344,6 +9121,7 @@ snapshots:
 
   safe-buffer@5.2.1: {}
 
+<<<<<<< HEAD
   safe-regex-test@1.1.0:
     dependencies:
       call-bound: 1.0.3
@@ -8352,6 +9130,8 @@ snapshots:
 
   sax@1.2.1: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   scheduler@0.25.0: {}
 
   scule@1.3.0: {}
@@ -8395,6 +9175,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+<<<<<<< HEAD
   set-function-length@1.2.2:
     dependencies:
       define-data-property: 1.1.4
@@ -8406,6 +9187,8 @@ snapshots:
 
   setprototypeof@1.1.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   setprototypeof@1.2.0: {}
 
   sharp@0.33.5:
@@ -8483,6 +9266,7 @@ snapshots:
 
   source-map@0.7.4: {}
 
+<<<<<<< HEAD
   sourcemap-codec@1.4.8: {}
 
   speakingurl@14.0.1: {}
@@ -8496,12 +9280,21 @@ snapshots:
 
   statuses@1.5.0: {}
 
+=======
+  speakingurl@14.0.1: {}
+
+  standard-as-callback@2.1.0: {}
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   statuses@2.0.1: {}
 
   std-env@3.8.0: {}
 
+<<<<<<< HEAD
   stoppable@1.1.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   streamsearch@1.1.0: {}
 
   streamx@2.22.0:
@@ -8596,6 +9389,7 @@ snapshots:
 
   system-architecture@0.1.0: {}
 
+<<<<<<< HEAD
   tailwind-config-viewer@2.0.4(tailwindcss@3.4.17):
     dependencies:
       '@koa/router': 12.0.2
@@ -8612,6 +9406,8 @@ snapshots:
 
   tailwind-merge@2.6.0: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   tailwind-merge@3.0.1: {}
 
   tailwindcss-animate@1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@20.17.17)(typescript@5.7.3))):
@@ -8765,11 +9561,14 @@ snapshots:
 
   type-fest@4.34.1: {}
 
+<<<<<<< HEAD
   type-is@1.6.18:
     dependencies:
       media-typer: 0.3.0
       mime-types: 2.1.35
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   typescript@5.7.3: {}
 
   ufo@1.5.4: {}
@@ -8787,10 +9586,13 @@ snapshots:
 
   undici-types@6.19.8: {}
 
+<<<<<<< HEAD
   undici@5.28.5:
     dependencies:
       '@fastify/busboy': 2.1.1
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   unenv@1.10.0:
     dependencies:
       consola: 3.4.0
@@ -8799,6 +9601,7 @@ snapshots:
       node-fetch-native: 1.6.6
       pathe: 1.1.2
 
+<<<<<<< HEAD
   unenv@2.0.0-rc.1:
     dependencies:
       defu: 6.1.4
@@ -8807,6 +9610,8 @@ snapshots:
       pathe: 1.1.2
       ufo: 1.5.4
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   unhead@1.11.19:
     dependencies:
       '@unhead/dom': 1.11.19
@@ -8948,11 +9753,14 @@ snapshots:
 
   uri-js-replace@1.0.1: {}
 
+<<<<<<< HEAD
   url@0.10.3:
     dependencies:
       punycode: 1.3.2
       querystring: 0.2.0
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   urlpattern-polyfill@8.0.2: {}
 
   util-deprecate@1.0.2: {}
@@ -8970,8 +9778,11 @@ snapshots:
   v8-compile-cache-lib@3.0.1:
     optional: true
 
+<<<<<<< HEAD
   vary@1.1.2: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   vite-hot-client@0.2.4(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0)):
     dependencies:
       vite: 6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0)
@@ -8997,7 +9808,11 @@ snapshots:
       - tsx
       - yaml
 
+<<<<<<< HEAD
   vite-plugin-checker@0.8.0(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3)):
+=======
+  vite-plugin-checker@0.8.0(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0)):
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
     dependencies:
       '@babel/code-frame': 7.26.2
       ansi-escapes: 4.3.2
@@ -9016,7 +9831,10 @@ snapshots:
       vscode-uri: 3.1.0
     optionalDependencies:
       typescript: 5.7.3
+<<<<<<< HEAD
       vue-tsc: 2.2.0(typescript@5.7.3)
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
 
   vite-plugin-inspect@0.8.9(@nuxt/kit@3.15.4(magicast@0.3.5))(rollup@4.34.6)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0)):
     dependencies:
@@ -9090,10 +9908,13 @@ snapshots:
     dependencies:
       ufo: 1.5.4
 
+<<<<<<< HEAD
   vue-demi@0.14.10(vue@3.5.13(typescript@5.7.3)):
     dependencies:
       vue: 3.5.13(typescript@5.7.3)
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   vue-devtools-stub@0.1.0: {}
 
   vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)):
@@ -9101,12 +9922,15 @@ snapshots:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.13(typescript@5.7.3)
 
+<<<<<<< HEAD
   vue-tsc@2.2.0(typescript@5.7.3):
     dependencies:
       '@volar/typescript': 2.4.11
       '@vue/language-core': 2.2.0(typescript@5.7.3)
       typescript: 5.7.3
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   vue@3.5.13(typescript@5.7.3):
     dependencies:
       '@vue/compiler-dom': 3.5.13
@@ -9128,6 +9952,7 @@ snapshots:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
 
+<<<<<<< HEAD
   which-typed-array@1.1.18:
     dependencies:
       available-typed-arrays: 1.0.7
@@ -9137,6 +9962,8 @@ snapshots:
       gopd: 1.2.0
       has-tostringtag: 1.0.2
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   which@2.0.2:
     dependencies:
       isexe: 2.0.0
@@ -9145,6 +9972,7 @@ snapshots:
     dependencies:
       isexe: 2.0.0
 
+<<<<<<< HEAD
   workerd@1.20250204.0:
     optionalDependencies:
       '@cloudflare/workerd-darwin-64': 1.20250204.0
@@ -9172,6 +10000,8 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   wrap-ansi@7.0.0:
     dependencies:
       ansi-styles: 4.3.0
@@ -9188,6 +10018,7 @@ snapshots:
 
   ws@8.18.0: {}
 
+<<<<<<< HEAD
   xml2js@0.6.2:
     dependencies:
       sax: 1.2.1
@@ -9195,6 +10026,8 @@ snapshots:
 
   xmlbuilder@11.0.1: {}
 
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   y18n@5.0.8: {}
 
   yallist@3.1.1: {}
@@ -9219,6 +10052,7 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 21.1.1
 
+<<<<<<< HEAD
   ylru@1.4.0: {}
 
   yn@3.1.1:
@@ -9230,6 +10064,11 @@ snapshots:
       mustache: 4.2.0
       stacktracey: 2.1.8
 
+=======
+  yn@3.1.1:
+    optional: true
+
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
   zhead@2.2.4: {}
 
   zip-stream@6.0.1:
@@ -9237,7 +10076,10 @@ snapshots:
       archiver-utils: 5.0.2
       compress-commons: 6.0.2
       readable-stream: 4.7.0
+<<<<<<< HEAD
 
   zod@3.22.3: {}
 
   zod@3.24.2: {}
+=======
+>>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
