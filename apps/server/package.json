@@ -91,6 +91,7 @@
     "@nuxthub/core": "^0.7.20",
     "@vueuse/core": "^11.1.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "nuxt": "^3.13.2"
 =======
     "@vueuse/nuxt": "^11.1.0",
@@ -98,15 +99,21 @@
     "nuxt-auth-utils": "^0.4.2",
     "vue-advanced-cropper": "^2.8.9"
 >>>>>>> f2a68fd (add server configuration, API endpoints, and image handling components)
+=======
+    "nuxt": "^3.13.2"
+>>>>>>> f3c9738 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
   },
   "devDependencies": {
     "@iconify-json/simple-icons": "^1.2.5",
     "@nuxt/devtools": "^1.5.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "lint-staged": "^15.2.10",
     "simple-git-hooks": "^2.11.1",
 >>>>>>> f2a68fd (add server configuration, API endpoints, and image handling components)
+=======
+>>>>>>> f3c9738 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
     "typescript": "^5.6.2",
     "vue-tsc": "^2.1.6",
     "wrangler": "^3.79.0"
