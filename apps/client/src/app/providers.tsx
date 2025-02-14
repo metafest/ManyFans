@@ -18,7 +18,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
           capture_pageleave: true, // Enable pageleave capture
         });
       } else {
-        console.error('PostHog key or host is not defined');
+        console.log('PostHog key or host is not defined');
       }
   }, [])
 
