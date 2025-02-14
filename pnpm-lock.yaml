@@ -214,6 +214,7 @@ importers:
         specifier: ^11.1.0
         version: 11.3.0(vue@3.5.13(typescript@5.7.3))
 <<<<<<< HEAD
+<<<<<<< HEAD
       '@vueuse/nuxt':
         specifier: ^11.1.0
 <<<<<<< HEAD
@@ -238,21 +239,12 @@ importers:
 =======
 =======
         version: 11.3.0(magicast@0.3.5)(nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
+=======
+>>>>>>> 7d8ef17 (added_upload)
       nuxt:
 >>>>>>> 50dbe23 (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
         specifier: ^3.13.2
         version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0)
-      nuxt-auth-utils:
-        specifier: ^0.4.2
-        version: 0.4.4(magicast@0.3.5)
-      vue-advanced-cropper:
-        specifier: ^2.8.9
-        version: 2.8.9(vue@3.5.13(typescript@5.7.3))
-=======
-      nuxt:
-        specifier: ^3.13.2
-        version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(aws4fetch@1.0.20)(db0@0.2.4)(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0)
->>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
     devDependencies:
       '@iconify-json/simple-icons':
         specifier: ^1.2.5
@@ -7166,10 +7158,6 @@ packages:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
     engines: {node: '>=6'}
 
-<<<<<<< HEAD
-  eventemitter3@5.0.1:
-    resolution: {integrity: sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==}
-
   events@1.1.1:
     resolution: {integrity: sha512-kEcvvCBByWXGnZy6JUlgAp2gBIUjfCAV6P6TgT1/aaQKcmuAEC4OZTV1I4EWQLz2gxZw76atuVyvHhTxvi0Flw==}
     engines: {node: '>=0.4.x'}
@@ -7185,8 +7173,6 @@ packages:
 =======
 >>>>>>> 50dbe23 (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
 
-=======
->>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
   events@3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
     engines: {node: '>=0.8.x'}
@@ -7344,6 +7330,7 @@ packages:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   for-each@0.3.5:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
     engines: {node: '>= 0.4'}
@@ -7371,11 +7358,14 @@ packages:
 >>>>>>> cf91573 (add server configuration, API endpoints, and image handling components)
 >>>>>>> 3ae8324 (add server configuration, API endpoints, and image handling components)
 =======
+=======
+>>>>>>> 7d8ef17 (added_upload)
   for-each@0.3.5:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
     engines: {node: '>= 0.4'}
 >>>>>>> 50dbe23 (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -7405,6 +7395,8 @@ packages:
 >>>>>>> f3c9738 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
 =======
 >>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+>>>>>>> e7dc8be (added_upload)
   foreground-child@3.3.0:
     resolution:
       {
@@ -17699,23 +17691,6 @@ snapshots:
 
   '@vueuse/metadata@12.6.1': {}
 
-<<<<<<< HEAD
-  '@vueuse/nuxt@11.3.0(magicast@0.3.5)(nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))':
-    dependencies:
-      '@nuxt/kit': 3.15.4(magicast@0.3.5)
-      '@vueuse/core': 11.3.0(vue@3.5.13(typescript@5.7.3))
-      '@vueuse/metadata': 11.3.0
-      local-pkg: 0.5.1
-      nuxt: 3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0)
-      vue-demi: 0.14.10(vue@3.5.13(typescript@5.7.3))
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - magicast
-      - supports-color
-      - vue
-
-=======
->>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
   '@vueuse/shared@11.3.0(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       vue-demi: 0.14.10(vue@3.5.13(typescript@5.7.3))
@@ -19398,6 +19373,7 @@ snapshots:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   events@1.1.1: {}
 
 =======
@@ -19416,6 +19392,8 @@ snapshots:
 >>>>>>> efc301e (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
 =======
 >>>>>>> f3c9738 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+>>>>>>> e7dc8be (added_upload)
   events@3.3.0: {}
 
   execa@7.2.0:
@@ -19476,11 +19454,11 @@ snapshots:
 >>>>>>> 294b92f (remove unused components, API endpoints, and update nuxt.config to streamline the application)
   eventemitter3@5.0.1: {}
 
+=======
+>>>>>>> 7d8ef17 (added_upload)
   events@1.1.1: {}
 >>>>>>> 50dbe23 (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
 
-=======
->>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
   events@3.3.0: {}
 
   execa@7.2.0:
@@ -19617,9 +19595,6 @@ snapshots:
 >>>>>>> 50dbe23 (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
   flatted@3.3.2: {}
 
-<<<<<<< HEAD
-  flattie@1.1.1: {}
-
   for-each@0.3.5:
 >>>>>>> a307096 (initialize Nuxt app with basic configuration and setup files)
     dependencies:
@@ -19673,6 +19648,7 @@ snapshots:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   for-each@0.3.5:
     dependencies:
       is-callable: 1.2.7
@@ -19714,6 +19690,8 @@ snapshots:
 >>>>>>> f3c9738 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
 =======
 >>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+>>>>>>> e7dc8be (added_upload)
   foreground-child@3.3.0:
     dependencies:
       cross-spawn: 7.0.6
@@ -21625,6 +21603,7 @@ snapshots:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0):
 =======
   nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(yaml@2.7.0):
@@ -21638,6 +21617,8 @@ snapshots:
 >>>>>>> efc301e (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
 =======
 >>>>>>> f3c9738 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+>>>>>>> e7dc8be (added_upload)
   nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(aws4fetch@1.0.20)(db0@0.2.4)(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0):
 >>>>>>> 3912148 (initialize Nuxt app with basic configuration and setup files)
     dependencies:
@@ -21724,10 +21705,9 @@ snapshots:
       - magicast
       - supports-color
 
-  nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0):
 =======
-  nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(aws4fetch@1.0.20)(db0@0.2.4)(eslint@9.20.1(jiti@2.4.2))(ioredis@5.5.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0):
->>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+>>>>>>> 7d8ef17 (added_upload)
+  nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@20.17.17)(db0@0.2.4)(ioredis@5.5.0)(magicast@0.3.5)(rollup@4.34.6)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.7.3))(xml2js@0.6.2)(yaml@2.7.0):
     dependencies:
       '@nuxt/cli': 3.21.1(magicast@0.3.5)
       '@nuxt/devalue': 2.0.2
@@ -23089,6 +23069,7 @@ snapshots:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   sax@1.2.1: {}
 
 =======
@@ -23104,6 +23085,8 @@ snapshots:
 >>>>>>> efc301e (add GitHub Actions workflow for NuxtHub deployment and update nuxt.config for development environment)
 =======
 >>>>>>> f3c9738 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+>>>>>>> e7dc8be (added_upload)
   sax@1.2.1:
     optional: true
 =======
@@ -23130,6 +23113,9 @@ snapshots:
     optional: true
 >>>>>>> f67f057 (remove unused components, API endpoints, and update nuxt.config to streamline the application)
 >>>>>>> 294b92f (remove unused components, API endpoints, and update nuxt.config to streamline the application)
+=======
+  sax@1.2.1: {}
+>>>>>>> 7d8ef17 (added_upload)
 
 >>>>>>> cf91573 (add server configuration, API endpoints, and image handling components)
   scheduler@0.25.0: {}
