@@ -1,6 +1,9 @@
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3912148 (initialize Nuxt app with basic configuration and setup files)
   "name": "server",
   "type": "module",
   "private": true,
@@ -29,6 +32,7 @@
 =======
   "name": "nuxt-app",
   "private": true,
+<<<<<<< HEAD
 =======
   "name": "nuxthub-starter",
 >>>>>>> cf91573 (add server configuration, API endpoints, and image handling components)
@@ -51,6 +55,21 @@
     "vue": "latest",
     "vue-router": "latest"
 >>>>>>> 08dbcc6 (initialize Nuxt app with basic configuration and setup files)
+=======
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "nuxt": "^3.15.4",
+    "vue": "latest",
+    "vue-router": "latest"
+>>>>>>> a307096 (initialize Nuxt app with basic configuration and setup files)
+>>>>>>> 3912148 (initialize Nuxt app with basic configuration and setup files)
   }
 =======
     "@nuxt/ui": "^2.18.6",
