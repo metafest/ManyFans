@@ -1,3 +1,4 @@
+import React from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
@@ -36,7 +37,7 @@ export default function RootLayout({
         <head />
         <body>
           <PostHogProvider>
-            <ThemeProvider>
+            <ThemeProvider attribute="class" defaultTheme="system">
               {children}
               <Theme />
             </ThemeProvider>
