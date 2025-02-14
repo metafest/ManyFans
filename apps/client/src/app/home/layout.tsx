@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   // const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Prevent hydration mismatch by mounting after first render
+  // Prevent hydration mismatch by mounting after first render 
   useEffect(() => {
     setMounted(true);
   }, []);
