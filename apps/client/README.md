@@ -1,5 +1,15 @@
 <!-- TODO: Update Readme -->
+. Posthog Analytics
+. Cloudflare Upload Funtions 
 
-1. https://vercel.com/guides/using-vercel-cli-for-custom-workflows -> Setup Vercel CI/CD
-2. Posthog Analytics
-3. Upload Funtions
+. Video Player
+
+. Clerk Auth 
+. Dark Mode and Light Mode
+
+. Video Streaming API
+
+. Home Page
+. Fun Page
+. Contributors Page
+. About Page
