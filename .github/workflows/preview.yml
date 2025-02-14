@@ -1,14 +1,14 @@
 name: Vercel Preview Deployment
 on:
   pull_request:
-    branches: [main]
+    branches: [dev, main]
     types: [opened, synchronize, reopened]
-    
+
 # Add this permissions block
 permissions:
   pull-requests: write
   contents: read
-    
+
 jobs:
   preview:
     runs-on: ubuntu-latest
@@ -23,13 +23,13 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: '9.0.0'
+          version: "9.0.0"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'pnpm'
+          node-version: "18"
+          cache: "pnpm"
 
       - name: Install dependencies
         working-directory: ./
@@ -53,5 +53,5 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             🚀 Preview deployment is ready!
-            
+
             [Click to preview](${{ env.DEPLOY_URL }})
