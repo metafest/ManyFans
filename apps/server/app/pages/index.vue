@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="p-5">
     <div class="flex px-3 py-3.5 border-b border-gray-200 dark:border-gray-700">
       <UInput v-model="q" placeholder="Filter files..." />
@@ -98,3 +99,9 @@ const filteredRows = computed(() => {
   return rows.slice(start, end);
 });
 </script>
+=======
+  <main>
+    <ImageGallery />
+  </main>
+</template>
+>>>>>>> cf91573 (add server configuration, API endpoints, and image handling components)
