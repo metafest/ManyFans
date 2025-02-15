@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   // $development: {
   //   hub: {
   //     remote: true,
-  //     // blob: true,
   //   },
   // },
   experimental: {
