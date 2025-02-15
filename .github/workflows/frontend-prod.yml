@@ -1,6 +1,9 @@
-name: Deploy to Vercel
+name: Deploy Frontend to Vercel [Prod]
 on:
-  push:
+  workflow_run:
+    workflows: ["CI"] # This matches the name we set in ci.yml
+    types:
+      - completed
     branches: ["dev"]
 
 jobs:
