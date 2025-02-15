@@ -6,11 +6,11 @@ export default defineNuxtConfig({
   hub: {
     blob: true,
   },
-  $development: {
-    hub: {
-      remote: true,
-    },
-  },
+  // $development: {
+  //   hub: {
+  //     remote: true,
+  //   },
+  // },
   experimental: {
     viewTransition: true,
   },
