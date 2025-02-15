@@ -2,7 +2,7 @@ name: Deploy to NuxtHub
 
 on:
   workflow_run:
-    branches: ["fix_ci"]
+    branches: ["dev"]
 
 jobs:
   deploy:
