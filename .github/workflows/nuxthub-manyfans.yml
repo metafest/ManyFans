@@ -1,13 +1,8 @@
 name: Deploy to NuxtHub
-on:
-  pull_request:
-    branches: [dev, main]
-    types: [opened, synchronize, reopened]
 
+on:
   workflow_run:
-    workflows: ["CI"] # This matches the name we set in ci.yml
-    types:
-      - completed
+    branches: ["fix_ci"]
 
 jobs:
   deploy:
