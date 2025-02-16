@@ -1,0 +1,15 @@
+services:
+  core:
+    container_name: server
+    build:
+      context: ./
+      dockerfile: ./apps/server/Dockerfile
+    ports:
+      - 4000:4000
+    env_file: ./apps/server/.env
+    environment:
+      - NODE_ENV=development
+      - ENVIRONMENT=development
+      # - PORT=8080
+      # - HOST=0.0.0.0
+    # network_mode: "host"

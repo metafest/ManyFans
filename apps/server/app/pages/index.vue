@@ -19,7 +19,7 @@
           color="gray"
           size="xs"
           variant="ghost"
-          :to="'/api/files/' + row.pathname"
+          :to="'/api/fileupload/' + row.pathname"
           target="_blank"
         />
       </template>

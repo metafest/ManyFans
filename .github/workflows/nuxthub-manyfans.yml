@@ -1,13 +1,18 @@
 name: Deploy to NuxtHub
+
 on:
-  pull_request:
-    branches: [dev, main]
-    types: [opened, synchronize, reopened]
+  push:
+    branches: ["dev"]
 
 jobs:
   deploy:
     name: "Deploy to NuxtHub"
+    timeout-minutes: 15
     runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: "metafest"
+
     defaults:
       run:
         working-directory: ./apps/server
