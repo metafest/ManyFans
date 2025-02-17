@@ -9,9 +9,13 @@ export default defineNuxtConfig({
   // $development: {
   //   hub: {
   //     remote: true,
-  //     // blob: true,
   //   },
   // },
+  routeRules: {
+    '/api/*': {
+      cors: true,
+    },
+  },
   experimental: {
     viewTransition: true,
   },

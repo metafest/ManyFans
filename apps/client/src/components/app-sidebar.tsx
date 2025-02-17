@@ -75,17 +75,17 @@ const data = {
   projects: [
     {
       name: "File Upload",
-      url: "#",
+      url: "/home/upload",
       icon: File,
     },
     {
       name: "p2p Sharing",
-      url: "#",
+      url: "/home",
       icon: PersonStandingIcon,
     },
     {
       name: "Video Streaming",
-      url: "#",
+      url: "/home/video",
       icon: Map,
     },
   ],
