@@ -1,24 +1,24 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { FileVideo, Clock, HardDrive, Calendar } from 'lucide-react';
-import { useQuery } from '@tanstack/react-query';
+import React, { useState, useRef, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { FileVideo, Clock, HardDrive, Calendar } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 
 // Utility function to format file size
 const formatFileSize = (bytes: number) => {
-  if (bytes === 0) return '0 Bytes';
+  if (bytes === 0) return "0 Bytes";
   const k = 1024;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+  const sizes = ["Bytes", "KB", "MB", "GB"];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`;
 };
 
 // Utility function to format date
 const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
   });
 };
 
@@ -39,12 +39,14 @@ interface Video {
 const VideoCard = ({ video }: { video: Video }) => {
   const [isHovering, setIsHovering] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const title = video.pathname?.split('.').slice(0, -1).join('.') || 'Untitled';
+  const title = video.pathname?.split(".").slice(0, -1).join(".") || "Untitled";
 
   const handleMouseEnter = () => {
     setIsHovering(true);
     if (videoRef.current) {
-      videoRef.current.play().catch(err => console.log('Video play failed:', err));
+      videoRef.current
+        .play()
+        .catch((err) => console.log("Video play failed:", err));
     }
   };
 
@@ -70,13 +72,17 @@ const VideoCard = ({ video }: { video: Video }) => {
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-blue-100 text-blue-500 font-medium">
-                {(video.userName || 'U')[0].toUpperCase()}
+                {(video.userName || "U")[0].toUpperCase()}
               </div>
             )}
           </div>
           <div>
-            <h4 className="font-medium text-sm">{video.userName || 'Anonymous User'}</h4>
-            <p className="text-xs text-gray-500">{formatDate(video.uploadedAt)}</p>
+            <h4 className="font-medium text-sm">
+              {video.userName || "Anonymous User"}
+            </h4>
+            <p className="text-xs text-gray-500">
+              {formatDate(video.uploadedAt)}
+            </p>
           </div>
         </div>
 
@@ -87,18 +93,34 @@ const VideoCard = ({ video }: { video: Video }) => {
           onMouseLeave={handleMouseLeave}
         >
           {isHovering ? (
-            <video ref={videoRef} poster='true' controls className="w-full h-full object-cover">
-              <source src={`${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload/${video.pathname}`} type={video.httpMetadata?.contentType} />
-
-              <source src={`${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload/${video.pathname}`} type={video.httpMetadata?.contentType} />
-
+            <video
+              ref={videoRef}
+              poster="true"
+              controls
+              className="w-full h-full object-cover"
+            >
+              <source
+                src={`${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload/${video.pathname}`}
+                type={video.httpMetadata?.contentType}
+              />
+              <source
+                src={`${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload/${video.pathname}`}
+                type={video.httpMetadata?.contentType}
+              />
               Download the
-              <a href={`${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload/${video.pathname}`}>WEBM</a>
+              <a
+                href={`${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload/${video.pathname}`}
+              >
+                WEBM
+              </a>
               or
-              <a href={`${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload/${video.pathname}`}>MP4</a>
+              <a
+                href={`${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload/${video.pathname}`}
+              >
+                MP4
+              </a>
               video.
             </video>
-
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-gray-100">
               <FileVideo className="w-12 h-12 text-gray-400" />
@@ -108,11 +130,9 @@ const VideoCard = ({ video }: { video: Video }) => {
 
         {/* Title and Description */}
         <div className="space-y-2">
-          <h3 className="font-medium line-clamp-2 text-base">
-            {title}
-          </h3>
+          <h3 className="font-medium line-clamp-2 text-base">{title}</h3>
           <p className="text-sm text-gray-600 line-clamp-2">
-            {video.description || 'No description available'}
+            {video.description || "No description available"}
           </p>
         </div>
 
@@ -143,27 +163,28 @@ const EmptyState = () => (
 );
 
 async function fetchdata() {
-  const videos = await fetch(`${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload`);
+  const videos = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload`
+  );
   return videos.json();
 }
 
 const VideoGallery = () => {
-  const {data} = useQuery<Video[]>({queryKey:['videos'], queryFn:fetchdata});
-
+  const { data } = useQuery<Video[]>({
+    queryKey: ["videos"],
+    queryFn: fetchdata,
+  });
 
   return (
     <div className="container mx-auto p-4">
       <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 auto-rows-fr">
-        {
-        data && data.length > 0 ? (
+        {data && data.length > 0 ? (
           data.map((video, index) => (
-          <VideoCard
-            key={video.httpEtag || index}
-            video={video}
-          />
-        ))
-      ): <EmptyState />
-      }
+            <VideoCard key={video.httpEtag || index} video={video} />
+          ))
+        ) : (
+          <EmptyState />
+        )}
       </div>
     </div>
   );

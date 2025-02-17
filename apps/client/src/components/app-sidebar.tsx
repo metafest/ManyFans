@@ -30,7 +30,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       },
       {
         name: "Video Streaming",
-        url: "/home/video",
+        url: "/home/gallery",
         icon: Map,
       },
     ],

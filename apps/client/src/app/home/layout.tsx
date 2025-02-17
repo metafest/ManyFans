@@ -7,7 +7,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { ClerkProvider, SignedIn, SignedOut, SignIn } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/sonner";
 import TanstackProvider from "@/components/TanStackQuery/provider";
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -32,6 +33,7 @@ export default function Layout({ children }: { children: ReactNode }) {
               </div>
             </header>
             <div>{children}</div>
+            <Toaster />
           </SidebarInset>
         </SidebarProvider>
         {/* </SignedIn> */}
