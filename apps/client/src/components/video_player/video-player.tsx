@@ -1,7 +1,6 @@
 "use client";
 
-import type React from "react";
-import { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import {
   Loader2,
   Play,
@@ -44,8 +43,15 @@ interface VideoPlayerProps {
 }
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
+  // --------------------------------------------------------------------------
+  // Refs for video element and container
+  // --------------------------------------------------------------------------
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // --------------------------------------------------------------------------
+  // State variables for playback and UI controls
+  // --------------------------------------------------------------------------
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -62,14 +68,20 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
   const hideControlsTimeout = useRef<NodeJS.Timeout | null>(null);
   const [isBuffering, setIsBuffering] = useState(false);
 
-  // ─── FIX 1: Force video reload when src changes ─────────────────────────────
+  // --------------------------------------------------------------------------
+  // VIDEO INITIALIZATION & SOURCE CHANGE
+  // Reloads the video when the src prop changes.
+  // --------------------------------------------------------------------------
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.load();
     }
   }, [src]);
 
-  // ─── Video Event Listeners ─────────────────────────────────────────────────────
+  // --------------------------------------------------------------------------
+  // VIDEO EVENT HANDLERS
+  // Handles events like metadata loading, time update, buffering, etc.
+  // --------------------------------------------------------------------------
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -123,8 +135,12 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
     };
   }, [src]);
 
-  // ─── Other Effects (Click outside, Keyboard, Fullscreen, etc.) ────────────────
+  // --------------------------------------------------------------------------
+  // GLOBAL EVENT HANDLERS
+  // (Click Outside, Keyboard Controls, Fullscreen Change)
+  // --------------------------------------------------------------------------
   useEffect(() => {
+    // Close settings popover when clicking outside of the container
     const handleClickOutside = (event: MouseEvent) => {
       if (
         showSettings &&
@@ -141,6 +157,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
   }, [showSettings]);
 
   useEffect(() => {
+    // Handle keyboard controls for video actions
     const handleKeyPress = (e: KeyboardEvent) => {
       handleKeyboardControls(
         e,
@@ -162,6 +179,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
   }, [skipDuration, volume, duration, isPlaying]);
 
   useEffect(() => {
+    // Listen for fullscreen changes
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
@@ -171,7 +189,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
       document.removeEventListener("fullscreenchange", handleFullscreenChange);
   }, []);
 
-  // ─── Auto-hide Controls When Video is Playing ───────────────────────────────
+  // --------------------------------------------------------------------------
+  // AUTO-HIDE CONTROLS ON INACTIVITY
+  // Only when video is playing and not buffering.
+  // --------------------------------------------------------------------------
   useEffect(() => {
     if (isPlaying && !isBuffering) {
       const scheduleHideControls = () => {
@@ -192,6 +213,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
 
       scheduleHideControls();
 
+      // Reset timer on mouse movement
       const handleMouseMove = () => {
         setLastActivity(Date.now());
         setShowControls(true);
@@ -208,7 +230,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
         container?.removeEventListener("mousemove", handleMouseMove);
       };
     } else {
-      // Always show controls when not playing or buffering
+      // Always show controls when video is paused or buffering
       setShowControls(true);
       if (hideControlsTimeout.current) {
         clearTimeout(hideControlsTimeout.current);
@@ -216,13 +238,17 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
     }
   }, [isPlaying, lastActivity, showSettings, isBuffering]);
 
+  // Ensure controls are visible when settings are open.
   useEffect(() => {
     if (showSettings) {
       setShowControls(true);
     }
   }, [showSettings]);
 
-  // ─── Video Action Handlers ─────────────────────────────────────────────────────
+  // --------------------------------------------------------------------------
+  // VIDEO ACTION HANDLERS
+  // Functions to play/pause, seek, change volume, toggle mute/fullscreen, etc.
+  // --------------------------------------------------------------------------
   const togglePlay = useCallback(() => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -303,23 +329,33 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
     }
   };
 
+  // --------------------------------------------------------------------------
+  // VIDEO CLICK HANDLERS
+  // --------------------------------------------------------------------------
+  // Clicking directly on the video element toggles play/pause.
   const handleVideoClick = (e: React.MouseEvent) => {
-    // Toggle play only if clicking directly on the video or container
-    if (e.target === e.currentTarget || e.target === videoRef.current) {
+    if (e.target === videoRef.current) {
       togglePlay();
     }
   };
 
-  const handleSettingsClick = (e: React.MouseEvent) => {
+  // When the overlay (play button) is visible, clicking it also toggles play.
+  const handleOverlayClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setShowSettings((prev) => !prev);
+    togglePlay();
   };
 
+  // --------------------------------------------------------------------------
+  // UTILITY: Check if the video is ready for interaction
+  // --------------------------------------------------------------------------
   const canPlayVideo = () =>
     videoRef.current &&
     videoRef.current.readyState >= 3 && // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
     !isLoading;
 
+  // --------------------------------------------------------------------------
+  // RENDER: JSX
+  // --------------------------------------------------------------------------
   return (
     <TooltipProvider>
       <div
@@ -327,21 +363,23 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
         className="relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl bg-black flex flex-col"
         onMouseEnter={() => setShowControls(true)}
       >
-        {/* Loading Overlay */}
+        {/* ---------------------------------------------------------------------- */}
+        {/* LOADING & BUFFERING OVERLAYS */}
+        {/* ---------------------------------------------------------------------- */}
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
             <Loader2 className="w-8 h-8 text-white animate-spin" />
           </div>
         )}
-
-        {/* Buffering Overlay */}
         {isBuffering && !isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 z-10">
             <Loader2 className="w-8 h-8 text-white animate-spin" />
           </div>
         )}
 
-        {/* Video Element */}
+        {/* ---------------------------------------------------------------------- */}
+        {/* VIDEO DISPLAY AREA */}
+        {/* ---------------------------------------------------------------------- */}
         <div className="relative flex-grow" onClick={handleVideoClick}>
           <video
             ref={videoRef}
@@ -351,15 +389,20 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
             preload="metadata"
             playsInline
           />
-          {/* Play Button Overlay (when paused) */}
+          {/* Overlay with play icon (visible when paused) */}
           {!isPlaying && !isLoading && !isBuffering && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
+            <div
+              className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 cursor-pointer"
+              onClick={handleOverlayClick}
+            >
               <Play className="w-16 h-16 text-white opacity-80" />
             </div>
           )}
         </div>
 
-        {/* Controls Overlay */}
+        {/* ---------------------------------------------------------------------- */}
+        {/* CONTROLS OVERLAY */}
+        {/* ---------------------------------------------------------------------- */}
         <AnimatePresence>
           {showControls && (
             <motion.div
@@ -374,8 +417,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
               transition={{ duration: 0.3 }}
             >
               {isFullscreen ? (
-                // ── Fullscreen Controls ─────────────────────────────
+                // ================= FULLSCREEN CONTROLS =================
                 <div className="flex flex-col items-center justify-center max-w-md bg-black/60 backdrop-blur-sm rounded-xl p-3 shadow-2xl">
+                  {/* Progress Slider */}
                   <div className="flex items-center justify-between w-full mb-2">
                     <Slider
                       value={[currentTime]}
@@ -453,6 +497,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                       </span>
                     </div>
                     <div className="flex items-center space-x-1">
+                      {/* Settings Popover for Fullscreen */}
                       <Popover open={showSettings} onOpenChange={setShowSettings}>
                         <PopoverTrigger asChild>
                           <Button
@@ -466,9 +511,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                           </Button>
                         </PopoverTrigger>
                         <PopoverContent
-                          className="bg-black/80 backdrop-blur-sm text-white border-white/20 p-4 w-56"
+                          side="top"
                           sideOffset={5}
                           align="end"
+                          className="bg-black/80 backdrop-blur-sm text-white border-white/20 p-4 w-56 z-50"
                         >
                           <div className="space-y-4">
                             <div className="flex items-center justify-between">
@@ -524,7 +570,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                   </div>
                 </div>
               ) : (
-                // ── Normal Controls (Non-Fullscreen) ─────────────────────
+                // ================= NORMAL CONTROLS (NON-FULLSCREEN) =================
                 <div className="flex flex-col p-4">
                   <div className="flex items-center justify-between mb-2">
                     <Slider
@@ -631,6 +677,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                       </span>
                     </div>
                     <div className="flex items-center space-x-2">
+                      {/* Settings Popover for Normal Mode */}
                       <Popover open={showSettings} onOpenChange={setShowSettings}>
                         <PopoverTrigger asChild>
                           <Button
@@ -644,9 +691,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                           </Button>
                         </PopoverTrigger>
                         <PopoverContent
-                          className="bg-black/80 backdrop-blur-sm text-white border-white/20 p-4 w-64"
+                          side="top"
                           sideOffset={5}
                           align="end"
+                          className="bg-black/80 backdrop-blur-sm text-white border-white/20 p-4 w-64 z-50"
                         >
                           <div className="space-y-4">
                             <div className="flex items-center justify-between">
