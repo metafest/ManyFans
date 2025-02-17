@@ -1,0 +1,118 @@
+name: Test
+on:
+  pull_request:
+    branches: [dev]
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: ${{ github.workflow }}
+
+env:
+  REGION: europe-west2
+  IMAGE_TAG: ${{ github.sha }}
+  REPOSITORY: gha-build-artifacts
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    outputs:
+      client: ${{ steps.filter.outputs.client }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            client:
+              - 'apps/client/**'
+
+  build:
+    needs: changes
+    # if: ${{ needs.changes.outputs.client == 'true' }}
+    name: Build and Test
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: "metafest"
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: apps/client/.next
+          retention-days: 1
+
+  deploy-client:
+    name: Deploy Client
+    runs-on: ubuntu-latest
+    needs: [build]
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        working-directory: apps/client
+
+    env:
+      CLERK_API_KEY: ${{ secrets.CLERK_API_KEY }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: apps/client/.next
+
+      - name: Install Vercel CLI
+        run: pnpm install -g vercel
+
+      - name: Pull Vercel Environment Variables
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

@@ -1,0 +1,225 @@
+name: Test
+on:
+  push:
+    branches:
+      - dev
+
+concurrency:
+  group: ${{ github.workflow }}
+
+env:
+  REGION: europe-west2
+  IMAGE_TAG: ${{ github.sha }}
+  REPOSITORY: gha-build-artifacts
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    outputs:
+      client: ${{ steps.filter.outputs.client }}
+      klaviyo: ${{ steps.filter.outputs.klaviyo }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            client:
+              - 'apps/client/**'
+            klaviyo:
+              - 'apps/klaviyo/**'
+
+  build-client:
+    needs: changes
+    name: Build and push Client docker image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    env:
+      PROJECT_ID: yuzu-development-client
+      SERVICE: client
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Authenticate Docker to Google Cloud Artifact Registry
+      - name: Docker Auth
+        id: docker-auth
+        uses: docker/login-action@v3
+        with:
+          username: 'oauth2accesstoken'
+          password: '${{ steps.auth.outputs.access_token }}'
+          registry: '${{ env.REGION }}-docker.pkg.dev'
+
+      # Build and push the Docker image to Google Cloud Artifact Registry
+      - name: Build Docker image
+        id: docker-build
+        uses: docker/build-push-action@v5
+        with:
+          context: ./
+          file: ./apps/${{ env.SERVICE }}/Dockerfile
+          target: runner # Set the desired build target here
+          push: true
+          tags: |
+            ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}
+            ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            "ALGOLIA_APPLICATION_ID=${{ secrets.CORE_ALGOLIA_APP_ID }}"
+            "ALGOLIA_API_KEY=${{ secrets.CORE_ALGOLIA_PUBLIC_API_KEY }}"
+            "NUXT_ALGOLIA_API_KEY=${{ secrets.CORE_ALGOLIA_API_KEY }}"
+
+  build-klaviyo:
+    needs: changes
+    if: ${{ needs.changes.outputs.klaviyo == 'true' || needs.changes.outputs.sdk == 'true' }}
+    name: Build and push Klaviyo docker image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    env:
+      PROJECT_ID: yuzu-development-klaviyo
+      SERVICE: klaviyo
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Authenticate Docker to Google Cloud Artifact Registry
+      - name: Docker Auth
+        id: docker-auth
+        uses: docker/login-action@v3
+        with:
+          username: 'oauth2accesstoken'
+          password: '${{ steps.auth.outputs.access_token }}'
+          registry: '${{ env.REGION }}-docker.pkg.dev'
+
+      # Build and push the Docker image to Google Cloud Artifact Registry
+      - name: Build Docker image
+        id: docker-build
+        uses: docker/build-push-action@v5
+        with:
+          context: ./
+          file: ./apps/${{ env.SERVICE }}/Dockerfile
+          target: runner # Set the desired build target here
+          push: true
+          tags: |
+            ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}
+            ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+    needs: changes
+    if: ${{ needs.changes.outputs.skulabs == 'true' || needs.changes.outputs.sdk == 'true' }}
+    name: Build and push SKULabs docker image
+    runs-on: ubuntu-latest
+    environment: development
+    permissions:
+      contents: read
+      id-token: write
+
+    env:
+      PROJECT_ID: yuzu-development-skulabs
+      SERVICE: skulabs
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Authenticate Docker to Google Cloud Artifact Registry
+      - name: Docker Auth
+        id: docker-auth
+        uses: docker/login-action@v3
+        with:
+          username: 'oauth2accesstoken'
+          password: '${{ steps.auth.outputs.access_token }}'
+          registry: '${{ env.REGION }}-docker.pkg.dev'
+
+      # Build and push the Docker image to Google Cloud Artifact Registry
+      - name: Build Docker image
+        id: docker-build
+        uses: docker/build-push-action@v5
+        with:
+          context: ./
+          file: ./apps/${{ env.SERVICE }}/Dockerfile
+          target: runner # Set the desired build target here
+          push: true
+          tags: |
+            ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}
+            ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy-client:
+    name: Deploy Client
+    runs-on: ubuntu-latest
+    needs: [build-client]
+    permissions:
+      id-token: write
+
+    env:
+      PROJECT_ID: yuzu-development-client
+      SERVICE: client
+
+    outputs:
+      url: ${{ steps.deploy-client.outputs.url }}
+
+    steps:
+      - name: Deploy Client to Cloud Run
+        id: deploy-client
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          service: ${{ env.SERVICE }}
+          region: ${{ env.REGION }}
+          image: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}
+
+  deploy-klaviyo:
+    name: Deploy Klaviyo
+    runs-on: ubuntu-latest
+    needs: [build-klaviyo]
+    permissions:
+      id-token: write
+
+    env:
+      PROJECT_ID: yuzu-development-klaviyo
+      SERVICE: klaviyo
+
+    outputs:
+      url: ${{ steps.deploy-klaviyo.outputs.url }}
+
+    steps:
+      - name: Deploy Klaviyo to Cloud Run
+        id: deploy-klaviyo
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          service: ${{ env.SERVICE }}
+          region: ${{ env.REGION }}
+          image: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}
