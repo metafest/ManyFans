@@ -1,7 +1,8 @@
 "use client";
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { FileVideo, Clock, HardDrive, Calendar } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
 
 // Utility function to format file size
 const formatFileSize = (bytes: number) => {
@@ -56,7 +57,7 @@ const VideoCard = ({ video }: { video: Video }) => {
   };
 
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 h-full">
+    <Card className="group hover:shadow-lg transition-all duration-300 h-full rounded-md">
       <CardContent className="p-3 space-y-3">
         {/* User Info Section */}
         <div className="flex items-center gap-3">
@@ -141,20 +142,28 @@ const EmptyState = () => (
   </div>
 );
 
-const VideoGallery = ({ videos }: { videos: Video[] }) => {
-  if (!videos || videos.length === 0) {
-    return <EmptyState />;
-  }
+async function fetchdata() {
+  const videos = await fetch(`${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload`);
+  return videos.json();
+}
+
+const VideoGallery = () => {
+  const {data} = useQuery<Video[]>({queryKey:['videos'], queryFn:fetchdata});
+
 
   return (
     <div className="container mx-auto p-4">
       <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 auto-rows-fr">
-        {videos.map((video, index) => (
+        {
+        data && data.length > 0 ? (
+          data.map((video, index) => (
           <VideoCard
             key={video.httpEtag || index}
             video={video}
           />
-        ))}
+        ))
+      ): <EmptyState />
+      }
       </div>
     </div>
   );

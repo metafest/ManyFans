@@ -1,10 +1,14 @@
 // TODO: Fix Dark and Light Mode
 
 "use client";
-
-import { ShineBorder } from "@/components/magicui/shine-border";
-import { useTheme } from "next-themes";
+import { AppSidebar } from "@/components/app-sidebar";
 import { ReactNode, useEffect, useState } from "react";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
 
 export default function Layout({ children }: { children: ReactNode }) {
   // const { theme } = useTheme();
@@ -27,7 +31,19 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     // <ShineBorder className="h-screen w-screen" color={borderColor}>
     // <section className="h-full w-full px-5 py-5">{children}</section>
-    <div>{children}</div>
+    <SidebarProvider>
+    <AppSidebar />
+    <SidebarInset>
+      <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+        <div className="flex items-center gap-2 px-4">
+          <SidebarTrigger className="-ml-1" />
+          <Separator orientation="vertical" className="mr-2 h-4" />
+        </div>
+      </header>
+      <div>{children}</div>
+    </SidebarInset>
+  </SidebarProvider>
+   
     // </ShineBorder>
   );
 }

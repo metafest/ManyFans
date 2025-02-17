@@ -11,6 +11,11 @@ export default defineNuxtConfig({
   //     remote: true,
   //   },
   // },
+  routeRules: {
+    '/api/*': {
+      cors: true,
+    },
+  },
   experimental: {
     viewTransition: true,
   },
