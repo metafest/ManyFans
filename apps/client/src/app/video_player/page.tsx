@@ -6,7 +6,7 @@ export default function Home() {
       <h1 className="text-4xl font-bold mb-8 text-white text-center">
         Pushy Player<span className="align-super text-sm">™</span>
       </h1>
-      <VideoPlayer src="http://localhost:4000/api/fileupload/input.mp4" />
+      <VideoPlayer src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
     </main>
   );
 }

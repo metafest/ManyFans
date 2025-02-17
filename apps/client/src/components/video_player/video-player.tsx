@@ -18,6 +18,11 @@ import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -47,6 +52,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
   const [skipDuration, setSkipDuration] = useState(5);
   const [showSettings, setShowSettings] = useState(false);
   const [previousVolume, setPreviousVolume] = useState(1);
+  const [showControls, setShowControls] = useState(true);
+  const [lastActivity, setLastActivity] = useState(Date.now());
+  const hideControlsTimeout = useRef<NodeJS.Timeout | null>(null);
+  const [isBuffering, setIsBuffering] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -54,19 +63,51 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
 
     const onLoadedMetadata = () => {
       setDuration(video.duration);
-      setIsLoading(false);
     };
 
     const onTimeUpdate = () => {
       setCurrentTime(video.currentTime);
     };
 
+    // Improved loading state management with multiple event listeners
+    const onLoadStart = () => {
+      setIsLoading(true);
+    };
+
+    const onCanPlay = () => {
+      setIsLoading(false);
+    };
+
+    const onPlaying = () => {
+      setIsLoading(false);
+      setIsBuffering(false);
+    };
+
+    const onWaiting = () => {
+      setIsBuffering(true);
+    };
+
+    const onError = () => {
+      setIsLoading(false);
+      console.error("Video error occurred");
+    };
+
+    video.addEventListener("loadstart", onLoadStart);
     video.addEventListener("loadedmetadata", onLoadedMetadata);
     video.addEventListener("timeupdate", onTimeUpdate);
+    video.addEventListener("canplay", onCanPlay);
+    video.addEventListener("playing", onPlaying);
+    video.addEventListener("waiting", onWaiting);
+    video.addEventListener("error", onError);
 
     return () => {
+      video.removeEventListener("loadstart", onLoadStart);
       video.removeEventListener("loadedmetadata", onLoadedMetadata);
       video.removeEventListener("timeupdate", onTimeUpdate);
+      video.removeEventListener("canplay", onCanPlay);
+      video.removeEventListener("playing", onPlaying);
+      video.removeEventListener("waiting", onWaiting);
+      video.removeEventListener("error", onError);
     };
   }, []);
 
@@ -115,12 +156,74 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
     return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
   }, []);
 
+  // Effect to handle auto-hiding controls when video is playing
+  useEffect(() => {
+    if (isPlaying && !isBuffering) {
+      const scheduleHideControls = () => {
+        if (hideControlsTimeout.current) {
+          clearTimeout(hideControlsTimeout.current);
+        }
+
+        hideControlsTimeout.current = setTimeout(() => {
+          if (Date.now() - lastActivity > 3000 && isPlaying && !showSettings && !isBuffering) {
+            setShowControls(false);
+          }
+        }, 3000);
+      };
+
+      scheduleHideControls();
+
+      // Reset timer on mouse movement
+      const handleMouseMove = () => {
+        setLastActivity(Date.now());
+        setShowControls(true);
+        scheduleHideControls();
+      };
+
+      const container = containerRef.current;
+      if (container) {
+        container.addEventListener("mousemove", handleMouseMove);
+      }
+
+      return () => {
+        if (hideControlsTimeout.current) {
+          clearTimeout(hideControlsTimeout.current);
+        }
+        if (container) {
+          container.removeEventListener("mousemove", handleMouseMove);
+        }
+      };
+    } else {
+      // When not playing or when buffering, always show controls
+      setShowControls(true);
+      if (hideControlsTimeout.current) {
+        clearTimeout(hideControlsTimeout.current);
+      }
+    }
+  }, [isPlaying, lastActivity, showSettings, isBuffering]);
+
+  // Make sure controls show when settings are open
+  useEffect(() => {
+    if (showSettings) {
+      setShowControls(true);
+    }
+  }, [showSettings]);
+
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play();
+        const playPromise = videoRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              // Playback started successfully
+            })
+            .catch(error => {
+              console.error("Error attempting to play:", error);
+            });
+        }
       }
       setIsPlaying(!isPlaying);
     }
@@ -184,202 +287,411 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
     }
   };
 
+  const handleVideoClick = (e: React.MouseEvent) => {
+    // Only toggle play if we didn't click on controls
+    if (e.target === e.currentTarget || e.target === videoRef.current) {
+      togglePlay();
+    }
+  };
+
+  const handleSettingsClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setShowSettings(!showSettings);
+  };
+
+  // Helper function to check if video can be played safely
+  const canPlayVideo = () => {
+    return videoRef.current && 
+           videoRef.current.readyState >= 3 && // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
+           !isLoading;
+  };
+
   return (
     <TooltipProvider>
+      {/* Main container with proper flex layout */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl bg-black"
+        className="relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl bg-black flex flex-col"
+        onMouseEnter={() => setShowControls(true)}
       >
+        {/* Loading indicator - Only shown during initial loading */}
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
             <Loader2 className="w-8 h-8 text-white animate-spin" />
           </div>
         )}
-        <div className="relative cursor-pointer" onClick={togglePlay}>
+        
+        {/* Buffering indicator - Shown when video is playing but buffering */}
+        {isBuffering && !isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 z-10">
+            <Loader2 className="w-8 h-8 text-white animate-spin" />
+          </div>
+        )}
+        
+        {/* Video element and overlay */}
+        <div className="relative flex-grow" onClick={handleVideoClick}>
           <video
             ref={videoRef}
             src={src}
             poster={poster}
-            className="w-full h-auto"
+            className="w-full h-full object-contain"
             preload="metadata"
             playsInline
           />
-          {!isPlaying && (
+          {!isPlaying && !isLoading && !isBuffering && (
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
               <Play className="w-16 h-16 text-white opacity-80" />
             </div>
           )}
         </div>
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/90 to-transparent p-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="flex items-center justify-between mb-2">
-            <Slider
-              value={[currentTime]}
-              min={0}
-              max={duration}
-              step={0.1}
-              onValueChange={([value]) => handleSeek(value)}
-              className="w-full h-2"
-            />
-          </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" onClick={togglePlay} className="text-white">
-                    <motion.div whileTap={{ scale: 0.9 }}>
-                      {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
-                    </motion.div>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{isPlaying ? "Pause (Space)" : "Play (Space)"}</p>
-                </TooltipContent>
-              </Tooltip>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => skip(-skipDuration)}
-                    className="text-white "
-                  >
-                    <motion.div whileTap={{ scale: 0.9 }}>
-                      <SkipBack className="h-6 w-6" />
-                    </motion.div>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Skip Back {skipDuration}s (←)</p>
-                </TooltipContent>
-              </Tooltip>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => skip(skipDuration)}
-                    className="text-white"
-                  >
-                    <motion.div whileTap={{ scale: 0.9 }}>
-                      <SkipForward className="h-6 w-6" />
-                    </motion.div>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Skip Forward {skipDuration}s (→)</p>
-                </TooltipContent>
-              </Tooltip>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white">
-                    {isMuted ? <VolumeX className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{isMuted ? "Unmute (M)" : "Mute (M)"}</p>
-                </TooltipContent>
-              </Tooltip>
-              <Slider
-                value={[isMuted ? 0 : volume]}
-                min={0}
-                max={1}
-                step={0.01}
-                onValueChange={([value]) => handleVolumeChange(value)}
-                className="w-24"
-              />
-              <span className="text-sm text-white">
-                {formatTime(currentTime)} / {formatTime(duration)}
-              </span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setShowSettings(!showSettings)}
-                    className="text-white"
-                  >
-                    <Settings className="h-6 w-6" />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Settings</p>
-                </TooltipContent>
-              </Tooltip>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={toggleFullscreen}
-                    className="text-white"
-                  >
-                    {isFullscreen ? (
-                      <Minimize className="h-6 w-6" />
-                    ) : (
-                      <Maximize className="h-6 w-6" />
-                    )}
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{isFullscreen ? "Exit Fullscreen (F)" : "Enter Fullscreen (F)"}</p>
-                </TooltipContent>
-              </Tooltip>
-            </div>
-          </div>
-        </motion.div>
+
+        {/* Controls overlay - positioned with flexbox */}
         <AnimatePresence>
-          {showSettings && (
+          {showControls && (
             <motion.div
+              className={`${
+                isFullscreen 
+                  ? "absolute inset-x-0 bottom-0 flex items-center justify-center pb-8" // This centers the toolbar in fullscreen mode
+                  : "absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/90 to-transparent"
+              }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="absolute bottom-20 right-4 p-4 rounded-lg shadow-lg bg-black"
             >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="quality" className="text-white">
-                    Quality
-                  </Label>
-                  <Select value={quality} onValueChange={setQuality}>
-                    <SelectTrigger className="w-[100px] bg-black text-white border-white/20">
-                      <SelectValue placeholder="Quality" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-black text-white border-white/20">
-                      <SelectItem value="144p">144p</SelectItem>
-                      <SelectItem value="360p">360p</SelectItem>
-                      <SelectItem value="720p">720p</SelectItem>
-                      <SelectItem value="1080p">1080p</SelectItem>
-                    </SelectContent>
-                  </Select>
+              {/* Mini toolbar in fullscreen mode */}
+              {isFullscreen ? (
+                <div className="flex flex-col items-center justify-center max-w-md bg-black/60 backdrop-blur-sm rounded-xl p-3 shadow-2xl">
+                  {/* Comment: Mini toolbar is centered using flex layout in fullscreen mode */}
+                  <div className="flex items-center justify-between w-full mb-2">
+                    <Slider
+                      value={[currentTime]}
+                      min={0}
+                      max={duration || 1} // Prevent division by zero if duration hasn't loaded yet
+                      step={0.1}
+                      onValueChange={([value]) => handleSeek(value)}
+                      className="w-full h-2"
+                      disabled={!canPlayVideo()}
+                    />
+                  </div>
+                  <div className="flex items-center justify-between w-full space-x-1">
+                    <div className="flex items-center space-x-1">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={togglePlay}
+                        className="text-white"
+                        disabled={isLoading}
+                      >
+                        <motion.div whileTap={{ scale: 0.9 }}>
+                          {isPlaying ? (
+                            <Pause className="h-4 w-4" />
+                          ) : (
+                            <Play className="h-4 w-4" />
+                          )}
+                        </motion.div>
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => skip(-skipDuration)}
+                        className="text-white"
+                        disabled={!canPlayVideo()}
+                      >
+                        <motion.div whileTap={{ scale: 0.9 }}>
+                          <SkipBack className="h-4 w-4" />
+                        </motion.div>
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => skip(skipDuration)}
+                        className="text-white"
+                        disabled={!canPlayVideo()}
+                      >
+                        <motion.div whileTap={{ scale: 0.9 }}>
+                          <SkipForward className="h-4 w-4" />
+                        </motion.div>
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={toggleMute}
+                        className="text-white"
+                        disabled={isLoading}
+                      >
+                        {isMuted ? (
+                          <VolumeX className="h-4 w-4" />
+                        ) : (
+                          <Volume2 className="h-4 w-4" />
+                        )}
+                      </Button>
+                      <Slider
+                        value={[isMuted ? 0 : volume]}
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        onValueChange={([value]) => handleVolumeChange(value)}
+                        className="w-16"
+                        disabled={isLoading}
+                      />
+                      <span className="text-xs text-white ml-1">
+                        {formatTime(currentTime)} / {formatTime(duration)}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      {/* Using Popover for settings in fullscreen mode */}
+                      <Popover open={showSettings} onOpenChange={setShowSettings}>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="text-white"
+                            disabled={isLoading}
+                          >
+                            <Settings className="h-4 w-4" />
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent 
+                          className="bg-black/80 backdrop-blur-sm text-white border-white/20 p-4 w-56"
+                          sideOffset={5}
+                          align="end"
+                        >
+                          <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                              <Label htmlFor="quality" className="text-white">
+                                Quality
+                              </Label>
+                              <Select value={quality} onValueChange={setQuality}>
+                                <SelectTrigger className="w-[90px] bg-black text-white border-white/20">
+                                  <SelectValue placeholder="Quality" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-black text-white border-white/20">
+                                  <SelectItem value="144p">144p</SelectItem>
+                                  <SelectItem value="360p">360p</SelectItem>
+                                  <SelectItem value="720p">720p</SelectItem>
+                                  <SelectItem value="1080p">1080p</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <Label htmlFor="skip-duration" className="text-white">
+                                Skip Duration
+                              </Label>
+                              <Select
+                                value={skipDuration.toString()}
+                                onValueChange={(value) => setSkipDuration(Number.parseInt(value))}
+                              >
+                                <SelectTrigger className="w-[90px] bg-black text-white border-white/20">
+                                  <SelectValue placeholder="Skip" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-black text-white border-white/20">
+                                  <SelectItem value="5">5s</SelectItem>
+                                  <SelectItem value="10">10s</SelectItem>
+                                  <SelectItem value="15">15s</SelectItem>
+                                  <SelectItem value="30">30s</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+                        </PopoverContent>
+                      </Popover>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={toggleFullscreen}
+                        className="text-white"
+                        disabled={isLoading}
+                      >
+                        <Minimize className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="skip-duration" className="text-white">
-                    Skip Duration
-                  </Label>
-                  <Select
-                    value={skipDuration.toString()}
-                    onValueChange={(value) => setSkipDuration(Number.parseInt(value))}
-                  >
-                    <SelectTrigger className="w-[100px] bg-black text-white border-white/20">
-                      <SelectValue placeholder="Skip Duration" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-black text-white border-white/20">
-                      <SelectItem value="5">5s</SelectItem>
-                      <SelectItem value="10">10s</SelectItem>
-                      <SelectItem value="15">15s</SelectItem>
-                      <SelectItem value="30">30s</SelectItem>
-                    </SelectContent>
-                  </Select>
+              ) : (
+                // Normal controls for non-fullscreen mode
+                <div className="flex flex-col p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <Slider
+                      value={[currentTime]}
+                      min={0}
+                      max={duration || 1} // Prevent division by zero if duration hasn't loaded yet
+                      step={0.1}
+                      onValueChange={([value]) => handleSeek(value)}
+                      className="w-full h-2"
+                      disabled={!canPlayVideo()}
+                    />
+                  </div>
+                  <div className="flex items-center justify-between space-x-2">
+                    <div className="flex items-center space-x-2">
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={togglePlay}
+                            className="text-white"
+                            disabled={isLoading}
+                          >
+                            <motion.div whileTap={{ scale: 0.9 }}>
+                              {isPlaying ? (
+                                <Pause className="h-6 w-6" />
+                              ) : (
+                                <Play className="h-6 w-6" />
+                              )}
+                            </motion.div>
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{isPlaying ? "Pause (Space)" : "Play (Space)"}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => skip(-skipDuration)}
+                            className="text-white"
+                            disabled={!canPlayVideo()}
+                          >
+                            <motion.div whileTap={{ scale: 0.9 }}>
+                              <SkipBack className="h-6 w-6" />
+                            </motion.div>
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Skip Back {skipDuration}s (←)</p>
+                        </TooltipContent>
+                      </Tooltip>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => skip(skipDuration)}
+                            className="text-white"
+                            disabled={!canPlayVideo()}
+                          >
+                            <motion.div whileTap={{ scale: 0.9 }}>
+                              <SkipForward className="h-6 w-6" />
+                            </motion.div>
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Skip Forward {skipDuration}s (→)</p>
+                        </TooltipContent>
+                      </Tooltip>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={toggleMute}
+                            className="text-white"
+                            disabled={isLoading}
+                          >
+                            {isMuted ? (
+                              <VolumeX className="h-6 w-6" />
+                            ) : (
+                              <Volume2 className="h-6 w-6" />
+                            )}
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{isMuted ? "Unmute (M)" : "Mute (M)"}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                      <Slider
+                        value={[isMuted ? 0 : volume]}
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        onValueChange={([value]) => handleVolumeChange(value)}
+                        className="w-24"
+                        disabled={isLoading}
+                      />
+                      <span className="text-sm text-white ml-1">
+                        {formatTime(currentTime)} / {formatTime(duration)}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      {/* Using Popover for settings in normal mode */}
+                      <Popover open={showSettings} onOpenChange={setShowSettings}>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="text-white"
+                            disabled={isLoading}
+                          >
+                            <Settings className="h-6 w-6" />
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent 
+                          className="bg-black/80 backdrop-blur-sm text-white border-white/20 p-4 w-64"
+                          sideOffset={5}
+                          align="end"
+                        >
+                          <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                              <Label htmlFor="quality" className="text-white">
+                                Quality
+                              </Label>
+                              <Select value={quality} onValueChange={setQuality}>
+                                <SelectTrigger className="w-[100px] bg-black text-white border-white/20">
+                                  <SelectValue placeholder="Quality" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-black text-white border-white/20">
+                                  <SelectItem value="144p">144p</SelectItem>
+                                  <SelectItem value="360p">360p</SelectItem>
+                                  <SelectItem value="720p">720p</SelectItem>
+                                  <SelectItem value="1080p">1080p</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <Label htmlFor="skip-duration" className="text-white">
+                                Skip Duration
+                              </Label>
+                              <Select
+                                value={skipDuration.toString()}
+                                onValueChange={(value) => setSkipDuration(Number.parseInt(value))}
+                              >
+                                <SelectTrigger className="w-[100px] bg-black text-white border-white/20">
+                                  <SelectValue placeholder="Skip Duration" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-black text-white border-white/20">
+                                  <SelectItem value="5">5s</SelectItem>
+                                  <SelectItem value="10">10s</SelectItem>
+                                  <SelectItem value="15">15s</SelectItem>
+                                  <SelectItem value="30">30s</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+                        </PopoverContent>
+                      </Popover>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={toggleFullscreen}
+                            className="text-white"
+                            disabled={isLoading}
+                          >
+                            <Maximize className="h-6 w-6" />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Enter Fullscreen (F)</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
