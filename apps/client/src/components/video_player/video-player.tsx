@@ -209,6 +209,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
     }
   }, [showSettings]);
 
+  // --- Video Action Handlers ---
+
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -231,8 +233,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
 
   const handleSeek = (newTime: number) => {
     if (videoRef.current) {
-      videoRef.current.currentTime = Math.max(0, Math.min(newTime, duration));
-      setCurrentTime(newTime);
+      const clampedTime = Math.max(0, Math.min(newTime, duration));
+      videoRef.current.currentTime = clampedTime;
+      setCurrentTime(clampedTime);
     }
   };
 
@@ -284,6 +287,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
     if (videoRef.current) {
       const newTime = Math.max(0, Math.min(videoRef.current.currentTime + amount, duration));
       videoRef.current.currentTime = newTime;
+      setCurrentTime(newTime); // Update state immediately
     }
   };
 
@@ -295,13 +299,13 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
   };
 
   const handleSettingsClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
+    e.stopPropagation(); // Prevent click from bubbling to parent handlers
     setShowSettings(!showSettings);
   };
 
   // Helper function to check if video can be played safely
   const canPlayVideo = () => {
-    return videoRef.current && 
+    return videoRef.current &&
            videoRef.current.readyState >= 3 && // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
            !isLoading;
   };
@@ -351,7 +355,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
             <motion.div
               className={`${
                 isFullscreen 
-                  ? "absolute inset-x-0 bottom-0 flex items-center justify-center pb-8" // This centers the toolbar in fullscreen mode
+                  ? "absolute inset-x-0 bottom-0 flex items-center justify-center pb-8" // Centers toolbar in fullscreen
                   : "absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/90 to-transparent"
               }`}
               initial={{ opacity: 0, y: 20 }}
@@ -359,15 +363,16 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Mini toolbar in fullscreen mode */}
               {isFullscreen ? (
+                // --- Fullscreen (Mini Toolbar) Controls ---
                 <div className="flex flex-col items-center justify-center max-w-md bg-black/60 backdrop-blur-sm rounded-xl p-3 shadow-2xl">
-                  {/* Comment: Mini toolbar is centered using flex layout in fullscreen mode */}
+                  {/* Progress slider with forced re-render on duration change */}
                   <div className="flex items-center justify-between w-full mb-2">
                     <Slider
+                      key={`progress-${duration}`} 
                       value={[currentTime]}
                       min={0}
-                      max={duration || 1} // Prevent division by zero if duration hasn't loaded yet
+                      max={duration || 1}
                       step={0.1}
                       onValueChange={([value]) => handleSeek(value)}
                       className="w-full h-2"
@@ -440,7 +445,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                       </span>
                     </div>
                     <div className="flex items-center space-x-1">
-                      {/* Using Popover for settings in fullscreen mode */}
+                      {/* Settings Popover with click event stopping propagation */}
                       <Popover open={showSettings} onOpenChange={setShowSettings}>
                         <PopoverTrigger asChild>
                           <Button
@@ -448,6 +453,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                             size="sm"
                             className="text-white"
                             disabled={isLoading}
+                            onClick={(e) => e.stopPropagation()}  // Prevent toggling play
                           >
                             <Settings className="h-4 w-4" />
                           </Button>
@@ -509,13 +515,14 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                   </div>
                 </div>
               ) : (
-                // Normal controls for non-fullscreen mode
+                // --- Normal Controls (Non-Fullscreen) ---
                 <div className="flex flex-col p-4">
                   <div className="flex items-center justify-between mb-2">
                     <Slider
+                      key={`progress-${duration}`}  // Also force re-render here
                       value={[currentTime]}
                       min={0}
-                      max={duration || 1} // Prevent division by zero if duration hasn't loaded yet
+                      max={duration || 1}
                       step={0.1}
                       onValueChange={([value]) => handleSeek(value)}
                       className="w-full h-2"
@@ -603,6 +610,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                         </TooltipContent>
                       </Tooltip>
                       <Slider
+                        key={`progress-${duration}`}  // Force re-render
                         value={[isMuted ? 0 : volume]}
                         min={0}
                         max={1}
@@ -616,7 +624,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                       </span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      {/* Using Popover for settings in normal mode */}
                       <Popover open={showSettings} onOpenChange={setShowSettings}>
                         <PopoverTrigger asChild>
                           <Button
@@ -624,6 +631,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                             size="icon"
                             className="text-white"
                             disabled={isLoading}
+                            onClick={(e) => e.stopPropagation()}  // Prevent propagation here as well
                           >
                             <Settings className="h-6 w-6" />
                           </Button>
