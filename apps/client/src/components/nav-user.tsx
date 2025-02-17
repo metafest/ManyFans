@@ -30,13 +30,13 @@ export function NavUser({
 }) {
   const { isMobile } = useSidebar();
   const { signOut } = useAuth();
-  const { openUserProfile } = useClerk();
+  const { openUserProfile, openSignIn } = useClerk();
 
   if (user.guest) {
     return (
       <SidebarMenu>
         <SidebarMenuItem>
-          <SidebarMenuButton size="lg">
+          <SidebarMenuButton size="lg" onClick={() => openSignIn()}>
             <Avatar className="h-8 w-8 rounded-lg">
               <AvatarImage src={user.avatar} alt={user.name} />
               <AvatarFallback className="rounded-lg">CN</AvatarFallback>
