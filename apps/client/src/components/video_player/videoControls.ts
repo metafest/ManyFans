@@ -1,4 +1,3 @@
-// videoControls.ts
 export interface VideoControlsState {
   isPlaying: boolean
   currentTime: number
