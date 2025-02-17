@@ -1,20 +1,8 @@
-"use client";
-
 import * as React from "react";
-import {
-  AudioWaveform,
-  Command,
-  GalleryVerticalEnd,
-  Map,
-  PersonStandingIcon,
-  File,
-  Settings2,
-} from "lucide-react";
+import { Map, PersonStandingIcon, File } from "lucide-react";
 
-import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
 import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
@@ -22,76 +10,80 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import FanIcon from "@/assests/icon/fan";
 import { FanHandler } from "./common/FanHandler";
-
-// This is sample data.
-const data = {
-  user: {
-    name: "Balaji Sriraman",
-    email: "balaji@mom.io",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  teams: [
-    {
-      name: "Acme Inc",
-      logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
-  ],
-  navMain: [
-    {
-      title: "Playground",
-      url: "/",
-      icon: Settings2,
-
-      isActive: true,
-      items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  projects: [
-    {
-      name: "File Upload",
-      url: "/home/upload",
-      icon: File,
-    },
-    {
-      name: "p2p Sharing",
-      url: "/home",
-      icon: PersonStandingIcon,
-    },
-    {
-      name: "Video Streaming",
-      url: "/home/video",
-      icon: Map,
-    },
-  ],
-};
+import { useUser } from "@clerk/nextjs";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { user } = useUser();
+
+  const data = {
+    projects: [
+      {
+        name: "File Upload",
+        url: "/home/upload",
+        icon: File,
+      },
+      {
+        name: "p2p Sharing",
+        url: "/home",
+        icon: PersonStandingIcon,
+      },
+      {
+        name: "Video Streaming",
+        url: "/home/video",
+        icon: Map,
+      },
+    ],
+    // TODO: v2
+    // teams: [
+    //   {
+    //     name: "Acme Inc",
+    //     logo: GalleryVerticalEnd,
+    //     plan: "Enterprise",
+    //   },
+    //   {
+    //     name: "Acme Corp.",
+    //     logo: AudioWaveform,
+    //     plan: "Startup",
+    //   },
+    //   {
+    //     name: "Evil Corp.",
+    //     logo: Command,
+    //     plan: "Free",
+    //   },
+    // ],
+
+    // navMain: [
+    //   {
+    //     title: "Playground",
+    //     url: "/",
+    //     icon: Settings2,
+
+    //     isActive: true,
+    //     items: [
+    //       {
+    //         title: "History",
+    //         url: "#",
+    //       },
+    //       {
+    //         title: "Starred",
+    //         url: "#",
+    //       },
+    //       {
+    //         title: "Settings",
+    //         url: "#",
+    //       },
+    //     ],
+    //   },
+    // ],
+    user: {
+      name: user?.fullName ?? "Guest User",
+      email: user?.primaryEmailAddress?.emailAddress ?? "",
+      avatar: user?.imageUrl ?? "",
+      guest: user ? false : true,
+    },
+  };
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
