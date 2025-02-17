@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import {
   Loader2,
   Play,
@@ -16,7 +16,12 @@ import {
 } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import {
   Popover,
   PopoverContent,
@@ -57,6 +62,14 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
   const hideControlsTimeout = useRef<NodeJS.Timeout | null>(null);
   const [isBuffering, setIsBuffering] = useState(false);
 
+  // ─── FIX 1: Force video reload when src changes ─────────────────────────────
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, [src]);
+
+  // ─── Video Event Listeners ─────────────────────────────────────────────────────
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -69,7 +82,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
       setCurrentTime(video.currentTime);
     };
 
-    // Improved loading state management with multiple event listeners
     const onLoadStart = () => {
       setIsLoading(true);
     };
@@ -109,8 +121,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
       video.removeEventListener("waiting", onWaiting);
       video.removeEventListener("error", onError);
     };
-  }, []);
+  }, [src]);
 
+  // ─── Other Effects (Click outside, Keyboard, Fullscreen, etc.) ────────────────
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -123,7 +136,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
   }, [showSettings]);
 
   useEffect(() => {
@@ -153,19 +167,24 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
     };
 
     document.addEventListener("fullscreenchange", handleFullscreenChange);
-    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
   }, []);
 
-  // Effect to handle auto-hiding controls when video is playing
+  // ─── Auto-hide Controls When Video is Playing ───────────────────────────────
   useEffect(() => {
     if (isPlaying && !isBuffering) {
       const scheduleHideControls = () => {
         if (hideControlsTimeout.current) {
           clearTimeout(hideControlsTimeout.current);
         }
-
         hideControlsTimeout.current = setTimeout(() => {
-          if (Date.now() - lastActivity > 3000 && isPlaying && !showSettings && !isBuffering) {
+          if (
+            Date.now() - lastActivity > 3000 &&
+            isPlaying &&
+            !showSettings &&
+            !isBuffering
+          ) {
             setShowControls(false);
           }
         }, 3000);
@@ -173,7 +192,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
 
       scheduleHideControls();
 
-      // Reset timer on mouse movement
       const handleMouseMove = () => {
         setLastActivity(Date.now());
         setShowControls(true);
@@ -181,20 +199,16 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
       };
 
       const container = containerRef.current;
-      if (container) {
-        container.addEventListener("mousemove", handleMouseMove);
-      }
+      container?.addEventListener("mousemove", handleMouseMove);
 
       return () => {
         if (hideControlsTimeout.current) {
           clearTimeout(hideControlsTimeout.current);
         }
-        if (container) {
-          container.removeEventListener("mousemove", handleMouseMove);
-        }
+        container?.removeEventListener("mousemove", handleMouseMove);
       };
     } else {
-      // When not playing or when buffering, always show controls
+      // Always show controls when not playing or buffering
       setShowControls(true);
       if (hideControlsTimeout.current) {
         clearTimeout(hideControlsTimeout.current);
@@ -202,34 +216,28 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
     }
   }, [isPlaying, lastActivity, showSettings, isBuffering]);
 
-  // Make sure controls show when settings are open
   useEffect(() => {
     if (showSettings) {
       setShowControls(true);
     }
   }, [showSettings]);
 
-  // --- Video Action Handlers ---
-
-  const togglePlay = () => {
+  // ─── Video Action Handlers ─────────────────────────────────────────────────────
+  const togglePlay = useCallback(() => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
         const playPromise = videoRef.current.play();
         if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              // Playback started successfully
-            })
-            .catch(error => {
-              console.error("Error attempting to play:", error);
-            });
+          playPromise.catch((error) =>
+            console.error("Error attempting to play:", error)
+          );
         }
       }
-      setIsPlaying(!isPlaying);
+      setIsPlaying((prev) => !prev);
     }
-  };
+  }, [isPlaying]);
 
   const handleSeek = (newTime: number) => {
     if (videoRef.current) {
@@ -253,7 +261,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
 
   const handlePlaybackRate = (change: number) => {
     if (videoRef.current) {
-      const newRate = Math.max(0.25, Math.min(videoRef.current.playbackRate + change, 2));
+      const newRate = Math.max(
+        0.25,
+        Math.min(videoRef.current.playbackRate + change, 2)
+      );
       videoRef.current.playbackRate = newRate;
     }
   };
@@ -266,7 +277,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
         setPreviousVolume(volume);
         handleVolumeChange(0);
       }
-      setIsMuted(!isMuted);
+      setIsMuted((prev) => !prev);
     }
   };
 
@@ -276,63 +287,61 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
 
     if (!document.fullscreenElement) {
       container.requestFullscreen();
-      setIsFullscreen(true);
     } else {
       document.exitFullscreen();
-      setIsFullscreen(false);
     }
   };
 
   const skip = (amount: number) => {
     if (videoRef.current) {
-      const newTime = Math.max(0, Math.min(videoRef.current.currentTime + amount, duration));
+      const newTime = Math.max(
+        0,
+        Math.min(videoRef.current.currentTime + amount, duration)
+      );
       videoRef.current.currentTime = newTime;
-      setCurrentTime(newTime); // Update state immediately
+      setCurrentTime(newTime);
     }
   };
 
   const handleVideoClick = (e: React.MouseEvent) => {
-    // Only toggle play if we didn't click on controls
+    // Toggle play only if clicking directly on the video or container
     if (e.target === e.currentTarget || e.target === videoRef.current) {
       togglePlay();
     }
   };
 
   const handleSettingsClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent click from bubbling to parent handlers
-    setShowSettings(!showSettings);
+    e.stopPropagation();
+    setShowSettings((prev) => !prev);
   };
 
-  // Helper function to check if video can be played safely
-  const canPlayVideo = () => {
-    return videoRef.current &&
-           videoRef.current.readyState >= 3 && // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
-           !isLoading;
-  };
+  const canPlayVideo = () =>
+    videoRef.current &&
+    videoRef.current.readyState >= 3 && // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
+    !isLoading;
 
   return (
     <TooltipProvider>
-      {/* Main container with proper flex layout */}
       <div
         ref={containerRef}
         className="relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl bg-black flex flex-col"
         onMouseEnter={() => setShowControls(true)}
       >
-        {/* Loading indicator - Only shown during initial loading */}
+        {/* Loading Overlay */}
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
             <Loader2 className="w-8 h-8 text-white animate-spin" />
           </div>
         )}
-        
-        {/* Buffering indicator - Shown when video is playing but buffering */}
+
+        {/* Buffering Overlay */}
         {isBuffering && !isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 z-10">
             <Loader2 className="w-8 h-8 text-white animate-spin" />
           </div>
         )}
-        
-        {/* Video element and overlay */}
+
+        {/* Video Element */}
         <div className="relative flex-grow" onClick={handleVideoClick}>
           <video
             ref={videoRef}
@@ -342,6 +351,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
             preload="metadata"
             playsInline
           />
+          {/* Play Button Overlay (when paused) */}
           {!isPlaying && !isLoading && !isBuffering && (
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
               <Play className="w-16 h-16 text-white opacity-80" />
@@ -349,13 +359,13 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
           )}
         </div>
 
-        {/* Controls overlay - positioned with flexbox */}
+        {/* Controls Overlay */}
         <AnimatePresence>
           {showControls && (
             <motion.div
               className={`${
-                isFullscreen 
-                  ? "absolute inset-x-0 bottom-0 flex items-center justify-center pb-8" // Centers toolbar in fullscreen
+                isFullscreen
+                  ? "absolute inset-x-0 bottom-0 flex items-center justify-center pb-8"
                   : "absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/90 to-transparent"
               }`}
               initial={{ opacity: 0, y: 20 }}
@@ -364,12 +374,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
               transition={{ duration: 0.3 }}
             >
               {isFullscreen ? (
-                // --- Fullscreen (Mini Toolbar) Controls ---
+                // ── Fullscreen Controls ─────────────────────────────
                 <div className="flex flex-col items-center justify-center max-w-md bg-black/60 backdrop-blur-sm rounded-xl p-3 shadow-2xl">
-                  {/* Progress slider with forced re-render on duration change */}
                   <div className="flex items-center justify-between w-full mb-2">
                     <Slider
-                      key={`progress-${duration}`} 
                       value={[currentTime]}
                       min={0}
                       max={duration || 1}
@@ -445,7 +453,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                       </span>
                     </div>
                     <div className="flex items-center space-x-1">
-                      {/* Settings Popover with click event stopping propagation */}
                       <Popover open={showSettings} onOpenChange={setShowSettings}>
                         <PopoverTrigger asChild>
                           <Button
@@ -453,12 +460,12 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                             size="sm"
                             className="text-white"
                             disabled={isLoading}
-                            onClick={(e) => e.stopPropagation()}  // Prevent toggling play
+                            onClick={(e) => e.stopPropagation()}
                           >
                             <Settings className="h-4 w-4" />
                           </Button>
                         </PopoverTrigger>
-                        <PopoverContent 
+                        <PopoverContent
                           className="bg-black/80 backdrop-blur-sm text-white border-white/20 p-4 w-56"
                           sideOffset={5}
                           align="end"
@@ -486,7 +493,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                               </Label>
                               <Select
                                 value={skipDuration.toString()}
-                                onValueChange={(value) => setSkipDuration(Number.parseInt(value))}
+                                onValueChange={(value) =>
+                                  setSkipDuration(Number.parseInt(value))
+                                }
                               >
                                 <SelectTrigger className="w-[90px] bg-black text-white border-white/20">
                                   <SelectValue placeholder="Skip" />
@@ -515,11 +524,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                   </div>
                 </div>
               ) : (
-                // --- Normal Controls (Non-Fullscreen) ---
+                // ── Normal Controls (Non-Fullscreen) ─────────────────────
                 <div className="flex flex-col p-4">
                   <div className="flex items-center justify-between mb-2">
                     <Slider
-                      key={`progress-${duration}`}  // Also force re-render here
                       value={[currentTime]}
                       min={0}
                       max={duration || 1}
@@ -610,7 +618,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                         </TooltipContent>
                       </Tooltip>
                       <Slider
-                        key={`progress-${duration}`}  // Force re-render
                         value={[isMuted ? 0 : volume]}
                         min={0}
                         max={1}
@@ -631,12 +638,12 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                             size="icon"
                             className="text-white"
                             disabled={isLoading}
-                            onClick={(e) => e.stopPropagation()}  // Prevent propagation here as well
+                            onClick={(e) => e.stopPropagation()}
                           >
                             <Settings className="h-6 w-6" />
                           </Button>
                         </PopoverTrigger>
-                        <PopoverContent 
+                        <PopoverContent
                           className="bg-black/80 backdrop-blur-sm text-white border-white/20 p-4 w-64"
                           sideOffset={5}
                           align="end"
@@ -664,7 +671,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster }) => {
                               </Label>
                               <Select
                                 value={skipDuration.toString()}
-                                onValueChange={(value) => setSkipDuration(Number.parseInt(value))}
+                                onValueChange={(value) =>
+                                  setSkipDuration(Number.parseInt(value))
+                                }
                               >
                                 <SelectTrigger className="w-[100px] bg-black text-white border-white/20">
                                   <SelectValue placeholder="Skip Duration" />
