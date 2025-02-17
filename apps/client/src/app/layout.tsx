@@ -7,6 +7,13 @@ import "./globals.css";
 import { Theme } from "@/components/theme";
 import { PostHogProvider } from "@/components/posthog/providers";
 import TanstackProvider from "@/components/TanStackQuery/provider";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  SignIn,
+  UserButton,
+} from "@clerk/nextjs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,15 +44,27 @@ export default function RootLayout({
       >
         <head />
         <body>
-          <TanstackProvider>
-          <PostHogProvider>
-            <ThemeProvider attribute="class" defaultTheme="system">
-              {children}
-              <Theme />
-            </ThemeProvider>
-          </PostHogProvider>
-          </TanstackProvider>
-          <SpeedInsights />
+          <ClerkProvider>
+            <TanstackProvider>
+              <PostHogProvider>
+                <ThemeProvider attribute="class" defaultTheme="system">
+                  <SignedOut>
+                    <div className="h-[100vh] flex justify-center items-center">
+                      <SignIn routing="hash" />
+                    </div>
+                  </SignedOut>
+                  <SignedIn>
+                    <header className="flex justify-between z-50 absolute top-5 right-5">
+                      <UserButton showName/>
+                    </header>
+                    {children}
+                  </SignedIn>
+                  <Theme />
+                </ThemeProvider>
+              </PostHogProvider>
+            </TanstackProvider>
+            <SpeedInsights />
+          </ClerkProvider>
         </body>
       </html>
     </>

@@ -15,7 +15,7 @@ export function Theme() {
   return (
     <button
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="mt-5 p-2 rounded-full bg-gray-200 dark:bg-gray-800 transition  absolute top-1 right-5"
+        className="mt-5 p-2 rounded-full bg-gray-200 dark:bg-gray-800 transition  absolute bottom-5 right-5"
         >
         {theme === "dark" ? <Sun color="black" size={24} /> : <Moon size={24} />}
     </button>

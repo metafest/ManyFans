@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BackgroundLines } from "@/components/ui/background-lines";
-import { MagicBorderButton } from "@/components/ui/button/magic-border-button";
+import { MagicBorderButton } from "@/components/ui/button/home-magic-border-button";
 import { CoolMode } from "@/components/ui/cool-mode";
 import FanIcon from "@/assests/icon/fan";
 import { useTheme } from "next-themes";
@@ -57,19 +57,7 @@ export function Home() {
           }}
         >
           <div className="pt-5">
-            <MagicBorderButton className="h-10 w-28 cursor-pointer">
-              <p
-                className="text-base cursor-pointer"
-                onClick={() => {
-                  // Perform the action here
-                  setTimeout(() => {
-                    window.location.href = "/home";
-                  }, 2000);
-                }}
-              >
-                Turn on!
-              </p>
-            </MagicBorderButton>
+            <MagicBorderButton className="h-10 w-28 cursor-pointer">Turn on!</MagicBorderButton>
           </div>
         </CoolMode>
       </BackgroundLines>
