@@ -19,6 +19,7 @@
     "node": ">=18"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.11.3",
     "nuxt": "^3.13.2"
   }
 }
