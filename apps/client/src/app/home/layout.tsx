@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   // const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Prevent hydration mismatch by mounting after first render 
+  // Prevent hydration mismatch by mounting after first render
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -25,8 +25,9 @@ export default function Layout({ children }: { children: ReactNode }) {
   //   : "white";
 
   return (
-    <ShineBorder className="h-screen w-screen" color={borderColor}>
-      <section className="h-full w-full px-5 py-5">{children}</section>
-    </ShineBorder>
+    // <ShineBorder className="h-screen w-screen" color={borderColor}>
+    // <section className="h-full w-full px-5 py-5">{children}</section>
+    <div>{children}</div>
+    // </ShineBorder>
   );
 }
