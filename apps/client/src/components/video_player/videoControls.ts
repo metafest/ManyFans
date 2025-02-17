@@ -27,6 +27,11 @@ export const handleKeyboardControls = (
     return
   }
 
+  // Ensure skipDuration is a valid number
+  const skipAmount = typeof videoState.skipDuration === 'number' && !isNaN(videoState.skipDuration) 
+    ? videoState.skipDuration 
+    : 5; // Default to 5 seconds if invalid
+
   switch (e.code) {
     case "Space":
       e.preventDefault()
@@ -34,11 +39,11 @@ export const handleKeyboardControls = (
       break
     case "ArrowLeft":
       e.preventDefault()
-      handlers.skip(-videoState.skipDuration)
+      handlers.skip(-skipAmount) // Use the validated skipAmount
       break
     case "ArrowRight":
       e.preventDefault()
-      handlers.skip(videoState.skipDuration)
+      handlers.skip(skipAmount) // Use the validated skipAmount
       break
     case "ArrowUp":
       e.preventDefault()
