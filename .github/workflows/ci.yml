@@ -1,7 +1,7 @@
 name: CI
 on:
   pull_request:
-    branches: [dev]
+    branches: [main]
     types: [opened, synchronize, reopened]
 
 permissions:
@@ -36,6 +36,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Setup environment
+        run: |
+          mkdir -p .env
+          cp .github/env/.env.ci .env/.env
+        env:
+         NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} 
       - name: Build
         run: pnpm build
         env:
