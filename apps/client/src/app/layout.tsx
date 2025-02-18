@@ -6,7 +6,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Theme } from "@/components/theme";
 import { PostHogProvider } from "@/components/posthog/providers";
-import TanstackProvider from "@/components/TanStackQuery/provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,14 +36,12 @@ export default function RootLayout({
       >
         <head />
         <body>
-          <TanstackProvider>
           <PostHogProvider>
             <ThemeProvider attribute="class" defaultTheme="system">
               {children}
               <Theme />
             </ThemeProvider>
           </PostHogProvider>
-          </TanstackProvider>
           <SpeedInsights />
         </body>
       </html>
