@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   //   },
   // },
   routeRules: {
-    '/api/*': {
+    "/api/*": {
       cors: true,
     },
   },
