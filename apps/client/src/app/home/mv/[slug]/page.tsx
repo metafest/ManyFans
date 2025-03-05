@@ -8,8 +8,8 @@ export default function Page() {
   const slug = params.slug as string;
 
   return (
-    <VideoPlayer
-      src={`https://manyfans.nuxt.dev/api/files/${slug}`}
-    />
+      <VideoPlayer
+        src={`https://manyfans.nuxt.dev/api/files/${slug}`}
+      />
   );
 }

@@ -21,7 +21,7 @@ export const uploadFile = async (file: File): Promise<boolean> => {
     formData.append("files", file);
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload`,
+      `${process.env.NEXT_PUBLIC_SERVER_LINK}/api/files/multipart/upload`,
       {
         method: "POST",
         body: formData,
