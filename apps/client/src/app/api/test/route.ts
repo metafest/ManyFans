@@ -1,10 +1,11 @@
 import { usersTable } from "@/db/schema";
-import { dbClient } from "@/utils/drizzle";
+import { getDbClient } from "@/utils/drizzle";
 
-export const dynamic = "force-static";
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const users = await dbClient.select().from(usersTable);
+  const db = getDbClient();
+  const users = await db.select().from(usersTable);
 
   return Response.json({
     users,

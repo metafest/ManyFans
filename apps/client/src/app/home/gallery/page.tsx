@@ -3,6 +3,8 @@ import { FileVideo } from "lucide-react";
 import GalleryCard, { Video } from "@/components/home/videoCard";
 import { fetchUserObjects } from "@/utils";
 
+export const dynamic = 'force-dynamic';
+
 const EmptyState = () => (
   <div className="w-full min-h-[400px] flex flex-col items-center justify-center bg-gray-50 rounded-lg">
     <FileVideo className="w-16 h-16 text-gray-400 mb-4" />
