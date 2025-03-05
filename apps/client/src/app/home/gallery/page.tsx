@@ -29,7 +29,10 @@ const VideoGrid = async () => {
       <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 auto-rows-fr">
         {data && data.length > 0 ? (
           data.map((video, index) => (
-            <GalleryCard key={video.httpEtag || index} video={video} />
+            <GalleryCard 
+              key={video.httpEtag ? `${video.httpEtag}-${index}` : `video-${index}`} 
+              video={video} 
+            />
           ))
         ) : (
           <EmptyState />
