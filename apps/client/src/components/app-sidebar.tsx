@@ -23,11 +23,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         url: "/home/upload",
         icon: File,
       },
-      {
-        name: "p2p Sharing",
-        url: "/home",
-        icon: PersonStandingIcon,
-      },
+      // {
+      //   name: "p2p Sharing",
+      //   url: "/home",
+      //   icon: PersonStandingIcon,
+      // },
       {
         name: "Video Streaming",
         url: "/home/gallery",

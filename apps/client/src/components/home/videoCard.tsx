@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import { FileVideo, Clock, HardDrive } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
+import { useRouter } from "next/navigation";
 
 // Utility functions
 const formatFileSize = (bytes: number) => {
@@ -37,26 +38,32 @@ const GalleryCard = ({ video }: { video: Video }) => {
   const [isHovering, setIsHovering] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const title = video.pathname?.split(".").slice(0, -1).join(".") || "Untitled";
+  const router = useRouter();
 
+  // Temporarily commented out hover play functionality
   const handleMouseEnter = () => {
-    setIsHovering(true);
-    if (videoRef.current) {
-      videoRef.current
-        .play()
-        .catch((err) => console.log("Video play failed:", err));
-    }
+    // setIsHovering(true);
+    // if (videoRef.current) {
+    //   videoRef.current
+    //     .play()
+    //     .catch((err) => console.log("Video play failed:", err));
+    // }
   };
 
   const handleMouseLeave = () => {
-    setIsHovering(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
+    // setIsHovering(false);
+    // if (videoRef.current) {
+    //   videoRef.current.pause();
+    //   videoRef.current.currentTime = 0;
+    // }
+  };
+
+  const handleClick = () => {
+    router.push(`/home/mv/${video.pathname}`);
   };
 
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 h-full rounded-md">
+    <Card className="group hover:shadow-lg transition-all duration-300 h-full rounded-md cursor-pointer" onClick={handleClick}>
       <CardContent className="p-3 space-y-3 flex flex-col h-full">
         {/* Video Preview Section */}
         <div
@@ -64,7 +71,8 @@ const GalleryCard = ({ video }: { video: Video }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {isHovering ? (
+          {/* Temporarily commented out hover play functionality */}
+          {false && isHovering ? (
             <video
               ref={videoRef}
               poster="true"

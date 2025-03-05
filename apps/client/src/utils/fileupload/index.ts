@@ -40,7 +40,7 @@ export const uploadFile = async (file: File): Promise<boolean> => {
 export async function fetchUserObjects<T>() {
   // await new Promise((resolve) => setTimeout(resolve, 1000));
   const videos = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_LINK}/api/fileupload`
+    `${process.env.NEXT_PUBLIC_SERVER_LINK}/api/files`
   );
   return videos.json() as T;
 }
